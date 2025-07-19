@@ -124,11 +124,11 @@ const ServicesPage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
             Our Services
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-[600px] mx-auto leading-relaxed">
             Comprehensive digital solutions designed to streamline your operations, 
             boost your online presence, and drive sustainable growth.
           </p>
@@ -136,37 +136,39 @@ const ServicesPage = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            <h2 className="text-4xl font-bold text-oxford-blue mb-4 leading-tight">
               What We Offer
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base text-muted-foreground leading-relaxed">
               Tailored solutions for every aspect of your digital transformation journey
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
-              <Card key={index} className="card-hover h-full">
-                <CardHeader className="text-center">
-                  <div className="flex justify-center mb-4">
-                    {service.icon}
+              <Card key={index} className="card-hover h-full bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
+                <CardHeader className="text-center p-6">
+                  <div className="flex justify-center mb-4 w-14 h-14 bg-ghost-white rounded-xl mx-auto items-center">
+                    <div className="text-marian-blue [&>svg]:w-7 [&>svg]:h-7">
+                      {service.icon}
+                    </div>
                   </div>
-                  <CardTitle className="text-xl font-semibold mb-2">
+                  <CardTitle className="text-xl font-semibold mb-3 text-oxford-blue leading-tight">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex-1">
-                  <ul className="space-y-2 mb-6">
+                <CardContent className="flex-1 p-6 pt-0">
+                  <ul className="space-y-3 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
+                      <li key={featureIndex} className="flex items-center space-x-3">
                         <CheckCircle className="h-4 w-4 text-azure flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -174,9 +176,8 @@ const ServicesPage = () => {
                     <div className="text-lg font-semibold text-azure mb-4">
                       {service.pricing}
                     </div>
-                    <Button variant="outline-azure" className="w-full">
-                      Learn More
-                      <ArrowRight className="h-4 w-4" />
+                    <Button variant="outline-azure" className="w-full h-11 text-sm font-semibold rounded-lg">
+                      Learn More →
                     </Button>
                   </div>
                 </CardContent>

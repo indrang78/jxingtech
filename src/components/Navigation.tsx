@@ -17,9 +17,9 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-oxford-blue rounded-lg flex items-center justify-center">
@@ -34,16 +34,16 @@ const Navigation = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-medium transition-smooth ${
+                className={`text-base font-medium transition-smooth ${
                   isActive(link.path)
-                    ? "text-azure border-b-2 border-azure"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-azure border-b-2 border-azure pb-1"
+                    : "text-marian-blue hover:text-azure"
                 }`}
               >
                 {link.name}
               </Link>
             ))}
-            <Button variant="default" size="sm" className="cta-gradient text-white font-medium">
+            <Button variant="hero" className="h-11 px-5 text-sm font-semibold">
               Get Started
             </Button>
           </div>
@@ -80,7 +80,7 @@ const Navigation = () => {
                 </Link>
               ))}
               <div className="px-3 py-2">
-                <Button variant="default" size="sm" className="w-full cta-gradient text-white font-medium">
+                <Button variant="hero" className="w-full h-11 text-sm font-semibold">
                   Get Started
                 </Button>
               </div>

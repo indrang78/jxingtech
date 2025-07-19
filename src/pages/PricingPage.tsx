@@ -121,15 +121,15 @@ const PricingPage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
             Simple, Transparent Pricing
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-[600px] mx-auto leading-relaxed">
             Choose the plan that fits your business needs. All plans include setup, 
             training, and ongoing support.
           </p>
-          <div className="flex items-center justify-center space-x-2 text-gray-200">
+          <div className="flex items-center justify-center space-x-2 text-white/80">
             <CheckCircle className="h-5 w-5 text-robin-egg-blue" />
             <span>14-day free trial</span>
             <span className="mx-2">•</span>
@@ -143,13 +143,13 @@ const PricingPage = () => {
       </section>
 
       {/* Pricing Plans */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-16 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {plans.map((plan, index) => (
               <Card 
                 key={index} 
-                className={`relative ${plan.highlight ? 'ring-2 ring-azure card-glow' : 'card-hover'} h-full`}
+                className={`relative ${plan.highlight ? 'ring-2 ring-azure shadow-[0_6px_16px_rgba(0,0,0,0.08)]' : 'shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)]'} h-full bg-card border-0 rounded-xl transition-all duration-200`}
               >
                 {plan.badge && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">

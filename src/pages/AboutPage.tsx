@@ -74,11 +74,11 @@ const AboutPage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
             About JXING Tech Group
           </h1>
-          <p className="text-xl text-gray-200 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mb-8 max-w-[600px] mx-auto leading-relaxed">
             We're on a mission to democratize powerful technology solutions for small and 
             mid-sized businesses worldwide.
           </p>
@@ -86,18 +86,18 @@ const AboutPage = () => {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+              <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
                 Our Mission
               </h2>
-              <p className="text-lg text-muted-foreground mb-6">
+              <p className="text-base text-muted-foreground mb-6 leading-relaxed">
                 We believe that every business, regardless of size, deserves access to the same 
                 powerful technology solutions that have traditionally been reserved for large corporations.
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base text-muted-foreground mb-8 leading-relaxed">
                 Our mission is to simplify complex technology through intelligent automation, 
                 AI-powered solutions, and human expertise - making it accessible, affordable, 
                 and effective for SMEs worldwide.
