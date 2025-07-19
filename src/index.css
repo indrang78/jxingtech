@@ -10,18 +10,23 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors */
-    --oxford-blue: 210 100% 8%;        /* #0F1419 equivalent in HSL */
-    --marian-blue: 210 100% 20%;       /* #003366 equivalent in HSL */
-    --azure: 210 100% 50%;             /* #007FFF equivalent in HSL */
-    --xanthous: 48 87% 50%;            /* #F1C40F equivalent in HSL */
-    --robin-egg-blue: 180 100% 40%;    /* #00CCCC equivalent in HSL */
+    /* Brand Colors - JXING Tech Exact Values */
+    --oxford-blue: 215 100% 15%;       /* #0A1640 */
+    --marian-blue: 215 100% 27%;       /* #003F88 */
+    --azure: 211 100% 46%;             /* #007DEB */
+    --xanthous: 45 100% 68%;           /* #FFC759 */
+    --robin-egg-blue: 180 100% 56%;    /* #59C3C3 */
+    
+    /* Background with subtle blue tinge */
+    --ghost-white: 220 33% 97%;        /* #F0F3F9 */
+    --timberwolf: 0 0% 83%;            /* #D3D3D3 */
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--oxford-blue)), hsl(var(--marian-blue)));
     --gradient-accent: linear-gradient(135deg, hsl(var(--azure)), hsl(var(--robin-egg-blue)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--oxford-blue)), hsl(var(--azure)));
-    --gradient-cta: linear-gradient(135deg, hsl(var(--xanthous)), hsl(48 87% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--oxford-blue)) 0%, hsl(var(--azure)) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(var(--xanthous)) 0%, hsl(45 100% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--ghost-white)) 0%, hsl(0 0% 100%) 100%);
     
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(var(--oxford-blue) / 0.3);
@@ -33,7 +38,7 @@ All colors MUST be HSL.
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /* Core Theme Variables */
-    --background: 0 0% 98%;
+    --background: var(--ghost-white);
     --foreground: var(--oxford-blue);
 
     --card: 0 0% 100%;
@@ -141,6 +146,10 @@ All colors MUST be HSL.
   
   .accent-gradient {
     background: var(--gradient-accent);
+  }
+  
+  .subtle-gradient {
+    background: var(--gradient-subtle);
   }
   
   /* Card effects */
