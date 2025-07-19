@@ -18,7 +18,18 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				poppins: ['Poppins', 'sans-serif'],
+			},
 			colors: {
+				// Brand colors
+				'oxford-blue': 'hsl(var(--oxford-blue))',
+				'marian-blue': 'hsl(var(--marian-blue))',
+				'azure': 'hsl(var(--azure))',
+				'xanthous': 'hsl(var(--xanthous))',
+				'robin-egg-blue': 'hsl(var(--robin-egg-blue))',
+				
+				// Core theme colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
