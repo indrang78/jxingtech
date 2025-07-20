@@ -516,10 +516,12 @@ const HomePage = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full"
                 />
-                <Button variant="hero" className="w-full">
-                  <Download className="h-5 w-5" />
-                  Download Now
-                </Button>
+                <Link to="/resources/website-growth-playbook">
+                  <Button variant="hero" className="w-full">
+                    <Download className="h-5 w-5" />
+                    Download Now
+                  </Button>
+                </Link>
               </div>
               <p className="text-xs text-muted-foreground mt-4 text-center">
                 No spam. Unsubscribe at any time.
