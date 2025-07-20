@@ -242,10 +242,12 @@ const HomePage = () => {
                   </div>
                 </DialogContent>
               </Dialog>
-              <Button variant="outline-white" size="xl" className="animate-scale-in">
-                <Download className="h-5 w-5" />
-                Download Our Free Website Growth Playbook for SMEs
-              </Button>
+              <Link to="/resources/website-growth-playbook">
+                <Button variant="outline-white" size="xl" className="animate-scale-in">
+                  <Download className="h-5 w-5" />
+                  Download Our Free Website Growth Playbook for SMEs
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
