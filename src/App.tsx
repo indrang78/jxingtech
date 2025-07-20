@@ -12,6 +12,7 @@ import SocialMediaPage from "./pages/services/SocialMediaPage";
 import PaidAdsPage from "./pages/services/PaidAdsPage";
 import CRMAutomationPage from "./pages/services/CRMAutomationPage";
 import BehavioralAutomationPage from "./pages/services/BehavioralAutomationPage";
+import AIIntegrationPage from "./pages/services/AIIntegrationPage";
 import AboutPage from "./pages/AboutPage";
 import PricingPage from "./pages/PricingPage";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/services/paid-ads" element={<PaidAdsPage />} />
               <Route path="/services/crm-automation" element={<CRMAutomationPage />} />
               <Route path="/services/behavioral-automation" element={<BehavioralAutomationPage />} />
+              <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
