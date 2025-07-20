@@ -10,10 +10,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-azure rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">JX</span>
-              </div>
+            <div className="flex items-center space-x-3 mb-4">
+              <img 
+                src="https://sucks.free.nf/images/JXINGBLUE.png" 
+                alt="JXING Tech Group Logo" 
+                className="h-10 w-auto"
+              />
               <span className="font-bold text-xl">JXING Tech Group</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">

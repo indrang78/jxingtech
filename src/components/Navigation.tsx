@@ -56,10 +56,12 @@ const Navigation = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-oxford-blue rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">JX</span>
-            </div>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="https://sucks.free.nf/images/JXINGBLUE.png" 
+              alt="JXING Tech Group Logo" 
+              className="h-10 w-auto"
+            />
             <span className="font-bold text-xl text-primary">JXING Tech Group</span>
           </Link>
 
