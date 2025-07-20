@@ -138,9 +138,9 @@ const Footer = () => {
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
             <Button variant="xanthous" size="sm" asChild>
-              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+              <Link to="/client-login">
                 Client Dashboard Access
-              </a>
+              </Link>
             </Button>
           </div>
         </div>
