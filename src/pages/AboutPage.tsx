@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   Users, 
   Target, 
@@ -292,9 +293,9 @@ const AboutPage = () => {
           <div className="mt-8 text-center">
             <p className="text-muted-foreground">
               You can explore all 10 of our services on the{" "}
-              <a href="/services" className="text-azure hover:underline font-medium">
+              <Link to="/services" className="text-azure hover:underline font-medium">
                 Services page
-              </a>
+              </Link>
               .
             </p>
           </div>

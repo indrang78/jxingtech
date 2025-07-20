@@ -19,10 +19,10 @@ const Footer = () => {
               scalable outcomes through automation, AI, and human expertise.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="https://www.linkedin.com/company/jxing-tech-group" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="https://twitter.com/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Twitter className="h-5 w-5" />
               </a>
               <a href="mailto:hello@jxingtech.my" className="text-gray-400 hover:text-azure transition-smooth">
