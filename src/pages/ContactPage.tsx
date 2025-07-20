@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -24,6 +25,8 @@ import { supabase } from "@/integrations/supabase/client";
 const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', content: '' });
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -45,22 +48,22 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: "Email Us",
-      value: "hello@jxingtech.com",
-      link: "mailto:hello@jxingtech.com",
+      value: "hello@jxingtech.my",
+      link: "mailto:hello@jxingtech.my",
       description: "Send us an email anytime"
     },
     {
       icon: Phone,
       title: "Call Us",
-      value: "+60 12-345 6789",
-      link: "tel:+60123456789",
+      value: "+60 10-288 2827",
+      link: "tel:+60102882827",
       description: "Speak directly with our team"
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
       value: "Start a conversation",
-      link: "https://wa.me/60123456789",
+      link: "https://wa.me/60102882827",
       description: "Quick chat on WhatsApp"
     }
   ];
@@ -86,6 +89,16 @@ const ContactPage = () => {
       setMessage({ 
         type: 'error', 
         content: 'Please fill in all required fields.' 
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    // Validate CAPTCHA
+    if (!captchaValue) {
+      setMessage({ 
+        type: 'error', 
+        content: 'Please complete the CAPTCHA verification.' 
       });
       setIsLoading(false);
       return;
@@ -119,6 +132,12 @@ const ContactPage = () => {
         inquiryType: "",
         message: ""
       });
+      
+      // Reset CAPTCHA
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      setCaptchaValue(null);
     } catch (error) {
       console.error('Error sending message:', error);
       setMessage({ 
@@ -268,6 +287,18 @@ const ContactPage = () => {
                     />
                   </div>
 
+                  <div>
+                    <Label className="text-sm font-semibold text-oxford-blue mb-2 block">
+                      Security Verification *
+                    </Label>
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with your actual key
+                      onChange={(value) => setCaptchaValue(value)}
+                      onExpired={() => setCaptchaValue(null)}
+                    />
+                  </div>
+
                   <Button 
                     type="submit" 
                     size="lg" 
@@ -376,10 +407,11 @@ const ContactPage = () => {
                       JXING Tech Group
                     </p>
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      Level 10, Tower A<br />
-                      Menara UOA Bangsar<br />
-                      No. 5, Jalan Bangsar Utama 1<br />
-                      59000 Kuala Lumpur, Malaysia
+                      Unit 37-2, Level 37<br />
+                      Q Sentral<br />
+                      No. 2A, Jalan Stesen Sentral 2<br />
+                      Kuala Lumpur Sentral<br />
+                      50470 Kuala Lumpur, Malaysia
                     </p>
                     <Button 
                       variant="outline" 
@@ -388,7 +420,7 @@ const ContactPage = () => {
                       className="w-full"
                     >
                       <a 
-                        href="https://maps.google.com/?q=Menara+UOA+Bangsar+Kuala+Lumpur" 
+                        href="https://maps.google.com/?q=Q+Sentral+Kuala+Lumpur+Sentral" 
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
@@ -404,6 +436,33 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Cal.com Inline Booking */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
+              Schedule Your Consultation
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Book a time that works for you directly in our calendar below. We'll discuss your digital transformation needs and how we can help grow your business.
+            </p>
+          </div>
+          <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+            <CardContent className="p-0">
+              <div className="relative" style={{ height: '630px' }}>
+                <iframe
+                  src="https://cal.com/jxingtech"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 'none', borderRadius: '12px' }}
+                  title="Schedule a consultation"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
       {/* Call to Action - Free Consultation */}
       <section className="py-20 bg-muted/30">
@@ -433,13 +492,16 @@ const ContactPage = () => {
                     <ArrowRight className="h-5 w-5 ml-2" />
                   </a>
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-azure/20 text-azure hover:bg-azure/10 font-semibold px-8 py-4 rounded-lg"
-                >
-                  <MessageCircle className="h-5 w-5 mr-2" />
-                  Start WhatsApp Chat
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-azure/20 text-azure hover:bg-azure/10 font-semibold px-8 py-4 rounded-lg"
+                    asChild
+                  >
+                    <a href="https://wa.me/60102882827" target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="h-5 w-5 mr-2" />
+                      Start WhatsApp Chat
+                    </a>
                 </Button>
               </div>
               

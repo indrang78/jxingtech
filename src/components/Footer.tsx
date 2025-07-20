@@ -27,7 +27,7 @@ const Footer = () => {
               <a href="#" className="text-gray-400 hover:text-azure transition-smooth">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="mailto:hello@jxingtech.com" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="mailto:hello@jxingtech.my" className="text-gray-400 hover:text-azure transition-smooth">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -49,7 +49,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/case-studies" className="text-gray-300 hover:text-azure transition-smooth">
-                  Case Studies & Success Stories
+                  Case Studies
                 </Link>
               </li>
               <li>
@@ -148,15 +148,20 @@ const Footer = () => {
               </li>
             </ul>
             
-            <h4 className="font-semibold text-base mb-2">Clients</h4>
-            <a 
-              href="https://clients.jxingtech.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-azure transition-smooth"
+            <h4 className="font-semibold text-base mb-3">Clients</h4>
+            <Button 
+              variant="xanthous"
+              size="sm"
+              asChild
             >
-              Client Dashboard Access
-            </a>
+              <a 
+                href="https://clients.jxingtech.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Client Dashboard Access
+              </a>
+            </Button>
           </div>
         </div>
 

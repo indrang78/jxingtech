@@ -112,7 +112,7 @@ const Navigation = () => {
                   : "text-marian-blue hover:text-azure"
               }`}
             >
-              Pricing & Packages
+              Pricing
             </Link>
 
             <Link
@@ -123,7 +123,7 @@ const Navigation = () => {
                   : "text-marian-blue hover:text-azure"
               }`}
             >
-              Case Studies & Success Stories
+              Case Studies
             </Link>
 
             {/* Resources Dropdown */}
@@ -157,9 +157,6 @@ const Navigation = () => {
               Contact Us
             </Link>
 
-            <Button variant="hero" className="h-11 px-5 text-sm font-semibold">
-              Client Login / Dashboard Access
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -217,7 +214,7 @@ const Navigation = () => {
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Pricing & Packages
+                Pricing
               </Link>
               <Link
                 to="/case-studies"
@@ -254,11 +251,6 @@ const Navigation = () => {
               >
                 Contact Us
               </Link>
-              <div className="px-3 py-2">
-                <Button variant="hero" className="w-full h-11 text-sm font-semibold">
-                  Client Login
-                </Button>
-              </div>
             </div>
           </div>
         )}
