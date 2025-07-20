@@ -542,7 +542,12 @@ const HomePage = () => {
             Connect with our digital strategy experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl">
+            <Button 
+              variant="hero" 
+              size="xl"
+              data-cal-link="jxingtech/book-a-free-consult"
+              data-cal-config='{"layout":"month_view"}'
+            >
               <Calendar className="h-5 w-5" />
               Schedule Your Free Consultation
             </Button>
