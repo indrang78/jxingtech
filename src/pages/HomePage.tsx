@@ -465,7 +465,7 @@ const HomePage = () => {
               Schedule Your Free Consultation
             </Button>
             <Link to="/pricing">
-              <Button variant="outline-azure" size="xl">
+              <Button variant="outline-white" size="xl">
                 <PieChart className="h-5 w-5" />
                 Explore Our Digital Marketing Packages & Pricing
               </Button>
