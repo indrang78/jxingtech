@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useToast } from "@/hooks/use-toast";
 import { 
+  ArrowRight,
   Download,
   CheckCircle,
   TrendingUp,
@@ -16,13 +17,10 @@ import {
   Globe,
   BarChart3,
   Star,
-  AlertCircle,
-  Shield,
-  Clock,
-  Award
+  ArrowLeft,
+  AlertCircle
 } from "lucide-react";
-import LandingNavigation from "@/components/LandingNavigation";
-import LandingFooter from "@/components/LandingFooter";
+import { Link } from "react-router-dom";
 import playbookCover from "@/assets/playbook-cover.jpg";
 
 const WebsiteGrowthPlaybookPage = () => {
@@ -154,181 +152,81 @@ const WebsiteGrowthPlaybookPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <LandingNavigation />
+    <div className="min-h-screen bg-background">
 
       {/* Hero Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-br from-white via-ghost-white to-azure/10">
+      <section className="py-20 hero-gradient">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div className="text-center lg:text-left">
-              <div className="inline-flex items-center bg-xanthous/10 text-oxford-blue px-4 py-2 rounded-full text-sm font-semibold mb-6">
-                <Award className="h-4 w-4 mr-2" />
-                FREE 10-Page Digital Growth Blueprint
-              </div>
-              
-              <h1 className="text-4xl lg:text-5xl font-bold text-oxford-blue mb-6 leading-tight">
-                Transform Your SME into a Digital Powerhouse
+              <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                Unlock Your Digital Potential: Download the JXING Tech Website Growth Playbook for SMEs
               </h1>
-              
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Get the exact strategies 1,000+ SME owners used to <strong>double their online revenue</strong> in 90 days. 
-                No fluff, just proven tactics you can implement immediately.
+              <p className="text-xl text-white/90 mb-8 leading-relaxed">
+                Your 10-page blueprint for building a high-performing website and mastering social media, even if you're doing it yourself, tailored for the modern market.
               </p>
               
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-azure">10</div>
-                  <div className="text-sm text-muted-foreground">Pages</div>
+              <div className="flex items-center justify-center lg:justify-start space-x-8 mb-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-xanthous">10</div>
+                  <div className="text-sm text-white/80">Pages</div>
                 </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-azure">FREE</div>
-                  <div className="text-sm text-muted-foreground">Download</div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-xanthous">FREE</div>
+                  <div className="text-sm text-white/80">Download</div>
                 </div>
-                <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                  <div className="text-2xl font-bold text-azure">24/7</div>
-                  <div className="text-sm text-muted-foreground">Access</div>
-                </div>
-              </div>
-
-              {/* Trust indicators */}
-              <div className="flex items-center justify-center lg:justify-start space-x-4 text-sm text-muted-foreground">
-                <div className="flex items-center">
-                  <Shield className="h-4 w-4 mr-1 text-azure" />
-                  No spam, ever
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-4 w-4 mr-1 text-azure" />
-                  Instant download
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-xanthous">5★</div>
+                  <div className="text-sm text-white/80">Rated</div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - Playbook Preview & Lead Form */}
+            {/* Right Column - Playbook Mockup */}
             <div className="flex justify-center lg:justify-end">
-              <Card className="bg-white border-0 rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] overflow-hidden max-w-md w-full">
-                <CardContent className="p-8">
-                  {/* Playbook Preview */}
-                  <div className="text-center mb-6">
-                    <div className="relative inline-block">
-                      <div className="w-48 h-60 bg-white rounded-lg shadow-xl transform rotate-3 hover:rotate-1 transition-transform duration-300 overflow-hidden mx-auto">
-                        <img 
-                          src={playbookCover}
-                          alt="Website Growth Playbook for SMEs"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute -top-2 -right-2 bg-xanthous text-oxford-blue px-2 py-1 rounded-full text-xs font-bold shadow-lg">
-                        NEW!
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="text-center mb-6">
-                    <h2 className="text-xl font-bold text-oxford-blue mb-2">
-                      Get Your FREE Playbook
-                    </h2>
-                    <p className="text-sm text-muted-foreground">
-                      Join 1,000+ SME owners who downloaded this week
-                    </p>
-                    <div className="flex items-center justify-center space-x-1 mt-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-xanthous text-xanthous" />
-                      ))}
-                      <span className="text-xs text-muted-foreground ml-1">(4.9/5)</span>
-                    </div>
-                  </div>
-
-                  {message.content && (
-                    <Alert className={`mb-4 ${message.type === 'error' ? 'border-red-200 bg-red-50' : 'border-green-200 bg-green-50'}`}>
-                      {message.type === 'error' ? (
-                        <AlertCircle className="h-4 w-4 text-red-600" />
-                      ) : (
-                        <CheckCircle className="h-4 w-4 text-green-600" />
-                      )}
-                      <AlertDescription className={message.type === 'error' ? 'text-red-700' : 'text-green-700'}>
-                        {message.content}
-                      </AlertDescription>
-                    </Alert>
-                  )}
-
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <Input
-                        id="name"
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange("name", e.target.value)}
-                        placeholder="Your full name"
-                        required
-                        className="h-12 border-muted-foreground/20 focus:border-azure"
-                      />
-                    </div>
-
-                    <div>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange("email", e.target.value)}
-                        placeholder="Your business email"
-                        required
-                        className="h-12 border-muted-foreground/20 focus:border-azure"
-                      />
-                    </div>
-
-                    <div className="flex items-start space-x-3">
-                      <Checkbox
-                        id="privacy"
-                        checked={formData.agreedToPrivacy}
-                        onCheckedChange={(checked) => handleInputChange("agreedToPrivacy", checked as boolean)}
-                        className="mt-1"
-                      />
-                      <Label htmlFor="privacy" className="text-xs text-muted-foreground leading-relaxed cursor-pointer">
-                        I agree to receive the playbook and marketing insights. Unsubscribe anytime.
-                      </Label>
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-bold py-4 text-base rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
-                      disabled={isLoading}
-                    >
-                      <Download className="h-5 w-5 mr-2" />
-                      {isLoading ? 'Sending...' : 'Download My Free Playbook Now'}
-                    </Button>
-                  </form>
-
-                  <p className="text-xs text-muted-foreground text-center mt-4">
-                    🔒 Your email is safe. No spam, guaranteed.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="relative">
+                <div className="w-80 h-96 bg-white rounded-xl shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300 overflow-hidden">
+                  <img 
+                    src={playbookCover}
+                    alt="Website Growth Playbook for SMEs by JXING Tech Group"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/20 to-transparent"></div>
+                </div>
+                
+                {/* Floating badges */}
+                <div className="absolute -top-4 -left-4 bg-xanthous text-oxford-blue px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  NEW 2024
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-azure text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg flex items-center">
+                  <Download className="h-4 w-4 mr-1" />
+                  FREE
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What's Inside Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-[1000px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-oxford-blue mb-4">
-              What's Inside This Power-Packed Playbook?
+      {/* Key Benefits Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-oxford-blue mb-6">
+              What You'll Learn Inside
             </h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to build a profitable digital presence
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              This comprehensive playbook covers everything you need to transform your digital presence and drive sustainable growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {keyBenefits.map((benefit, index) => (
-              <Card key={index} className="bg-ghost-white border-0 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] p-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="h-5 w-5 text-azure" />
+                  <div className="w-12 h-12 bg-azure/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="h-6 w-6 text-azure" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-oxford-blue mb-2">
@@ -343,15 +241,15 @@ const WebsiteGrowthPlaybookPage = () => {
             ))}
           </div>
 
-          {/* Complete Contents List */}
-          <Card className="bg-azure/5 border-0 rounded-xl p-8 mt-12">
-            <h3 className="text-xl font-bold text-oxford-blue mb-6 text-center">
-              Complete 10-Page Breakdown:
+          {/* Detailed Features List */}
+          <Card className="bg-muted/30 border-0 rounded-xl p-8">
+            <h3 className="text-2xl font-bold text-oxford-blue mb-6 text-center">
+              Complete Playbook Contents
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {playbookFeatures.map((feature, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <CheckCircle className="h-4 w-4 text-azure flex-shrink-0 mt-0.5" />
+                <div key={index} className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-azure flex-shrink-0" />
                   <span className="text-sm text-muted-foreground">{feature}</span>
                 </div>
               ))}
@@ -360,22 +258,125 @@ const WebsiteGrowthPlaybookPage = () => {
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="py-16 bg-ghost-white">
-        <div className="max-w-[1000px] mx-auto px-6">
-          <div className="text-center mb-12">
+      {/* Lead Capture Form Section */}
+      <section className="py-20 bg-azure/5">
+        <div className="max-w-[600px] mx-auto px-6">
+          <Card className="bg-white border-0 rounded-xl shadow-[0_6px_24px_rgba(0,0,0,0.1)] overflow-hidden">
+            <CardContent className="p-8 lg:p-12">
+              <div className="text-center mb-8">
+                <div className="w-16 h-16 bg-azure/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Download className="h-8 w-8 text-azure" />
+                </div>
+                <h2 className="text-2xl lg:text-3xl font-bold text-oxford-blue mb-4">
+                  Get Your FREE Playbook Now
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Join thousands of SME owners who have transformed their digital presence with our proven strategies.
+                </p>
+              </div>
+
+              {message.content && (
+                <Alert className={`mb-6 ${message.type === 'error' ? 'border-red-200 bg-red-50' : 'border-green-200 bg-green-50'}`}>
+                  {message.type === 'error' ? (
+                    <AlertCircle className="h-4 w-4 text-red-600" />
+                  ) : (
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  )}
+                  <AlertDescription className={message.type === 'error' ? 'text-red-700' : 'text-green-700'}>
+                    {message.content}
+                  </AlertDescription>
+                </Alert>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name" className="text-sm font-semibold text-oxford-blue">
+                    Full Name *
+                  </Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => handleInputChange("name", e.target.value)}
+                    placeholder="Enter your full name"
+                    required
+                    className="mt-2 h-12"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email" className="text-sm font-semibold text-oxford-blue">
+                    Business Email *
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    placeholder="Enter your business email"
+                    required
+                    className="mt-2 h-12"
+                  />
+                </div>
+
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="privacy"
+                    checked={formData.agreedToPrivacy}
+                    onCheckedChange={(checked) => handleInputChange("agreedToPrivacy", checked as boolean)}
+                    className="mt-1"
+                  />
+                  <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                    I agree to receive the playbook and occasional updates about digital marketing insights. 
+                    I can unsubscribe anytime. We respect your privacy and will never share your information.
+                  </Label>
+                </div>
+
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-bold py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                  disabled={isLoading}
+                >
+                  <Download className="h-6 w-6 mr-3" />
+                  {isLoading ? 'Processing...' : 'Download My Free Playbook Now'}
+                </Button>
+              </form>
+
+              <div className="mt-8 text-center">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Trusted by 1,000+ SME owners across Southeast Asia
+                </p>
+                <div className="flex items-center justify-center space-x-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-xanthous text-xanthous" />
+                  ))}
+                  <span className="text-sm font-medium text-muted-foreground ml-2">
+                    4.9/5 based on 127 reviews
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Social Proof / Testimonials */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-oxford-blue mb-4">
-              Join 1,000+ SME Owners Getting Results
+              What SME Owners Are Saying
             </h2>
             <p className="text-lg text-muted-foreground">
-              See what business owners are saying about the playbook
+              Real results from real businesses just like yours
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white border-0 rounded-xl p-6 shadow-sm">
-                <div className="flex items-center space-x-1 mb-3">
+              <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] p-6">
+                <div className="flex items-center space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-xanthous text-xanthous" />
                   ))}
@@ -388,7 +389,7 @@ const WebsiteGrowthPlaybookPage = () => {
                     {testimonial.author}
                   </div>
                   <div className="text-xs text-azure">
-                    {testimonial.role}
+                    {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
               </Card>
@@ -397,44 +398,26 @@ const WebsiteGrowthPlaybookPage = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-oxford-blue to-azure">
+      {/* Final CTA */}
+      <section className="py-20 hero-gradient">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Business?
+            Ready to Transform Your Digital Presence?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Don't let your competitors get ahead. Download your free playbook now and start implementing 
-            proven growth strategies that actually work for SMEs.
+          <p className="text-xl text-white/90 mb-8">
+            Don't let your competitors get ahead. Download your free playbook now and start implementing proven growth strategies today.
           </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <div className="flex items-center text-white/90">
-              <Users className="h-5 w-5 mr-2" />
-              1,000+ downloads this month
-            </div>
-            <div className="flex items-center text-white/90">
-              <TrendingUp className="h-5 w-5 mr-2" />
-              Average 127% revenue increase
-            </div>
-          </div>
-          
           <Button 
             size="lg" 
-            className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-bold px-8 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
-            onClick={() => document.getElementById('email')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-bold px-12 py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+            onClick={() => document.getElementById('email')?.focus()}
           >
             <Download className="h-6 w-6 mr-3" />
-            Get My Free Playbook Now
+            Get My Free Playbook
           </Button>
-          
-          <p className="text-white/70 text-sm mt-4">
-            ⚡ Instant download • No credit card required • 100% free
-          </p>
         </div>
       </section>
 
-      <LandingFooter />
     </div>
   );
 };
