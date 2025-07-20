@@ -105,18 +105,6 @@ const WebsiteGrowthPlaybookPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Minimal Header */}
-      <header className="bg-white border-b border-muted/20 py-4">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
-          <div className="text-2xl font-bold text-oxford-blue">
-            JXING Tech
-          </div>
-          <Link to="/" className="flex items-center text-sm text-muted-foreground hover:text-azure transition-colors">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Homepage
-          </Link>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="py-20 hero-gradient">
@@ -368,14 +356,6 @@ const WebsiteGrowthPlaybookPage = () => {
         </div>
       </section>
 
-      {/* Minimal Footer */}
-      <footer className="bg-oxford-blue py-8">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <div className="text-white/80 text-sm">
-            © 2024 JXING Tech Group. All rights reserved.
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
