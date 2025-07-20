@@ -35,7 +35,7 @@ const ResourcesPage = () => {
       author: "Sarah Chen",
       date: "Dec 15, 2024",
       icon: Search,
-      image: "photo-1460925895917-afdab827c52f"
+      image: "photo-1518770660439-4636190af475"  // Tech circuit board
     },
     {
       id: 2,
@@ -46,7 +46,7 @@ const ResourcesPage = () => {
       author: "Marcus Wong",
       date: "Dec 12, 2024",
       icon: Bot,
-      image: "photo-1498050108023-c5249f4df085"
+      image: "photo-1486312338219-ce68d2c6f44d"  // Professional using MacBook
     },
     {
       id: 3,
@@ -57,7 +57,7 @@ const ResourcesPage = () => {
       author: "Lisa Zhang",
       date: "Dec 10, 2024",
       icon: Share2,
-      image: "photo-1486312338219-ce68d2c6f44d"
+      image: "photo-1487058792275-0ad4aaf24ca7"  // Code on computer monitor
     },
     {
       id: 4,
@@ -145,7 +145,7 @@ const ResourcesPage = () => {
                   <img 
                     src={`https://images.unsplash.com/${post.image}?w=400&h=225&fit=crop`}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
                   />
                   <div className="absolute top-4 left-4">
                     <Badge className="bg-azure text-white">

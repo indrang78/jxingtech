@@ -18,6 +18,7 @@ import {
   ArrowLeft
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import playbookCover from "@/assets/playbook-cover.jpg";
 
 const WebsiteGrowthPlaybookPage = () => {
   const [formData, setFormData] = useState({
@@ -149,43 +150,13 @@ const WebsiteGrowthPlaybookPage = () => {
             {/* Right Column - Playbook Mockup */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative">
-                <div className="w-80 h-96 bg-white rounded-lg shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300 p-8">
-                  <div className="h-full flex flex-col">
-                    <div className="text-center mb-6">
-                      <div className="w-16 h-16 bg-azure/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                        <TrendingUp className="h-8 w-8 text-azure" />
-                      </div>
-                      <h3 className="text-xl font-bold text-oxford-blue mb-2">
-                        Website Growth Playbook
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        For SMEs & Startups
-                      </p>
-                      <div className="text-xs text-azure font-medium mt-2">
-                        By JXING Tech Group
-                      </div>
-                    </div>
-                    
-                    <div className="flex-1 space-y-3">
-                      <div className="h-2 bg-muted rounded-full"></div>
-                      <div className="h-2 bg-muted rounded-full w-4/5"></div>
-                      <div className="h-2 bg-muted rounded-full w-3/5"></div>
-                      <div className="h-2 bg-azure/20 rounded-full w-4/5"></div>
-                      <div className="h-2 bg-muted rounded-full"></div>
-                      <div className="h-2 bg-muted rounded-full w-2/3"></div>
-                      <div className="h-2 bg-muted rounded-full w-4/5"></div>
-                      <div className="h-2 bg-azure/20 rounded-full w-3/5"></div>
-                      <div className="h-2 bg-muted rounded-full"></div>
-                      <div className="h-2 bg-muted rounded-full w-2/3"></div>
-                    </div>
-                    
-                    <div className="text-center mt-6">
-                      <div className="text-2xl font-bold text-azure mb-2">FREE</div>
-                      <div className="text-xs text-muted-foreground">
-                        10-Page Digital Guide
-                      </div>
-                    </div>
-                  </div>
+                <div className="w-80 h-96 bg-white rounded-xl shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300 overflow-hidden">
+                  <img 
+                    src={playbookCover}
+                    alt="Website Growth Playbook for SMEs by JXING Tech Group"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-oxford-blue/20 to-transparent"></div>
                 </div>
                 
                 {/* Floating badges */}

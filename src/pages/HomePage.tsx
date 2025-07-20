@@ -28,7 +28,7 @@ import {
   MessageSquare
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroBackground from "@/assets/hero-bg.jpg";
+import heroBackground from "@/assets/hero-bg-modern.jpg";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
@@ -427,10 +427,10 @@ const HomePage = () => {
                     key={index}
                     className="w-24 h-16 flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3"
                   >
-                    <img
+                     <img
                       src={logoUrl}
                       alt={`${clientName} - JXING Tech client success story`}
-                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-200"
+                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
                       loading="lazy"
                     />
                   </div>
@@ -484,8 +484,18 @@ const HomePage = () => {
             </div>
             <div className="bg-gradient-to-br from-azure/10 to-robin-egg-blue/10 p-8 rounded-lg border border-azure/20">
               <div className="text-center mb-6">
-                <div className="w-32 h-40 bg-azure/20 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <Download className="h-16 w-16 text-azure" />
+                <div className="w-32 h-40 bg-white rounded-xl mx-auto mb-4 shadow-[0_6px_24px_rgba(0,0,0,0.1)] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-azure/10 to-marian-blue/10"></div>
+                  <div className="relative h-full flex flex-col items-center justify-center p-4">
+                    <div className="w-12 h-12 bg-azure/20 rounded-lg flex items-center justify-center mb-3">
+                      <Download className="h-6 w-6 text-azure" />
+                    </div>
+                    <div className="text-center">
+                      <div className="text-sm font-bold text-oxford-blue">Website Growth</div>
+                      <div className="text-xs text-muted-foreground">Playbook</div>
+                      <div className="text-xs font-medium text-azure mt-1">FREE PDF</div>
+                    </div>
+                  </div>
                 </div>
                 <h3 className="text-xl font-semibold text-primary mb-2">Free Download</h3>
                 <p className="text-muted-foreground">50+ pages of actionable insights</p>

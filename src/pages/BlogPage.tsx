@@ -46,7 +46,7 @@ const BlogPage = () => {
       author: "Sarah Chen",
       date: "Dec 15, 2024",
       icon: Search,
-      image: "photo-1460925895917-afdab827c52f",
+      image: "photo-1518770660439-4636190af475",  // Tech circuit board
       featured: true,
       tags: ["SEO", "SME", "Organic Traffic", "Rankings"]
     },
@@ -59,7 +59,7 @@ const BlogPage = () => {
       author: "Marcus Wong",
       date: "Dec 12, 2024",
       icon: Bot,
-      image: "photo-1498050108023-c5249f4df085",
+      image: "photo-1486312338219-ce68d2c6f44d",  // Professional using MacBook
       featured: true,
       tags: ["AI", "Automation", "Customer Service", "Chatbots"]
     },
@@ -72,7 +72,7 @@ const BlogPage = () => {
       author: "Lisa Zhang",
       date: "Dec 10, 2024",
       icon: Share2,
-      image: "photo-1486312338219-ce68d2c6f44d",
+      image: "photo-1487058792275-0ad4aaf24ca7",  // Code on computer monitor
       featured: false,
       tags: ["Social Media", "Marketing", "ROI", "Engagement"]
     },
@@ -85,7 +85,7 @@ const BlogPage = () => {
       author: "David Kim",
       date: "Dec 8, 2024",
       icon: BarChart3,
-      image: "photo-1488590528505-98d2b5aba04b",
+      image: "photo-1605810230434-7631ac76ec81",  // Team collaboration with displays
       featured: true,
       tags: ["Paid Ads", "PPC", "ROI", "Google Ads", "Facebook Ads"]
     },
@@ -98,7 +98,7 @@ const BlogPage = () => {
       author: "Emily Tan",
       date: "Dec 5, 2024",
       icon: TrendingUp,
-      image: "photo-1581091226825-a6a2a5aee158",
+      image: "photo-1581090464777-f3220bbe1b8b",  // Innovation concept with lightbulb
       featured: false,
       tags: ["Website Speed", "Conversions", "Performance", "UX"]
     },
@@ -302,7 +302,7 @@ const BlogPage = () => {
                     <img 
                       src={`https://images.unsplash.com/${post.image}?w=400&h=225&fit=crop`}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-t-xl"
                     />
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-azure text-white">
