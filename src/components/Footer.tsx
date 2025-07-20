@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
     <footer className="bg-oxford-blue text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -15,8 +17,8 @@ const Footer = () => {
               <span className="font-bold text-xl">JXING Tech Group</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Simplifying complex tech through automation, AI, and human expertise. 
-              Growth-driven digital solutions for small to mid-sized businesses.
+              Growth-driven digital solutions for SMEs. Turning complex tech into simple, 
+              scalable outcomes through automation, AI, and human expertise.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-azure transition-smooth">
@@ -31,56 +33,157 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Section 1: Company */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-300 hover:text-azure transition-smooth">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="text-gray-300 hover:text-azure transition-smooth">
-                  Services
-                </Link>
-              </li>
               <li>
                 <Link to="/about" className="text-gray-300 hover:text-azure transition-smooth">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="text-gray-300 hover:text-azure transition-smooth">
-                  Pricing
+                <Link to="/services" className="text-gray-300 hover:text-azure transition-smooth">
+                  Services Overview
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" className="text-gray-300 hover:text-azure transition-smooth">
+                  Case Studies & Success Stories
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-300 hover:text-azure transition-smooth">
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Section 2: Solutions */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-azure" />
-                <span className="text-gray-300">hello@jxingtech.com</span>
+            <h3 className="font-semibold text-lg mb-4">Solutions</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/services/website-design" className="text-gray-300 hover:text-azure transition-smooth">
+                  Website Design & Development
+                </Link>
               </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-azure" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+              <li>
+                <Link to="/services/content-seo" className="text-gray-300 hover:text-azure transition-smooth">
+                  SEO & Brand Storytelling
+                </Link>
               </li>
-              <li className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-azure" />
-                <span className="text-gray-300">Remote-First Global Team</span>
+              <li>
+                <Link to="/services/social-media" className="text-gray-300 hover:text-azure transition-smooth">
+                  Social Media Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/paid-ads" className="text-gray-300 hover:text-azure transition-smooth">
+                  Paid Ads Management
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/crm-automation" className="text-gray-300 hover:text-azure transition-smooth">
+                  CRM & Automation
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/behavioral-automation" className="text-gray-300 hover:text-azure transition-smooth">
+                  Behavioral Automation
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/ai-integration" className="text-gray-300 hover:text-azure transition-smooth">
+                  AI Integration & Agent Dev
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/repurposing" className="text-gray-300 hover:text-azure transition-smooth">
+                  Content Repurposing
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/content-distribution" className="text-gray-300 hover:text-azure transition-smooth">
+                  Journey-Driven Distribution
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/website-care" className="text-gray-300 hover:text-azure transition-smooth">
+                  Website Care & Optimization
+                </Link>
               </li>
             </ul>
           </div>
+
+          {/* Section 3: Resources & Clients */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Resources</h3>
+            <ul className="space-y-2 mb-6">
+              <li>
+                <Link to="/blog" className="text-gray-300 hover:text-azure transition-smooth">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/resources/website-growth-playbook" className="text-gray-300 hover:text-azure transition-smooth">
+                  Website Growth Playbook
+                </Link>
+              </li>
+              <li>
+                <Link to="/help" className="text-gray-300 hover:text-azure transition-smooth">
+                  Help / FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="text-gray-300 hover:text-azure transition-smooth">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms-of-service" className="text-gray-300 hover:text-azure transition-smooth">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+            
+            <h4 className="font-semibold text-base mb-2">Clients</h4>
+            <a 
+              href="https://clients.jxingtech.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-azure transition-smooth"
+            >
+              Client Dashboard Access
+            </a>
+          </div>
         </div>
 
-        <div className="border-t border-marian-blue mt-8 pt-8 text-center">
+        {/* Newsletter Signup */}
+        <div className="border-t border-marian-blue mt-8 pt-8 mb-8">
+          <div className="max-w-md">
+            <h4 className="font-semibold text-lg mb-2">Stay Updated</h4>
+            <p className="text-gray-300 text-sm mb-4">
+              Get monthly tips on digital growth – straight to your inbox.
+            </p>
+            <div className="flex gap-2">
+              <Input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
+              />
+              <Button variant="hero" size="sm">
+                Subscribe
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-marian-blue pt-8 text-center">
           <p className="text-gray-400">
-            © 2024 JXING Tech Group. All rights reserved.
+            © 2024 JXING Tech Group Sdn. Bhd. All rights reserved. Powered by JXING Tech Group Sdn. Bhd.
           </p>
         </div>
       </div>
