@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { 
   ArrowRight, 
   Download, 
@@ -27,9 +28,24 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/hero-bg.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const HomePage = () => {
+  useEffect(() => {
+    // Load Cal.com embed script
+    const script = document.createElement('script');
+    script.src = 'https://app.cal.com/embed/embed.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script when component unmounts
+      const existingScript = document.querySelector('script[src="https://app.cal.com/embed/embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
   const [email, setEmail] = useState("");
 
   const challenges = [
@@ -172,10 +188,26 @@ const HomePage = () => {
               combining automation, AI, and human expertise for measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="xl" className="animate-scale-in">
-                <Calendar className="h-5 w-5" />
-                Book Your Free Growth Strategy Session
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="hero" size="xl" className="animate-scale-in">
+                    <Calendar className="h-5 w-5" />
+                    Book Your Free Growth Strategy Session
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
+                  <div className="w-full h-full">
+                    <iframe
+                      src="https://cal.com/jxingtech/growth-strategy-session"
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      title="Book a Growth Strategy Session"
+                      className="rounded-lg"
+                    />
+                  </div>
+                </DialogContent>
+              </Dialog>
               <Button variant="outline-azure" size="xl" className="animate-scale-in">
                 <Download className="h-5 w-5" />
                 Download Our Free Website Growth Playbook for SMEs
