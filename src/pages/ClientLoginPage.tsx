@@ -498,24 +498,6 @@ const ClientLoginPage = () => {
                 </Button>
               </form>
 
-              <Separator className="my-8" />
-
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-4">
-                  {isLogin ? "Don't have an account?" : "Already have an account?"}
-                </p>
-                <Button 
-                  variant="outline" 
-                  onClick={() => {
-                    setIsLogin(!isLogin);
-                    setMessage({ type: '', content: '' });
-                    setFormData({ email: formData.email, password: "", confirmPassword: "" });
-                  }}
-                  className="w-full"
-                >
-                  {isLogin ? 'Create New Account' : 'Sign In Instead'}
-                </Button>
-              </div>
 
               {/* Support Section */}
               <div className="mt-8 p-4 bg-muted/30 rounded-lg text-center">
