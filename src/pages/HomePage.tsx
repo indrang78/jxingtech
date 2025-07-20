@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   ArrowRight, 
   Download, 
@@ -31,12 +32,46 @@ import heroBackground from "@/assets/hero-bg.jpg";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
+  const [email, setEmail] = useState("");
+  const [clientLogos, setClientLogos] = useState<string[]>([]);
+
   useEffect(() => {
     // Load Cal.com embed script
     const script = document.createElement('script');
     script.src = 'https://app.cal.com/embed/embed.js';
     script.async = true;
     document.head.appendChild(script);
+
+    // Fetch client logos
+    const fetchClientLogos = async () => {
+      try {
+        const { data, error } = await supabase.storage
+          .from('images')
+          .list('clntlogo', {
+            limit: 20,
+            sortBy: { column: 'name', order: 'asc' }
+          });
+
+        if (error) {
+          console.error('Error fetching client logos:', error);
+          return;
+        }
+
+        if (data) {
+          const logoUrls = data.map(file => {
+            const { data: { publicUrl } } = supabase.storage
+              .from('images')
+              .getPublicUrl(`clntlogo/${file.name}`);
+            return publicUrl;
+          });
+          setClientLogos(logoUrls);
+        }
+      } catch (error) {
+        console.error('Error loading client logos:', error);
+      }
+    };
+
+    fetchClientLogos();
 
     return () => {
       // Cleanup script when component unmounts
@@ -46,7 +81,6 @@ const HomePage = () => {
       }
     };
   }, []);
-  const [email, setEmail] = useState("");
 
   const challenges = [
     {
@@ -371,7 +405,41 @@ const HomePage = () => {
             ))}
           </div>
 
-          <div className="text-center">
+          {/* Client Logos Section */}
+          <div className="bg-gradient-to-br from-background to-muted/50 rounded-lg p-8 border border-azure/10">
+            <div className="text-center mb-8">
+              <h3 className="text-xl font-semibold text-primary mb-2">
+                Trusted by Forward-Thinking Businesses
+              </h3>
+              <p className="text-muted-foreground">
+                Join these successful companies who chose JXING Tech as their digital growth partner
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
+              {clientLogos.map((logoUrl, index) => {
+                // Extract client name from URL for alt text
+                const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
+                const clientName = fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' ');
+                
+                return (
+                  <div
+                    key={index}
+                    className="w-24 h-16 flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3"
+                  >
+                    <img
+                      src={logoUrl}
+                      alt={`${clientName} - JXING Tech client success story`}
+                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-200"
+                      loading="lazy"
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
             <Link to="/case-studies">
               <Button variant="azure" size="lg">
                 View All Case Studies
