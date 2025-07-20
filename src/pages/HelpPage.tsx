@@ -399,9 +399,9 @@ const HelpPage = () => {
               </a>
             </Button>
             <Button 
-              variant="outline" 
+              variant="outline-white" 
               size="lg" 
-              className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg"
+              className="font-semibold px-8 py-4 rounded-lg"
               data-cal-link="jxingtech/book-a-free-consult"
               data-cal-config='{"layout":"month_view"}'
             >
