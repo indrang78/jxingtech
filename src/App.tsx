@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import WebsiteDesignPage from "./pages/services/WebsiteDesignPage";
+import ContentSEOPage from "./pages/services/ContentSEOPage";
 import SocialMediaPage from "./pages/services/SocialMediaPage";
 import PaidAdsPage from "./pages/services/PaidAdsPage";
 import CRMAutomationPage from "./pages/services/CRMAutomationPage";
@@ -35,6 +36,7 @@ const App = () => (
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/website-design" element={<WebsiteDesignPage />} />
+              <Route path="/services/content-seo" element={<ContentSEOPage />} />
               <Route path="/services/social-media" element={<SocialMediaPage />} />
               <Route path="/services/paid-ads" element={<PaidAdsPage />} />
               <Route path="/services/crm-automation" element={<CRMAutomationPage />} />
