@@ -56,11 +56,13 @@ const Navigation = () => {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-oxford-blue rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">JX</span>
-            </div>
-            <span className="font-bold text-xl text-primary">JXING Tech Group</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png"
+              alt="JXING Tech Group - Growth-driven digital solutions for SMEs"
+              className="h-10 w-auto object-contain"
+            />
+            <span className="font-bold text-xl text-primary hidden sm:block">JXING Tech Group</span>
           </Link>
 
           {/* Desktop Navigation */}
