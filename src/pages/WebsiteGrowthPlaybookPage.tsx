@@ -375,16 +375,16 @@ const WebsiteGrowthPlaybookPage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] p-6">
+              <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] p-6 flex flex-col h-full">
                 <div className="flex items-center space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-xanthous text-xanthous" />
                   ))}
                 </div>
-                <p className="text-sm text-muted-foreground italic leading-relaxed mb-4">
+                <p className="text-sm text-muted-foreground italic leading-relaxed mb-4 flex-grow">
                   "{testimonial.quote}"
                 </p>
-                <div>
+                <div className="mt-auto">
                   <div className="text-sm font-semibold text-oxford-blue">
                     {testimonial.author}
                   </div>
