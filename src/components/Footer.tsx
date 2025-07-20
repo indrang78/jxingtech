@@ -9,14 +9,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <img 
-                src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20WHITE.png" 
-                alt="JXING Tech Group Logo" 
-                className="w-8 h-8 object-contain"
-              />
-              <span className="font-bold text-xl">JXING Tech Group</span>
+              <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20WHITE.png" alt="JXING Tech Group Logo" className="w-8 h-8 object-contain" />
+              <span className="font-bold text-xl">Tech Group</span>
             </div>
-            <p className="text-gray-300 mb-6 max-w-md">Tech Group</p>
+            
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/company/jxing-tech-group" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Linkedin className="h-5 w-5" />
