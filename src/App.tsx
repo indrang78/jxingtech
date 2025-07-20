@@ -15,6 +15,7 @@ import BehavioralAutomationPage from "./pages/services/BehavioralAutomationPage"
 import AIIntegrationPage from "./pages/services/AIIntegrationPage";
 import RepurposingPage from "./pages/services/RepurposingPage";
 import ContentDistributionPage from "./pages/services/ContentDistributionPage";
+import WebsiteCarePage from "./pages/services/WebsiteCarePage";
 import AboutPage from "./pages/AboutPage";
 import PricingPage from "./pages/PricingPage";
 import NotFound from "./pages/NotFound";
@@ -41,6 +42,7 @@ const App = () => (
               <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
               <Route path="/services/repurposing" element={<RepurposingPage />} />
               <Route path="/services/content-distribution" element={<ContentDistributionPage />} />
+              <Route path="/services/website-care" element={<WebsiteCarePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
