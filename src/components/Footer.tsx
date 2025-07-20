@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
 const Footer = () => {
-  return (
-    <footer className="bg-oxford-blue text-white">
+  return <footer className="bg-oxford-blue text-white">
       <div className="max-w-[1200px] mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
@@ -149,16 +147,8 @@ const Footer = () => {
             </ul>
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
-            <Button 
-              variant="xanthous"
-              size="sm"
-              asChild
-            >
-              <a 
-                href="https://clients.jxingtech.com/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
+            <Button variant="xanthous" size="sm" asChild>
+              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
                 Client Dashboard Access
               </a>
             </Button>
@@ -166,24 +156,7 @@ const Footer = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="border-t border-marian-blue mt-8 pt-8 mb-8">
-          <div className="max-w-md">
-            <h4 className="font-semibold text-lg mb-2">Stay Updated</h4>
-            <p className="text-gray-300 text-sm mb-4">
-              Get monthly tips on digital growth – straight to your inbox.
-            </p>
-            <div className="flex gap-2">
-              <Input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 bg-white/10 border-white/20 text-white placeholder:text-gray-400"
-              />
-              <Button variant="hero" size="sm">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Bottom Bar */}
         <div className="border-t border-marian-blue pt-8 text-center">
@@ -192,8 +165,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
