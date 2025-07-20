@@ -24,6 +24,7 @@ import ResourcesPage from "./pages/ResourcesPage";
 import BlogPage from "./pages/BlogPage";
 import WebsiteGrowthPlaybookPage from "./pages/WebsiteGrowthPlaybookPage";
 import HelpPage from "./pages/HelpPage";
+import ClientLoginPage from "./pages/ClientLoginPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/resources/website-growth-playbook" element={<WebsiteGrowthPlaybookPage />} />
               <Route path="/help" element={<HelpPage />} />
+              <Route path="/client-login" element={<ClientLoginPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
