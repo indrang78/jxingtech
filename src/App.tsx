@@ -10,6 +10,7 @@ import ServicesPage from "./pages/ServicesPage";
 import WebsiteDesignPage from "./pages/services/WebsiteDesignPage";
 import SocialMediaPage from "./pages/services/SocialMediaPage";
 import PaidAdsPage from "./pages/services/PaidAdsPage";
+import CRMAutomationPage from "./pages/services/CRMAutomationPage";
 import AboutPage from "./pages/AboutPage";
 import PricingPage from "./pages/PricingPage";
 import NotFound from "./pages/NotFound";
@@ -31,6 +32,7 @@ const App = () => (
               <Route path="/services/website-design" element={<WebsiteDesignPage />} />
               <Route path="/services/social-media" element={<SocialMediaPage />} />
               <Route path="/services/paid-ads" element={<PaidAdsPage />} />
+              <Route path="/services/crm-automation" element={<CRMAutomationPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/pricing" element={<PricingPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
