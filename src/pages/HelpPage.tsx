@@ -285,27 +285,26 @@ const HelpPage = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {quickActions.map((action, index) => (
-                        <Button
+                        <div
                           key={index}
-                          variant="outline"
-                          className={`w-full justify-start h-auto p-4 hover:bg-${action.color}/10 hover:border-${action.color}/20 hover:text-${action.color} transition-colors`}
+                          className="w-full p-4 border border-muted/30 rounded-lg hover:border-azure/30 hover:bg-azure/5 transition-all duration-200 cursor-pointer group"
                         >
-                          <div className="flex items-center space-x-3">
-                            <div className={`w-10 h-10 bg-${action.color}/10 rounded-lg flex items-center justify-center`}>
-                              <action.icon className={`h-5 w-5 text-${action.color}`} />
+                          <div className="flex items-start space-x-3">
+                            <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-azure/20 transition-colors">
+                              <action.icon className="h-5 w-5 text-azure" />
                             </div>
-                            <div className="text-left">
-                              <div className="font-semibold text-sm">
+                            <div className="flex-1 min-w-0">
+                              <div className="font-semibold text-sm text-oxford-blue mb-1">
                                 {action.title}
                               </div>
-                              <div className="text-xs text-muted-foreground">
+                              <div className="text-xs text-muted-foreground leading-relaxed">
                                 {action.description}
                               </div>
                             </div>
                           </div>
-                        </Button>
+                        </div>
                       ))}
                     </div>
                   </CardContent>
