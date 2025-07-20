@@ -208,9 +208,16 @@ const HomePage = () => {
                   </div>
                 </DialogContent>
               </Dialog>
-              <Button variant="outline-azure" size="xl" className="animate-scale-in">
-                <Download className="h-5 w-5" />
-                Download Our Free Website Growth Playbook for SMEs
+              <Button 
+                variant="outline" 
+                size="xl" 
+                className="animate-scale-in border-white text-white hover:bg-white hover:text-black transition-colors duration-300"
+                asChild
+              >
+                <Link to="/resources/website-growth-playbook">
+                  <Download className="h-5 w-5" />
+                  Download Our Free Website Growth Playbook for SMEs
+                </Link>
               </Button>
             </div>
           </div>
