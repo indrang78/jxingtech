@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useToast } from "@/hooks/use-toast";
 import { 
   ArrowRight,
   Download,
@@ -15,12 +17,16 @@ import {
   Globe,
   BarChart3,
   Star,
-  ArrowLeft
+  ArrowLeft,
+  AlertCircle
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import playbookCover from "@/assets/playbook-cover.jpg";
 
 const WebsiteGrowthPlaybookPage = () => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState({ type: '', content: '' });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,16 +90,54 @@ const WebsiteGrowthPlaybookPage = () => {
     "Quick-win tactics for immediate results"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.agreedToPrivacy) {
-      alert("Please agree to the privacy policy to continue.");
+    setIsLoading(true);
+    setMessage({ type: '', content: '' });
+
+    // Validate required fields
+    if (!formData.name || !formData.email) {
+      setMessage({ 
+        type: 'error', 
+        content: 'Please fill in all required fields.' 
+      });
+      setIsLoading(false);
       return;
     }
-    console.log("Form submitted:", formData);
-    // Handle form submission here
-    alert("Thank you! Your playbook download will begin shortly.");
-    setFormData({ name: "", email: "", agreedToPrivacy: false });
+
+    if (!formData.agreedToPrivacy) {
+      setMessage({ 
+        type: 'error', 
+        content: 'Please agree to the privacy policy to continue.' 
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // Simulate API call for playbook download
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Success!",
+        description: "Thank you! Your playbook download link has been sent to your email.",
+      });
+      
+      setMessage({ 
+        type: 'success', 
+        content: 'Thank you! Check your email for the download link.' 
+      });
+      
+      // Reset form
+      setFormData({ name: "", email: "", agreedToPrivacy: false });
+    } catch (error) {
+      setMessage({ 
+        type: 'error', 
+        content: 'Something went wrong. Please try again.' 
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string | boolean) => {
@@ -101,6 +145,10 @@ const WebsiteGrowthPlaybookPage = () => {
       ...prev,
       [field]: value
     }));
+    // Clear messages when user starts typing
+    if (message.content) {
+      setMessage({ type: '', content: '' });
+    }
   };
 
   return (
@@ -227,6 +275,19 @@ const WebsiteGrowthPlaybookPage = () => {
                 </p>
               </div>
 
+              {message.content && (
+                <Alert className={`mb-6 ${message.type === 'error' ? 'border-red-200 bg-red-50' : 'border-green-200 bg-green-50'}`}>
+                  {message.type === 'error' ? (
+                    <AlertCircle className="h-4 w-4 text-red-600" />
+                  ) : (
+                    <CheckCircle className="h-4 w-4 text-green-600" />
+                  )}
+                  <AlertDescription className={message.type === 'error' ? 'text-red-700' : 'text-green-700'}>
+                    {message.content}
+                  </AlertDescription>
+                </Alert>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-sm font-semibold text-oxford-blue">
@@ -275,9 +336,10 @@ const WebsiteGrowthPlaybookPage = () => {
                   type="submit" 
                   size="lg" 
                   className="w-full bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-bold py-4 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                  disabled={isLoading}
                 >
                   <Download className="h-6 w-6 mr-3" />
-                  Download My Free Playbook Now
+                  {isLoading ? 'Processing...' : 'Download My Free Playbook Now'}
                 </Button>
               </form>
 

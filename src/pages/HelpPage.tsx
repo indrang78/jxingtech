@@ -286,26 +286,65 @@ const HelpPage = () => {
                   </CardHeader>
                   <CardContent className="p-6">
                     <div className="space-y-3">
-                      {quickActions.map((action, index) => (
-                        <div
-                          key={index}
-                          className="w-full p-4 border border-muted/30 rounded-lg hover:border-azure/30 hover:bg-azure/5 transition-all duration-200 cursor-pointer group"
-                        >
-                          <div className="flex items-start space-x-3">
-                            <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-azure/20 transition-colors">
-                              <action.icon className="h-5 w-5 text-azure" />
+                      <a
+                        href="mailto:hello@jxingtech.my"
+                        className="w-full p-4 border border-muted/30 rounded-lg hover:border-azure/30 hover:bg-azure/5 transition-all duration-200 cursor-pointer group block"
+                      >
+                        <div className="flex items-start space-x-3">
+                          <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-azure/20 transition-colors">
+                            <MessageCircle className="h-5 w-5 text-azure" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-sm text-oxford-blue mb-1">
+                              Contact Support Team
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="font-semibold text-sm text-oxford-blue mb-1">
-                                {action.title}
-                              </div>
-                              <div className="text-xs text-muted-foreground leading-relaxed">
-                                {action.description}
-                              </div>
+                            <div className="text-xs text-muted-foreground leading-relaxed">
+                              Get personalized help from our experts
                             </div>
                           </div>
                         </div>
-                      ))}
+                      </a>
+
+                      <div
+                        className="w-full p-4 border border-muted/30 rounded-lg hover:border-azure/30 hover:bg-azure/5 transition-all duration-200 cursor-pointer group"
+                        data-cal-link="jxingtech/book-a-free-consult"
+                        data-cal-config='{"layout":"month_view"}'
+                      >
+                        <div className="flex items-start space-x-3">
+                          <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-azure/20 transition-colors">
+                            <Calendar className="h-5 w-5 text-azure" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-sm text-oxford-blue mb-1">
+                              Book a Consultation
+                            </div>
+                            <div className="text-xs text-muted-foreground leading-relaxed">
+                              Schedule a call with our digital strategy experts
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <a
+                        href="https://wa.me/60102882827"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full p-4 border border-muted/30 rounded-lg hover:border-azure/30 hover:bg-azure/5 transition-all duration-200 cursor-pointer group block"
+                      >
+                        <div className="flex items-start space-x-3">
+                          <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-azure/20 transition-colors">
+                            <MessageCircle className="h-5 w-5 text-azure" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="font-semibold text-sm text-oxford-blue mb-1">
+                              Live Chat
+                            </div>
+                            <div className="text-xs text-muted-foreground leading-relaxed">
+                              Get instant help during business hours
+                            </div>
+                          </div>
+                        </div>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
@@ -352,12 +391,20 @@ const HelpPage = () => {
             Our digital strategy experts are here to help. Get personalized assistance for your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-              <Mail className="h-5 w-5 mr-2" />
-              Contact Our Support Team
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
+              <a href="mailto:hello@jxingtech.my">
+                <Mail className="h-5 w-5 mr-2" />
+                Contact Our Support Team
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </a>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg"
+              data-cal-link="jxingtech/book-a-free-consult"
+              data-cal-config='{"layout":"month_view"}'
+            >
               <Calendar className="h-5 w-5 mr-2" />
               Book a Consultation
             </Button>

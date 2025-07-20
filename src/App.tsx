@@ -27,6 +27,8 @@ import WebsiteGrowthPlaybookPage from "./pages/WebsiteGrowthPlaybookPage";
 import HelpPage from "./pages/HelpPage";
 import ClientLoginPage from "./pages/ClientLoginPage";
 import ContactPage from "./pages/ContactPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -60,8 +62,8 @@ const AppContent = () => {
           <Route path="/help" element={<HelpPage />} />
           <Route path="/client-login" element={<ClientLoginPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/privacy-policy" element={<NotFound />} />
-          <Route path="/terms-of-service" element={<NotFound />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

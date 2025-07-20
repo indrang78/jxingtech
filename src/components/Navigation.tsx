@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Calendar } from "lucide-react";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -119,7 +119,24 @@ const Navigation = () => {
             <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
               Contact Us
             </Link>
+          </div>
 
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Button 
+              variant="xanthous" 
+              size="sm"
+              data-cal-link="jxingtech/book-a-free-consult"
+              data-cal-config='{"layout":"month_view"}'
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              Book Consultation
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+                Client Login
+              </a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -160,6 +177,24 @@ const Navigation = () => {
               <Link to="/contact" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
                 Contact Us
               </Link>
+              
+              <div className="px-3 py-4 border-t border-muted/20 mt-4">
+                <Button 
+                  variant="xanthous" 
+                  size="sm" 
+                  className="w-full mb-3"
+                  data-cal-link="jxingtech/book-a-free-consult"
+                  data-cal-config='{"layout":"month_view"}'
+                >
+                  <Calendar className="h-4 w-4 mr-2" />
+                  Book Consultation
+                </Button>
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+                    Client Login
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>}
       </div>

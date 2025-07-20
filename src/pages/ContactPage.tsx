@@ -293,10 +293,13 @@ const ContactPage = () => {
                     </Label>
                     <ReCAPTCHA
                       ref={recaptchaRef}
-                      sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key - replace with your actual key
+                      sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // This is Google's test key - replace with your actual key
                       onChange={(value) => setCaptchaValue(value)}
                       onExpired={() => setCaptchaValue(null)}
                     />
+                    <p className="text-xs text-muted-foreground mt-2">
+                      Note: This is using Google's test reCAPTCHA key for demonstration purposes.
+                    </p>
                   </div>
 
                   <Button 
