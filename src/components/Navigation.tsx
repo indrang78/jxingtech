@@ -122,22 +122,7 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Button 
-              variant="xanthous" 
-              size="sm"
-              data-cal-link="jxingtech/book-a-free-consult"
-              data-cal-config='{"layout":"month_view"}'
-            >
-              <Calendar className="h-4 w-4 mr-2" />
-              Book Consultation
-            </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
-                Client Login
-              </a>
-            </Button>
-          </div>
+          
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -179,13 +164,7 @@ const Navigation = () => {
               </Link>
               
               <div className="px-3 py-4 border-t border-muted/20 mt-4">
-                <Button 
-                  variant="xanthous" 
-                  size="sm" 
-                  className="w-full mb-3"
-                  data-cal-link="jxingtech/book-a-free-consult"
-                  data-cal-config='{"layout":"month_view"}'
-                >
+                <Button variant="xanthous" size="sm" className="w-full mb-3" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
                   <Calendar className="h-4 w-4 mr-2" />
                   Book Consultation
                 </Button>
