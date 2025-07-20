@@ -198,7 +198,7 @@ const HomePage = () => {
                 <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
                   <div className="w-full h-full">
                     <iframe
-                      src="https://cal.com/jxingtech/growth-strategy-session"
+                      src="https://cal.com/jxingtech/book-a-free-consult"
                       width="100%"
                       height="100%"
                       frameBorder="0"
