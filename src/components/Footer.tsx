@@ -134,16 +134,6 @@ const Footer = () => {
                   Help / FAQ
                 </Link>
               </li>
-              <li>
-                <Link to="/privacy-policy" className="text-gray-300 hover:text-azure transition-smooth">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-service" className="text-gray-300 hover:text-azure transition-smooth">
-                  Terms of Service
-                </Link>
-              </li>
             </ul>
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
@@ -159,10 +149,20 @@ const Footer = () => {
         
 
         {/* Bottom Bar */}
-        <div className="border-t border-marian-blue pt-8 text-center">
-          <p className="text-gray-400">
-            © 2024 JXING Tech Group Sdn. Bhd. All rights reserved. Powered by JXING Tech Group Sdn. Bhd.
-          </p>
+        <div className="border-t border-marian-blue pt-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400">
+              © 2024 JXING Tech Group Sdn. Bhd. All rights reserved. Powered by JXING Tech Group Sdn. Bhd.
+            </p>
+            <div className="flex space-x-6">
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-azure transition-smooth text-sm">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-service" className="text-gray-400 hover:text-azure transition-smooth text-sm">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>;
