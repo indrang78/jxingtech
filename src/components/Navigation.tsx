@@ -121,8 +121,23 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* CTA Button */}
-          
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-3">
+            <Button 
+              variant="xanthous" 
+              size="sm" 
+              data-cal-link="jxingtech/book-a-free-consult" 
+              data-cal-config='{"layout":"month_view"}'
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              Book Consultation
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+                Client Login
+              </a>
+            </Button>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">

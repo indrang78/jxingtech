@@ -13,7 +13,8 @@ import {
   Workflow,
   Bot,
   Filter,
-  Quote
+  Quote,
+  Clock
 } from "lucide-react";
 
 const CaseStudiesPage = () => {
@@ -286,9 +287,9 @@ const CaseStudiesPage = () => {
                     </div>
                   </div>
 
-                  <Button variant="outline" className="w-full">
-                    Read Full Story
-                    <ArrowRight className="h-4 w-4 ml-2" />
+                  <Button variant="outline" className="w-full" disabled>
+                    Coming Soon
+                    <Clock className="h-4 w-4 ml-2" />
                   </Button>
                 </CardContent>
               </Card>
