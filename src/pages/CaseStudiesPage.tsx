@@ -312,7 +312,7 @@ const CaseStudiesPage = () => {
               Schedule a Free Consultation
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+            <Button variant="outline-white" size="lg">
               View Our Services
             </Button>
           </div>
