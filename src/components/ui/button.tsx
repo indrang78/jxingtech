@@ -23,6 +23,7 @@ const buttonVariants = cva(
         "outline-azure": "border-2 border-azure text-azure bg-transparent hover:bg-azure hover:text-white transition-all duration-300",
         xanthous: "bg-xanthous text-oxford-blue hover:bg-xanthous/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300",
         "outline-white": "border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-300",
+        "robin-egg-blue": "bg-robin-egg-blue text-white hover:bg-robin-egg-blue/90 font-semibold shadow-md hover:shadow-lg transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
