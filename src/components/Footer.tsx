@@ -132,7 +132,7 @@ const Footer = () => {
             </ul>
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
-            <Button variant="black" size="sm" asChild>
+            <Button variant="yellow" size="sm" asChild>
               <Link to="/client-login">
                 Client Dashboard Access
               </Link>
