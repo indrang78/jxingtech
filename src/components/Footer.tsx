@@ -133,7 +133,7 @@ const Footer = () => {
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
             <Button variant="robin-egg-blue" size="sm" asChild>
-              <Link classname=text-gray to="/client-login">
+              <Link to="/client-login">
                 Client Dashboard Access
               </Link>
             </Button>
