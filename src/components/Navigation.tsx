@@ -63,7 +63,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
             <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png" alt="JXING Tech Group - Growth-driven digital solutions for SMEs" className="h-10 w-auto object-contain" />
-            <span className="font-bold text-xl text-primary hidden sm:block">Tech Group</span>
+            <span className="font-bold text-lg sm:text-xl text-primary hidden sm:block">Tech Group</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -78,7 +78,7 @@ const Navigation = () => {
                 <span>Services</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-80 bg-card border border-border shadow-lg z-50">
+              <DropdownMenuContent className="w-72 sm:w-80 bg-card border border-border shadow-lg z-50">
                 {servicesCategories.map((category, index) => <div key={index}>
                     <DropdownMenuLabel className="text-marian-blue font-semibold">
                       {category.category}
@@ -107,7 +107,7 @@ const Navigation = () => {
                 <span>Resources</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-card border border-border shadow-lg z-50">
+              <DropdownMenuContent className="w-48 sm:w-56 bg-card border border-border shadow-lg z-50">
                 {resourcesLinks.map(resource => <DropdownMenuItem key={resource.path} asChild>
                     <Link to={resource.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
                       {resource.name}

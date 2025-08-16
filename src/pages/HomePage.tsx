@@ -227,23 +227,24 @@ const HomePage = () => {
         <div className="absolute inset-0 hero-gradient opacity-90"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               Growth, Simplified.
-              <span className="block text-gradient-accent">Digital Solutions for SMEs that Scale.</span>
+              <span className="block text-gradient-accent mt-2">Digital Solutions for SMEs that Scale.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-4">
               Empowering small and mid-sized businesses with affordable, high-performing digital strategies, 
               combining automation, AI, and human expertise for measurable results.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button variant="hero" size="xl" className="animate-scale-in">
-                    <Calendar className="h-5 w-5" />
-                    Book Your Free Growth Strategy Session
+                  <Button variant="hero" size="xl" className="animate-scale-in text-sm sm:text-base">
+                    <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
+                    <span className="hidden sm:inline">Book Your Free Growth Strategy Session</span>
+                    <span className="sm:hidden">Free Strategy Session</span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-4xl w-full h-[80vh] p-0">
+                <DialogContent className="max-w-xs sm:max-w-lg md:max-w-4xl w-full h-[70vh] sm:h-[80vh] p-0 m-4">
                   <div className="w-full h-full">
                     <iframe
                       src="https://cal.com/jxingtech/book-a-free-consult"
@@ -257,9 +258,10 @@ const HomePage = () => {
                 </DialogContent>
               </Dialog>
               <Link to="/resources/website-growth-playbook">
-                <Button variant="outline-white" size="xl" className="animate-scale-in">
-                  <Download className="h-5 w-5" />
-                  Download Our Free Website Growth Playbook for SMEs
+                <Button variant="outline-white" size="xl" className="animate-scale-in text-sm sm:text-base">
+                  <Download className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="hidden sm:inline">Download Our Free Website Growth Playbook for SMEs</span>
+                  <span className="sm:hidden">Free Growth Playbook</span>
                 </Button>
               </Link>
             </div>
@@ -276,7 +278,7 @@ const HomePage = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
             {challenges.map((challenge, index) => (
               <Card key={index} className="text-center bg-red-50 border-red-200">
                 <CardHeader>
@@ -323,7 +325,7 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {uniqueEdge.map((edge, index) => (
               <Card key={index} className="card-hover text-center">
                 <CardHeader>
@@ -357,7 +359,7 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {solutions.map((solution, index) => (
               <Card key={index} className="card-hover text-center h-full">
                 <CardHeader>
@@ -397,7 +399,7 @@ const HomePage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="card-hover">
                 <CardContent className="p-6">
@@ -470,12 +472,12 @@ const HomePage = () => {
       {/* Download Playbook Section */}
       <section className="py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 sm:mb-6">
                 Your Blueprint for Digital Growth: Get Our Free Website Growth Playbook for SMEs
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base sm:text-lg text-muted-foreground mb-6 sm:mb-8">
                 Discover the proven strategies that have helped hundreds of SMEs transform their digital presence 
                 and achieve sustainable growth. This comprehensive playbook includes actionable insights, 
                 real-world case studies, and step-by-step implementation guides.
@@ -499,26 +501,26 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-azure/10 to-robin-egg-blue/10 p-8 rounded-lg border border-azure/20">
-              <div className="text-center mb-6">
-                <div className="w-32 h-40 bg-white rounded-xl mx-auto mb-4 shadow-[0_6px_24px_rgba(0,0,0,0.1)] relative overflow-hidden">
+            <div className="bg-gradient-to-br from-azure/10 to-robin-egg-blue/10 p-6 sm:p-8 rounded-lg border border-azure/20 order-1 lg:order-2">
+              <div className="text-center mb-4 sm:mb-6">
+                <div className="w-24 sm:w-32 h-32 sm:h-40 bg-white rounded-xl mx-auto mb-3 sm:mb-4 shadow-[0_6px_24px_rgba(0,0,0,0.1)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-azure/10 to-marian-blue/10"></div>
-                  <div className="relative h-full flex flex-col items-center justify-center p-4">
-                    <div className="w-12 h-12 bg-azure/20 rounded-lg flex items-center justify-center mb-3">
-                      <Download className="h-6 w-6 text-azure" />
+                  <div className="relative h-full flex flex-col items-center justify-center p-3 sm:p-4">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 bg-azure/20 rounded-lg flex items-center justify-center mb-2 sm:mb-3">
+                      <Download className="h-5 w-5 sm:h-6 sm:w-6 text-azure" />
                     </div>
                     <div className="text-center">
-                      <div className="text-sm font-bold text-oxford-blue">Website Growth</div>
+                      <div className="text-xs sm:text-sm font-bold text-oxford-blue">Website Growth</div>
                       <div className="text-xs text-muted-foreground">Playbook</div>
                       <div className="text-xs font-medium text-azure mt-1">FREE PDF</div>
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-primary mb-2">Free Download</h3>
-                <p className="text-muted-foreground">50+ pages of actionable insights</p>
+                <h3 className="text-lg sm:text-xl font-semibold text-primary mb-1 sm:mb-2">Free Download</h3>
+                <p className="text-sm sm:text-base text-muted-foreground">50+ pages of actionable insights</p>
               </div>
               
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <Input
                   type="text"
                   placeholder="Your Name"
@@ -538,7 +540,7 @@ const HomePage = () => {
                   </Button>
                 </Link>
               </div>
-              <p className="text-xs text-muted-foreground mt-4 text-center">
+              <p className="text-xs text-muted-foreground mt-3 sm:mt-4 text-center">
                 No spam. Unsubscribe at any time.
               </p>
             </div>
@@ -549,27 +551,30 @@ const HomePage = () => {
       {/* Final CTA Section */}
       <section className="py-20 hero-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Let's Build Your Digital Future Together.
           </h2>
-          <p className="text-xl text-white/80 mb-8">
+          <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8">
             Ready to transform your business with a partner who cares about your growth? 
             Connect with our digital strategy experts.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button 
               variant="hero" 
               size="xl"
               data-cal-link="jxingtech/book-a-free-consult"
               data-cal-config='{"layout":"month_view"}'
+              className="text-sm sm:text-base"
             >
-              <Calendar className="h-5 w-5" />
-              Schedule Your Free Consultation
+              <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="hidden sm:inline">Schedule Your Free Consultation</span>
+              <span className="sm:hidden">Free Consultation</span>
             </Button>
             <Link to="/pricing">
-              <Button variant="outline-white" size="xl">
-                <PieChart className="h-5 w-5" />
-                Explore Our Digital Marketing Packages & Pricing
+              <Button variant="outline-white" size="xl" className="text-sm sm:text-base">
+                <PieChart className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="hidden md:inline">Explore Our Digital Marketing Packages & Pricing</span>
+                <span className="md:hidden">View Pricing</span>
               </Button>
             </Link>
           </div>

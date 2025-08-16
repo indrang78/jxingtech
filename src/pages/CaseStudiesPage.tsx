@@ -164,7 +164,7 @@ const CaseStudiesPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {overallStats.map((stat, index) => (
               <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] text-center p-6">
                 <div className="w-12 h-12 bg-azure/10 rounded-xl flex items-center justify-center mx-auto mb-4">

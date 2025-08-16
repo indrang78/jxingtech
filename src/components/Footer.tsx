@@ -4,13 +4,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 const Footer = () => {
   return <footer className="bg-oxford-blue text-white">
-      <div className="max-w-[1200px] mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-2 mb-6 sm:mb-0">
             <div className="flex items-center space-x-2 mb-4">
-              <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20WHITE.png" alt="JXING Tech Group Logo" className="w-20 h-20 object-contain" />
-              <span className="font-bold text-xl">Tech Group</span>
+              <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20WHITE.png" alt="JXING Tech Group Logo" className="w-16 h-16 sm:w-20 sm:h-20 object-contain" />
+              <span className="font-bold text-lg sm:text-xl">Tech Group</span>
             </div>
             
             <div className="flex space-x-4">
@@ -147,12 +147,12 @@ const Footer = () => {
         
 
         {/* Bottom Bar */}
-        <div className="border-t border-marian-blue pt-8">
+        <div className="border-t border-marian-blue pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400">
+            <p className="text-gray-400 text-sm text-center sm:text-left">
               © 2024 JXING Tech Group Sdn. Bhd. All rights reserved. Powered by JXING Tech Group Sdn. Bhd.
             </p>
-            <div className="flex space-x-6">
+            <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-azure transition-smooth text-sm">
                 Privacy Policy
               </Link>

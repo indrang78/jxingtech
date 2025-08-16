@@ -200,6 +200,24 @@ All colors MUST be HSL.
     transition: var(--transition-bounce);
   }
 
+  /* Responsive container padding system */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Container widths for consistency */
+  .container-standard {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto;
+  }
+
   /* Brand-aligned Image Styling */
   .brand-image {
     @apply rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all duration-300;
@@ -215,6 +233,19 @@ All colors MUST be HSL.
 
   .hero-image {
     @apply object-cover w-full h-full;
+  }
+
+  /* Responsive text sizing */
+  .heading-responsive {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  .subheading-responsive {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+
+  .body-responsive {
+    @apply text-sm sm:text-base md:text-lg;
   }
 }
 

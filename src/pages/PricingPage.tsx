@@ -221,8 +221,8 @@ const PricingPage = () => {
 
       {/* Pricing Cards */}
       <section className="py-20 bg-background">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
             {packages.map((pkg, index) => (
               <Card key={index} className={`relative bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200 ${pkg.badge === "Best Value" ? "ring-2 ring-azure" : ""}`}>
                 {pkg.badge && (
