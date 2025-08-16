@@ -3,31 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JXING Tech Group - Digital Solutions for SMEs</title>
-    <meta name="description" content="Simplify complex tech through automation, AI, and human expertise. Growth-driven digital solutions for small to mid-sized businesses." />
-    <meta name="author" content="JXING Tech Group" />
+    
+    <!-- Core SEO Meta Tags (Dynamic via React) -->
+    <title>JXING Tech Group | Web, Marketing & AI for SMEs</title>
+    <meta name="description" content="Malaysia-based digital agency delivering websites, SEO, paid ads, and AI automation that help SMEs grow. Launch fast, scale smart, measure what matters." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://jxingtech.my/" />
+    
+    <!-- Company Info -->
+    <meta name="author" content="JXING Tech Group Sdn. Bhd." />
+    <meta name="company" content="JXING Tech Group Sdn. Bhd." />
+    
+    <!-- Performance & Core Web Vitals -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"></noscript>
     
     <!-- Favicon -->
     <link rel="icon" href="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/favicon/favicon.png" type="image/png" />
     
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <meta property="og:title" content="JXING Tech Group - Digital Solutions for SMEs" />
-    <meta property="og:description" content="Simplify complex tech through automation, AI, and human expertise. Growth-driven digital solutions for small to mid-sized businesses." />
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JXING Tech Group | Web, Marketing & AI for SMEs" />
+    <meta property="og:description" content="Malaysia-based digital agency delivering websites, SEO, paid ads, and AI automation that help SMEs grow. Launch fast, scale smart, measure what matters." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta property="og:url" content="https://jxingtech.my/" />
+    <meta property="og:image" content="https://jxingtech.my/og-image.png" />
+    <meta property="og:site_name" content="JXING Tech Group" />
+    <meta property="og:locale" content="en_MY" />
 
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <meta name="twitter:title" content="JXING Tech Group | Web, Marketing & AI for SMEs" />
+    <meta name="twitter:description" content="Malaysia-based digital agency delivering websites, SEO, paid ads, and AI automation that help SMEs grow. Launch fast, scale smart, measure what matters." />
+    <meta name="twitter:image" content="https://jxingtech.my/og-image.png" />
     
-    <!-- Cal.com Embed Script -->
+    <!-- Analytics Placeholders (TODO: Add real IDs) -->
+    <!-- Google Search Console Verification -->
+    <!-- <meta name="google-site-verification" content="YOUR_GSC_VERIFICATION_CODE" /> -->
+    
+    <!-- Google Analytics 4 -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
-      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.q) { cal.q = []; } p(cal, ar); }; C.Cal.ns = {}; C.Cal.q = C.Cal.q || []; d.head.appendChild(d.createElement("script")).src = A; })(window, "https://app.cal.com/embed/embed.js");
-      Cal("init", {origin:"https://cal.com"});
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    
+    <!-- Structured Data - Organization & Website -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://jxingtech.my/#org",
+          "name": "JXING Tech Group Sdn. Bhd.",
+          "legalName": "JXING Tech Group Sdn. Bhd.",
+          "identifier": "202501026040",
+          "url": "https://jxingtech.my/",
+          "logo": "https://jxingtech.my/og-image.png",
+          "sameAs": [
+            "https://my.linkedin.com/company/jxingtech",
+            "https://www.facebook.com/people/JXING-TECH/61578691138030/",
+            "https://www.instagram.com/jxingtech/"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+60-10-288-2827",
+            "contactType": "customer service",
+            "email": "hello@jxingtech.my"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://jxingtech.my/#website",
+          "url": "https://jxingtech.my/",
+          "name": "JXING Tech Group",
+          "publisher": {"@id": "https://jxingtech.my/#org"}
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Cal.com Embed Script (Deferred for performance) -->
+    <script>
+      window.addEventListener('load', function() {
+        (function (C, A, L) { 
+          let p = function (a, ar) { a.q.push(ar); }; 
+          let d = C.document; 
+          C.Cal = C.Cal || function () { 
+            let cal = C.Cal; 
+            let ar = arguments; 
+            if (!cal.q) { cal.q = []; } 
+            p(cal, ar); 
+          }; 
+          C.Cal.ns = {}; 
+          C.Cal.q = C.Cal.q || []; 
+          d.head.appendChild(d.createElement("script")).src = A; 
+        })(window, "https://app.cal.com/embed/embed.js");
+        Cal("init", {origin:"https://cal.com"});
+      });
     </script>
   </head>
 

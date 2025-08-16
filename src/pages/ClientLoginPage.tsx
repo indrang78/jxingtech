@@ -22,6 +22,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Session, User } from "@supabase/supabase-js";
+import SEOHead from "@/components/SEOHead";
 
 const ClientLoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -353,7 +354,13 @@ const ClientLoginPage = () => {
 
   // Login/Signup form for non-authenticated users
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <SEOHead 
+        title="Client Login | JXING Tech Group"
+        description="Secure portal for clients to access dashboards, reports, and project updates."
+        noindex={true}
+      />
+      <div className="min-h-screen bg-background">
       {/* Minimal Header */}
       <header className="bg-white border-b border-muted/20 py-4">
         <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
@@ -522,6 +529,7 @@ const ClientLoginPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

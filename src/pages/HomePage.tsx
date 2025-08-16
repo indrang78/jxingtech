@@ -32,10 +32,14 @@ import {
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/hero-bg-modern.jpg";
 import { useState, useEffect } from "react";
+import SEOHead from "@/components/SEOHead";
+import { createPageSchema } from "@/utils/structuredData";
 
 const HomePage = () => {
   const [email, setEmail] = useState("");
   const [clientLogos, setClientLogos] = useState<string[]>([]);
+  
+  const structuredData = createPageSchema();
   const [emblaRef] = useEmblaCarousel(
     { 
       loop: true,
@@ -218,7 +222,13 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="JXING Tech Group | Web, Marketing & AI for SMEs"
+        description="Malaysia-based digital agency delivering websites, SEO, paid ads, and AI automation that help SMEs grow. Launch fast, scale smart, measure what matters."
+        structuredData={structuredData}
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section 
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
@@ -581,6 +591,7 @@ const HomePage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

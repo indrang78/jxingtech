@@ -21,8 +21,23 @@ import {
   Star,
   Quote
 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
+import { createPageSchema, createServiceSchema, createBreadcrumbSchema } from "@/utils/structuredData";
 
 const WebsiteDesignPage = () => {
+  const serviceSchema = createServiceSchema(
+    "Website Design & Development for SMEs",
+    "Fast, mobile-first, SEO-ready websites built for conversions. Strategy, design, build, analytics, and ongoing optimization.",
+    "https://jxingtech.my/services/website-design"
+  );
+  
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "https://jxingtech.my/" },
+    { name: "Services", url: "https://jxingtech.my/services" },
+    { name: "Website Design", url: "https://jxingtech.my/services/website-design" }
+  ]);
+  
+  const structuredData = createPageSchema([serviceSchema, breadcrumbSchema]);
   const deliverables = [
     {
       icon: <Globe className="h-6 w-6" />,
@@ -111,7 +126,13 @@ const WebsiteDesignPage = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="Website Design & Development for SMEs | JXING Tech"
+        description="Fast, mobile-first, SEO-ready websites built for conversions. Strategy, design, build, analytics, and ongoing optimization."
+        structuredData={structuredData}
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20">
         <div className="max-w-[1200px] mx-auto px-6">
@@ -466,6 +487,7 @@ const WebsiteDesignPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
