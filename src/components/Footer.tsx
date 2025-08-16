@@ -14,16 +14,16 @@ const Footer = () => {
             </div>
             
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/jxing-tech-group" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="https://www.linkedin.com/company/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="https://twitter.com/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://facebook.com/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="https://www.facebook.com/people/JXING-TECH/61578691138030/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a href="https://www.instagram.com/jxingtech/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
