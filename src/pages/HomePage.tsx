@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -34,6 +36,18 @@ import { useState, useEffect } from "react";
 const HomePage = () => {
   const [email, setEmail] = useState("");
   const [clientLogos, setClientLogos] = useState<string[]>([]);
+  const [emblaRef] = useEmblaCarousel(
+    { 
+      loop: true,
+      align: 'start',
+      slidesToScroll: 1,
+      breakpoints: {
+        '(min-width: 768px)': { slidesToScroll: 2 },
+        '(min-width: 1024px)': { slidesToScroll: 3 }
+      }
+    },
+    [Autoplay({ delay: 3000, stopOnInteraction: false })]
+  );
 
   useEffect(() => {
     // Load Cal.com embed script
@@ -418,26 +432,27 @@ const HomePage = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 items-center justify-items-center">
-              {clientLogos.map((logoUrl, index) => {
-                // Extract client name from URL for alt text
-                const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
-                const clientName = fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' ');
-                
-                return (
-                  <div
-                    key={index}
-                    className="w-24 h-16 flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3"
-                  >
-                     <img
-                      src={logoUrl}
-                      alt={`${clientName} - JXING Tech client success story`}
-                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
-                      loading="lazy"
-                    />
-                  </div>
-                );
-              })}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {clientLogos.map((logoUrl, index) => {
+                  // Extract client name from URL for alt text
+                  const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
+                  const clientName = fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' ');
+                  
+                  return (
+                    <div key={index} className="flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_16.666%] px-3">
+                      <div className="w-24 h-16 mx-auto flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3">
+                        <img
+                          src={logoUrl}
+                          alt={`${clientName} - JXING Tech client success story`}
+                          className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 
