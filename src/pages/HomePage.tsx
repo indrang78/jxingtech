@@ -34,10 +34,12 @@ import heroBackground from "@/assets/hero-bg-modern.jpg";
 import { useState, useEffect } from "react";
 import SEOHead from "@/components/SEOHead";
 import { createPageSchema } from "@/utils/structuredData";
+import { useI18n } from "@/contexts/I18nContext";
 
 const HomePage = () => {
   const [email, setEmail] = useState("");
   const [clientLogos, setClientLogos] = useState<string[]>([]);
+  const { t, getLocalizedPath } = useI18n();
   
   const structuredData = createPageSchema();
   const [emblaRef] = useEmblaCarousel(
@@ -224,8 +226,8 @@ const HomePage = () => {
   return (
     <>
       <SEOHead 
-        title="JXING Tech Group | Web, Marketing & AI for SMEs"
-        description="Malaysia-based digital agency delivering websites, SEO, paid ads, and AI automation that help SMEs grow. Launch fast, scale smart, measure what matters."
+        title={t('pages.home.hero.title')}
+        description={t('pages.home.hero.description')}
         structuredData={structuredData}
       />
       <div className="min-h-screen">
@@ -238,20 +240,18 @@ const HomePage = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              Growth, Simplified.
-              <span className="block text-gradient-accent mt-2">Digital Solutions for SMEs that Scale.</span>
+              {t('pages.home.hero.title')}
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-white/80 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed px-4">
-              Empowering small and mid-sized businesses with affordable, high-performing digital strategies, 
-              combining automation, AI, and human expertise for measurable results.
+              {t('pages.home.hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Dialog>
                 <DialogTrigger asChild>
                   <Button variant="hero" size="xl" className="animate-scale-in text-sm sm:text-base">
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
-                    <span className="hidden sm:inline">Book Your Free Growth Strategy Session</span>
-                    <span className="sm:hidden">Free Strategy Session</span>
+                    <span className="hidden sm:inline">{t('common.bookConsultation')}</span>
+                    <span className="sm:hidden">{t('common.bookConsultation')}</span>
                   </Button>
                 </DialogTrigger>
                 <DialogContent className="max-w-xs sm:max-w-lg md:max-w-4xl w-full h-[70vh] sm:h-[80vh] p-0 m-4">
@@ -267,11 +267,11 @@ const HomePage = () => {
                   </div>
                 </DialogContent>
               </Dialog>
-              <Link to="/resources/website-growth-playbook">
+              <Link to={getLocalizedPath("/resources/website-growth-playbook")}>
                 <Button variant="outline-white" size="xl" className="animate-scale-in text-sm sm:text-base">
                   <Download className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="hidden sm:inline">Download Our Free Website Growth Playbook for SMEs</span>
-                  <span className="sm:hidden">Free Growth Playbook</span>
+                  <span className="hidden sm:inline">{t('common.downloadNow')}</span>
+                  <span className="sm:hidden">{t('common.downloadNow')}</span>
                 </Button>
               </Link>
             </div>
@@ -284,7 +284,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Are You Facing These Digital Hurdles?
+              {t('pages.home.whatWeDo.title')}
             </h2>
           </div>
           

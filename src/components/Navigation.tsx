@@ -161,47 +161,38 @@ const Navigation = () => {
         {/* Mobile Navigation */}
         {isOpen && <div className="md:hidden border-t border-border bg-background">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link to="/about" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/about") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
-                About Us
+              <Link to={getLocalizedPath("/about")} className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/about") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
+                {t('nav.about')}
               </Link>
               <div className="px-3 py-2">
-                <div className="text-sm font-semibold text-marian-blue mb-2">Services</div>
+                <div className="text-sm font-semibold text-marian-blue mb-2">{t('nav.services')}</div>
                 {servicesCategories.map(category => <div key={category.category} className="mb-3">
                     <div className="text-xs font-medium text-muted-foreground mb-1">{category.category}</div>
-                    {category.services.map(service => <Link key={service.path} to={service.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure" onClick={() => setIsOpen(false)}>
+                    {category.services.map(service => <Link key={service.path} to={getLocalizedPath(service.path)} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure" onClick={() => setIsOpen(false)}>
                         {service.name}
                       </Link>)}
                   </div>)}
               </div>
-              <Link to="/pricing" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
-                Pricing
+              <Link to={getLocalizedPath("/pricing")} className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
+                {t('nav.pricing')}
               </Link>
-              <Link to="/case-studies" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
-                Case Studies
+              <Link to={getLocalizedPath("/case-studies")} className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
+                {t('nav.caseStudies')}
               </Link>
               <div className="px-3 py-2">
-                <div className="text-sm font-semibold text-marian-blue mb-2">Resources</div>
-                {resourcesLinks.map(resource => <Link key={resource.path} to={resource.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure" onClick={() => setIsOpen(false)}>
+                <div className="text-sm font-semibold text-marian-blue mb-2">{t('nav.resources')}</div>
+                {resourcesLinks.map(resource => <Link key={resource.path} to={getLocalizedPath(resource.path)} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure" onClick={() => setIsOpen(false)}>
                     {resource.name}
                   </Link>)}
               </div>
-              <Link to="/contact" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
-                Contact Us
+              <Link to={getLocalizedPath("/contact")} className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
+                {t('nav.contact')}
               </Link>
               
-              {/* Mobile CTA Buttons - Hidden per user request but kept in memory
-              <div className="px-3 py-4 border-t border-muted/20 mt-4">
-                <Button variant="xanthous" size="sm" className="w-full mb-3" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Book Consultation
-                </Button>
-                <Button variant="outline" size="sm" className="w-full" asChild>
-                  <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
-                    Client Login
-                  </a>
-                </Button>
+              {/* Language Switcher for Mobile */}
+              <div className="px-3 py-2 border-t border-muted/20 mt-4">
+                <LanguageSwitcher variant="compact" />
               </div>
-              */}
             </div>
           </div>}
       </div>
