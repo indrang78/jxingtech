@@ -3,10 +3,17 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown, Calendar } from "lucide-react";
+import { useI18n } from "@/contexts/I18nContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
+  const { t, getLocalizedPath } = useI18n();
+  
+  const isActive = (path: string) => {
+    const localizedPath = getLocalizedPath(path);
+    return location.pathname === localizedPath;
+  };
   const servicesCategories = [{
     category: "Design & Marketing",
     services: [{
@@ -67,15 +74,15 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
-              About Us
+          <div className="hidden md:flex items-center space-x-6">
+            <Link to={getLocalizedPath("/about")} className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+              {t('nav.about')}
             </Link>
 
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
-                <span>Services</span>
+                <span>{t('nav.services')}</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-72 sm:w-80 bg-card border border-border shadow-lg z-50">
@@ -84,7 +91,7 @@ const Navigation = () => {
                       {category.category}
                     </DropdownMenuLabel>
                     {category.services.map(service => <DropdownMenuItem key={service.path} asChild>
-                        <Link to={service.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
+                        <Link to={getLocalizedPath(service.path)} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
                           {service.name}
                         </Link>
                       </DropdownMenuItem>)}
@@ -93,32 +100,35 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
-              Pricing
+            <Link to={getLocalizedPath("/pricing")} className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+              {t('nav.pricing')}
             </Link>
 
-            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
-              Case Studies
+            <Link to={getLocalizedPath("/case-studies")} className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+              {t('nav.caseStudies')}
             </Link>
 
             {/* Resources Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
-                <span>Resources</span>
+                <span>{t('nav.resources')}</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 sm:w-56 bg-card border border-border shadow-lg z-50">
                 {resourcesLinks.map(resource => <DropdownMenuItem key={resource.path} asChild>
-                    <Link to={resource.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
+                    <Link to={getLocalizedPath(resource.path)} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
                       {resource.name}
                     </Link>
                   </DropdownMenuItem>)}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
-              Contact Us
+            <Link to={getLocalizedPath("/contact")} className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+              {t('nav.contact')}
             </Link>
+
+            {/* Language Switcher */}
+            <LanguageSwitcher variant="ghost" />
           </div>
 
           {/* CTA Buttons - Hidden per user request but kept in memory

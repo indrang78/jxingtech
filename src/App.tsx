@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { I18nProvider } from "@/contexts/I18nContext";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -41,6 +42,7 @@ const AppContent = () => {
       <Navigation />
       <main className="flex-1">
         <Routes>
+          {/* English routes (default) */}
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/services/website-design" element={<WebsiteDesignPage />} />
@@ -64,6 +66,38 @@ const AppContent = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+
+          {/* Localized routes for ms, zh, hi, fr, de, es */}
+          {['ms', 'zh', 'hi', 'fr', 'de', 'es'].map(locale => (
+            <Route key={locale} path={`/${locale}/*`} element={
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/services/website-design" element={<WebsiteDesignPage />} />
+                <Route path="/services/content-seo" element={<ContentSEOPage />} />
+                <Route path="/services/social-media" element={<SocialMediaPage />} />
+                <Route path="/services/paid-ads" element={<PaidAdsPage />} />
+                <Route path="/services/crm-automation" element={<CRMAutomationPage />} />
+                <Route path="/services/behavioral-automation" element={<BehavioralAutomationPage />} />
+                <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
+                <Route path="/services/repurposing" element={<RepurposingPage />} />
+                <Route path="/services/content-distribution" element={<ContentDistributionPage />} />
+                <Route path="/services/website-care" element={<WebsiteCarePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/pricing" element={<PricingPage />} />
+                <Route path="/case-studies" element={<CaseStudiesPage />} />
+                <Route path="/resources" element={<ResourcesPage />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/resources/website-growth-playbook" element={<WebsiteGrowthPlaybookPage />} />
+                <Route path="/help" element={<HelpPage />} />
+                <Route path="/client-login" element={<ClientLoginPage />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              </Routes>
+            } />
+          ))}
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
@@ -76,9 +110,11 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <AppContent />
-        <Toaster />
-        <Sonner />
+        <I18nProvider>
+          <AppContent />
+          <Toaster />
+          <Sonner />
+        </I18nProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
