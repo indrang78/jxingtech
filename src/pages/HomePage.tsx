@@ -443,12 +443,17 @@ const HomePage = () => {
                   const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
                   const clientName = decodeURIComponent(fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' '));
                   
+                  // Use custom logo for Beoka
+                  const finalLogoUrl = clientName.toLowerCase().includes('beoka') 
+                    ? '/lovable-uploads/8786747b-a981-4bc4-88e5-f6a0a3241733.png'
+                    : logoUrl;
+                  
                   return (
                     <div key={index} className="flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_16.666%] px-3">
                       <div className="text-center">
                         <div className="w-24 h-16 mx-auto flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3 mb-2">
                           <img
-                            src={logoUrl}
+                            src={finalLogoUrl}
                             alt={`${clientName} - JXING Tech client success story`}
                             className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
                             loading="lazy"
