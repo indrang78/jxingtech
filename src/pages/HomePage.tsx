@@ -445,13 +445,16 @@ const HomePage = () => {
                   
                   return (
                     <div key={index} className="flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_16.666%] px-3">
-                      <div className="w-24 h-16 mx-auto flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3">
-                        <img
-                          src={logoUrl}
-                          alt={`${clientName} - JXING Tech client success story`}
-                          className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-all duration-300 filter grayscale hover:grayscale-0"
-                          loading="lazy"
-                        />
+                      <div className="text-center">
+                        <div className="w-24 h-16 mx-auto flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-azure/30 transition-colors duration-200 p-3 mb-2">
+                          <img
+                            src={logoUrl}
+                            alt={`${clientName} - JXING Tech client success story`}
+                            className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                        <p className="text-xs text-muted-foreground capitalize">{clientName}</p>
                       </div>
                     </div>
                   );
