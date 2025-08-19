@@ -441,7 +441,7 @@ const HomePage = () => {
                 {clientLogos.map((logoUrl, index) => {
                   // Extract client name from URL for alt text
                   const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
-                  const clientName = fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' ');
+                  const clientName = decodeURIComponent(fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' '));
                   
                   return (
                     <div key={index} className="flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_16.666%] px-3">
