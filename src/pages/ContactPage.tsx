@@ -21,11 +21,8 @@ import {
   ExternalLink
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import SEOHead from "@/components/SEOHead";
-import { createPageSchema } from "@/utils/structuredData";
 
 const ContactPage = () => {
-  const structuredData = createPageSchema();
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', content: '' });
   const [captchaValue, setCaptchaValue] = useState<string | null>(null);
@@ -154,13 +151,7 @@ const ContactPage = () => {
   };
 
   return (
-    <>
-      <SEOHead 
-        title="Contact JXING Tech Group | Talk to Our Team"
-        description="Email hello@jxingtech.my or WhatsApp +60 10-288 2827. Book a consult for websites, SEO, paid ads, or automation."
-        structuredData={structuredData}
-      />
-      <div className="min-h-screen">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-gradient py-20">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
@@ -534,7 +525,6 @@ const ContactPage = () => {
         </div>
       </section>
     </div>
-    </>
   );
 };
 

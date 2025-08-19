@@ -2,11 +2,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useI18n } from "@/contexts/I18nContext";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 const Footer = () => {
-  const { t, getLocalizedPath } = useI18n();
-  
   return <footer className="bg-oxford-blue text-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
@@ -35,11 +31,11 @@ const Footer = () => {
 
           {/* Section 1: Company */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">{t('footer.company')}</h3>
+            <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link to={getLocalizedPath("/about")} className="text-gray-300 hover:text-azure transition-smooth">
-                  {t('nav.about')}
+                <Link to="/about" className="text-gray-300 hover:text-azure transition-smooth">
+                  About Us
                 </Link>
               </li>
               <li>
@@ -147,18 +143,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Language Switcher Section */}
-        <div className="border-t border-marian-blue pt-6 mb-6">
-          <div className="flex justify-center">
-            <LanguageSwitcher />
-          </div>
-        </div>
+        {/* Newsletter Signup */}
+        
 
         {/* Bottom Bar */}
         <div className="border-t border-marian-blue pt-6 sm:pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center sm:text-left">
-              {t('footer.copyright')}
+              © 2024 JXING Tech Group Sdn. Bhd. All rights reserved. Powered by JXING Tech Group Sdn. Bhd.
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end space-x-4 sm:space-x-6">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-azure transition-smooth text-sm">
