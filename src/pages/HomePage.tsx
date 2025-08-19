@@ -361,7 +361,7 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {solutions.map((solution, index) => (
-              <Card key={index} className="card-hover text-center h-full">
+              <Card key={index} className="card-hover text-center h-full flex flex-col">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
                     {solution.icon}
@@ -370,16 +370,18 @@ const HomePage = () => {
                     {solution.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col">
+                <CardContent className="flex flex-col flex-1">
                   <CardDescription className="text-base mb-4 flex-1">
                     {solution.description}
                   </CardDescription>
-                  <Link to={solution.link}>
-                    <Button variant="outline" size="sm" className="w-full">
-                      Learn More
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                  <div className="mt-auto">
+                    <Link to={solution.link}>
+                      <Button variant="outline" size="sm" className="w-full">
+                        Learn More
+                        <ArrowRight className="h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}
