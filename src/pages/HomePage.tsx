@@ -443,10 +443,13 @@ const HomePage = () => {
                   const fileName = logoUrl.split('/').pop()?.split('.')[0] || '';
                   const clientName = decodeURIComponent(fileName.replace(/clntlogo\//, '').replace(/[-_]/g, ' '));
                   
-                  // Use custom logo for Beoka
-                  const finalLogoUrl = clientName.toLowerCase().includes('beoka') 
-                    ? '/lovable-uploads/8786747b-a981-4bc4-88e5-f6a0a3241733.png'
-                    : logoUrl;
+                  // Use custom logos for specific clients
+                  let finalLogoUrl = logoUrl;
+                  if (clientName.toLowerCase().includes('beoka')) {
+                    finalLogoUrl = '/lovable-uploads/8786747b-a981-4bc4-88e5-f6a0a3241733.png';
+                  } else if (clientName.toLowerCase().includes('rentalmates')) {
+                    finalLogoUrl = '/lovable-uploads/f86bd6c2-2a75-4f17-977c-fc3e260824be.png';
+                  }
                   
                   return (
                     <div key={index} className="flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_16.666%] px-3">
