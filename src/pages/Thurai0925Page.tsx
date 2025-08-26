@@ -2,96 +2,103 @@ import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Cal, { getCalApi } from "@calcom/embed-react";
-
 interface CountdownState {
   days: number;
   hours: number;
   minutes: number;
   seconds: number;
 }
-
 const Thurai0925Page = () => {
-  const [socialCountdown, setSocialCountdown] = useState<CountdownState>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [hostingCountdown, setHostingCountdown] = useState<CountdownState>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [socialCountdown, setSocialCountdown] = useState<CountdownState>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  const [hostingCountdown, setHostingCountdown] = useState<CountdownState>({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
   const [isAnnualPlan, setIsAnnualPlan] = useState(false);
   const [selectedServices, setSelectedServices] = useState({
     maintenance: true,
     social: true,
     ads: true
   });
-
   const prices = {
-    monthly: { maintenance: 308, social: 888, ads: 888 },
-    annual: { maintenance: 199, social: 588, ads: 588 }
+    monthly: {
+      maintenance: 308,
+      social: 888,
+      ads: 888
+    },
+    annual: {
+      maintenance: 199,
+      social: 588,
+      ads: 588
+    }
   };
-
   const calculateCountdown = (targetDate: Date): CountdownState => {
     const now = new Date();
     const distance = targetDate.getTime() - now.getTime();
-
     if (distance < 0) {
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      return {
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0
+      };
     }
-
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    return { days, hours, minutes, seconds };
+    const hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+    const minutes = Math.floor(distance % (1000 * 60 * 60) / (1000 * 60));
+    const seconds = Math.floor(distance % (1000 * 60) / 1000);
+    return {
+      days,
+      hours,
+      minutes,
+      seconds
+    };
   };
-
   useEffect(() => {
     const socialTarget = new Date('2025-08-27T23:59:59');
     const hostingTarget = new Date('2025-08-31T23:59:59');
-
     const interval = setInterval(() => {
       setSocialCountdown(calculateCountdown(socialTarget));
       setHostingCountdown(calculateCountdown(hostingTarget));
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
-
   const calculateTotal = () => {
     const plan = isAnnualPlan ? 'annual' : 'monthly';
     let total = 0;
-    
     Object.entries(selectedServices).forEach(([service, isSelected]) => {
       if (isSelected) {
         total += prices[plan][service as keyof typeof prices.monthly];
       }
     });
-
     return total;
   };
-
   const formatCountdown = (countdown: CountdownState) => {
     return `${countdown.days}d ${countdown.hours}h ${countdown.minutes}m ${countdown.seconds}s`;
   };
-
   const toggleService = (service: keyof typeof selectedServices) => {
     setSelectedServices(prev => ({
       ...prev,
       [service]: !prev[service]
     }));
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       <div className="max-w-6xl mx-auto p-4 sm:p-6 md:p-8">
         
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl font-bold text-primary mb-2">A Proposal for Thurai Dental KLINIC</h1>
           <div className="flex flex-col items-center justify-center">
-            <img 
-              src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png" 
-              alt="JXING TECH Logo" 
-              className="w-48 mb-2"
-            />
+            <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png" alt="JXING TECH Logo" className="w-48 mb-2" />
             <p className="text-lg text-muted-foreground">
-              Presented by <span className="font-semibold text-secondary">JXING TECH</span>
+              Presented by <span className="font-semibold text-[#0a1640]">JXING TECH</span>
             </p>
           </div>
         </header>
@@ -144,7 +151,7 @@ const Thurai0925Page = () => {
               <div className="flex items-center mb-4">
                 <div className="bg-secondary p-2 rounded-full mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-secondary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3m0 18a9 9 0 009-9m-9 9a9 9 0 00-9-9" />
                   </svg>
                 </div>
                 <div>
@@ -282,12 +289,7 @@ const Thurai0925Page = () => {
 
           <div className="flex items-center justify-center space-x-4 mb-8">
             <span className="font-medium text-foreground">Month-to-Month</span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setIsAnnualPlan(!isAnnualPlan)}
-              className={isAnnualPlan ? 'bg-secondary text-secondary-foreground' : ''}
-            >
+            <Button variant="outline" size="sm" onClick={() => setIsAnnualPlan(!isAnnualPlan)} className={isAnnualPlan ? 'bg-secondary text-secondary-foreground' : ''}>
               {isAnnualPlan ? 'Annual' : 'Monthly'}
             </Button>
             <span className="font-medium text-secondary">Annual Commitment (Save over 30%!)</span>
@@ -295,20 +297,23 @@ const Thurai0925Page = () => {
 
           <div className="max-w-2xl mx-auto">
             <div className="space-y-4">
-              {[
-                { key: 'maintenance', title: 'Website Maintenance', desc: 'Essential for security and online presence.' },
-                { key: 'social', title: 'Social Media Management', desc: 'Builds trust and community.' },
-                { key: 'ads', title: 'Paid Ads Management', desc: 'Directly generates new patient leads.' }
-              ].map(({ key, title, desc }) => (
-                <Card 
-                  key={key}
-                  className={`p-4 cursor-pointer transition-colors ${
-                    selectedServices[key as keyof typeof selectedServices] 
-                      ? 'bg-accent/10 border-accent' 
-                      : ''
-                  }`}
-                  onClick={() => toggleService(key as keyof typeof selectedServices)}
-                >
+              {[{
+              key: 'maintenance',
+              title: 'Website Maintenance',
+              desc: 'Essential for security and online presence.'
+            }, {
+              key: 'social',
+              title: 'Social Media Management',
+              desc: 'Builds trust and community.'
+            }, {
+              key: 'ads',
+              title: 'Paid Ads Management',
+              desc: 'Directly generates new patient leads.'
+            }].map(({
+              key,
+              title,
+              desc
+            }) => <Card key={key} className={`p-4 cursor-pointer transition-colors ${selectedServices[key as keyof typeof selectedServices] ? 'bg-accent/10 border-accent' : ''}`} onClick={() => toggleService(key as keyof typeof selectedServices)}>
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="font-semibold text-foreground">{title}</h4>
@@ -318,16 +323,10 @@ const Thurai0925Page = () => {
                       <span className="text-lg font-semibold text-primary mr-4">
                         RM {prices[isAnnualPlan ? 'annual' : 'monthly'][key as keyof typeof prices.monthly].toFixed(2)}
                       </span>
-                      <input 
-                        type="checkbox" 
-                        checked={selectedServices[key as keyof typeof selectedServices]}
-                        onChange={() => toggleService(key as keyof typeof selectedServices)}
-                        className="h-5 w-5 rounded text-accent focus:ring-accent"
-                      />
+                      <input type="checkbox" checked={selectedServices[key as keyof typeof selectedServices]} onChange={() => toggleService(key as keyof typeof selectedServices)} className="h-5 w-5 rounded text-accent focus:ring-accent" />
                     </div>
                   </div>
-                </Card>
-              ))}
+                </Card>)}
             </div>
 
             <div className="mt-8 pt-6 border-t border-border">
@@ -350,19 +349,22 @@ const Thurai0925Page = () => {
           <p className="max-w-2xl mx-auto text-muted-foreground mb-6">
             We would be delighted to schedule a brief call to discuss your specific goals and finalize the service plan. We are ready to ensure a smooth transition and begin strengthening your digital presence immediately.
           </p>
-          <div className="max-w-xl mx-auto mt-4" style={{ height: '600px', overflow: 'hidden' }}>
-            <Cal 
-              calLink="jxingtech/book-a-free-consult"
-              style={{width:"100%",height:"100%",overflow:"scroll"}}
-              config={{"layout":"month_view"}}
-            />
+          <div className="max-w-xl mx-auto mt-4" style={{
+          height: '600px',
+          overflow: 'hidden'
+        }}>
+            <Cal calLink="jxingtech/book-a-free-consult" style={{
+            width: "100%",
+            height: "100%",
+            overflow: "scroll"
+          }} config={{
+            "layout": "month_view"
+          }} />
           </div>
         </footer>
 
       </div>
 
-    </div>
-  );
+    </div>;
 };
-
 export default Thurai0925Page;
