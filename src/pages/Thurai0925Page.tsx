@@ -239,11 +239,10 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Detailed monthly reports
                 </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2">✔</span> 
-                  <span className="font-semibold">Note:</span> Ad spend is a separate cost.
-                </li>
               </ul>
+              <p className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
+                <span className="font-semibold">Note:</span> Ad spend is a separate cost.
+              </p>
             </Card>
           </div>
           
