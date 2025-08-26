@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 interface CountdownState {
   days: number;
@@ -48,6 +49,12 @@ const Thurai0925Page = () => {
       setSocialCountdown(calculateCountdown(socialTarget));
       setHostingCountdown(calculateCountdown(hostingTarget));
     }, 1000);
+
+    // Initialize Cal.com
+    (async function () {
+      const cal = await getCalApi({"namespace":"book-a-free-consult"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
 
     return () => clearInterval(interval);
   }, []);
@@ -349,28 +356,18 @@ const Thurai0925Page = () => {
           <p className="max-w-2xl mx-auto text-muted-foreground mb-6">
             We would be delighted to schedule a brief call to discuss your specific goals and finalize the service plan. We are ready to ensure a smooth transition and begin strengthening your digital presence immediately.
           </p>
-          <div className="max-w-xl mx-auto mt-4" style={{ height: '600px' }}>
-            <div style={{ width: '100%', height: '100%' }} id="my-cal-inline-30min"></div>
+          <div className="max-w-xl mx-auto mt-4" style={{ height: '600px', overflow: 'hidden' }}>
+            <Cal 
+              namespace="book-a-free-consult"
+              calLink="jxingtech/book-a-free-consult"
+              style={{width:"100%",height:"100%",overflow:"scroll"}}
+              config={{"layout":"month_view"}}
+            />
           </div>
         </footer>
 
       </div>
 
-      {/* Cal.com Script */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-            Cal("init", "30min", {origin:"https://app.cal.com"});
-            Cal.ns["30min"]("inline", {
-              elementOrSelector:"#my-cal-inline-30min",
-              config: {"layout":"month_view"},
-              calLink: "jxingtech/30min",
-            });
-            Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-          `
-        }}
-      />
     </div>
   );
 };
