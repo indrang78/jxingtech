@@ -208,11 +208,10 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Monthly performance reports
                 </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2">✔</span> 
-                  <span className="font-semibold">Note:</span> Price is per platform. RM 100 fee for multi-platform posting.
-                </li>
               </ul>
+              <p className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
+                <span className="font-semibold">Note:</span> Price is per platform. RM 100 fee for multi-platform posting.
+              </p>
             </Card>
 
             <Card className="p-6 transition-all duration-300 hover:shadow-lg">
