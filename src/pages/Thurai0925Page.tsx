@@ -168,11 +168,11 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Daily backups for peace of mind
                 </li>
-                <li className="flex items-start text-[59C3C3] text-[#59c3c3]">
+                <li className="flex items-start">
                   <span className="text-secondary mr-2">✔</span> 
                   Security & uptime monitoring
                 </li>
-                <li className="flex items-start text-[#59c3c3]">
+                <li className="flex items-start">
                   <span className="text-secondary mr-2">✔</span> 
                   Basic support & hosting included
                 </li>
@@ -180,7 +180,7 @@ const Thurai0925Page = () => {
             </Card>
 
             <Card className="p-6 transition-all duration-300 hover:shadow-lg">
-              <div className="flex items-center mb-4 text-[59C3C3] text-[#59c3c3]">
+              <div className="flex items-center mb-4">
                 <div className="bg-secondary p-2 rounded-full mr-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-secondary-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -200,7 +200,7 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Strategic content planning
                 </li>
-                <li className="flex items-start text-[#59c3c3]">
+                <li className="flex items-start">
                   <span className="text-secondary mr-2">✔</span> 
                   Competitor analysis
                 </li>
@@ -208,11 +208,10 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Monthly performance reports
                 </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2">✔</span> 
-                  <span className="font-semibold">Note:</span> Price is per platform. RM 100 fee for multi-platform posting.
-                </li>
               </ul>
+              <p className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
+                <span className="font-semibold">Note:</span> Price is per platform. RM 100 fee for multi-platform posting.
+              </p>
             </Card>
 
             <Card className="p-6 transition-all duration-300 hover:shadow-lg">
@@ -240,11 +239,10 @@ const Thurai0925Page = () => {
                   <span className="text-secondary mr-2">✔</span> 
                   Detailed monthly reports
                 </li>
-                <li className="flex items-start">
-                  <span className="text-secondary mr-2">✔</span> 
-                  <span className="font-semibold">Note:</span> Ad spend is a separate cost.
-                </li>
               </ul>
+              <p className="text-xs text-muted-foreground mt-4 pt-2 border-t border-border">
+                <span className="font-semibold">Note:</span> Ad spend is a separate cost.
+              </p>
             </Card>
           </div>
           
