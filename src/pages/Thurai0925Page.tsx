@@ -50,12 +50,6 @@ const Thurai0925Page = () => {
       setHostingCountdown(calculateCountdown(hostingTarget));
     }, 1000);
 
-    // Initialize Cal.com
-    (async function () {
-      const cal = await getCalApi({"namespace":"book-a-free-consult"});
-      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-    })();
-
     return () => clearInterval(interval);
   }, []);
 
@@ -358,7 +352,6 @@ const Thurai0925Page = () => {
           </p>
           <div className="max-w-xl mx-auto mt-4" style={{ height: '600px', overflow: 'hidden' }}>
             <Cal 
-              namespace="book-a-free-consult"
               calLink="jxingtech/book-a-free-consult"
               style={{width:"100%",height:"100%",overflow:"scroll"}}
               config={{"layout":"month_view"}}
