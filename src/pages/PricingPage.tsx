@@ -208,21 +208,21 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      <section className="hero-gradient py-12 sm:py-16 md:py-20">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Flexible Digital Marketing Plans for Every Stage of Your Growth
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed">
             Choose from our integrated subscription packages or opt for a custom solution. Transparent pricing, no hidden fees for our SME digital services.
           </p>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 bg-background">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {packages.map((pkg, index) => (
               <Card key={index} className={`relative bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200 ${pkg.badge === "Best Value" ? "ring-2 ring-azure" : ""}`}>
                 {pkg.badge && (
@@ -233,19 +233,19 @@ const PricingPage = () => {
                   </div>
                 )}
                 
-                <CardHeader className="p-8 text-center border-b border-muted/20">
-                  <CardTitle className="text-2xl font-bold text-oxford-blue mb-2">
+                <CardHeader className="p-6 sm:p-8 text-center border-b border-muted/20">
+                  <CardTitle className="text-xl sm:text-2xl font-bold text-oxford-blue mb-2">
                     {pkg.name}
                   </CardTitle>
-                  <p className="text-sm text-azure font-medium mb-4">
+                  <p className="text-sm text-azure font-medium mb-3 sm:mb-4">
                     {pkg.targetClient}
                   </p>
-                  <div className="mb-4">
-                    <div className="text-3xl font-bold text-oxford-blue mb-1">
+                  <div className="mb-3 sm:mb-4">
+                    <div className="text-2xl sm:text-3xl font-bold text-oxford-blue mb-1">
                       MYR {pkg.monthlyPrice}
-                      <span className="text-lg font-normal text-muted-foreground">/month</span>
+                      <span className="text-base sm:text-lg font-normal text-muted-foreground">/month</span>
                     </div>
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-xs sm:text-sm text-muted-foreground">
                       or MYR {pkg.annualPrice}/month (annual) - Save {pkg.annualSavings}
                     </div>
                     <div className="text-xs text-azure mt-1">
@@ -257,7 +257,7 @@ const PricingPage = () => {
                   </p>
                 </CardHeader>
 
-                <CardContent className="p-8">
+                <CardContent className="p-6 sm:p-8">
                   <div className="mb-6">
                     <h4 className="text-sm font-semibold text-oxford-blue mb-3 uppercase tracking-wide">
                       Key Benefits
@@ -360,22 +360,22 @@ const PricingPage = () => {
 
           <div className="bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] overflow-hidden">
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="border-b border-muted/20">
-                    <th className="text-left p-6 text-oxford-blue font-semibold">Features</th>
-                    <th className="text-center p-6 text-oxford-blue font-semibold">Digital Launchpad</th>
-                    <th className="text-center p-6 text-oxford-blue font-semibold">Growth Engine</th>
-                    <th className="text-center p-6 text-oxford-blue font-semibold">Enterprise Ascend</th>
+                    <th className="text-left p-4 sm:p-6 text-oxford-blue font-semibold text-sm sm:text-base">Features</th>
+                    <th className="text-center p-4 sm:p-6 text-oxford-blue font-semibold text-sm sm:text-base">Digital Launchpad</th>
+                    <th className="text-center p-4 sm:p-6 text-oxford-blue font-semibold text-sm sm:text-base">Growth Engine</th>
+                    <th className="text-center p-4 sm:p-6 text-oxford-blue font-semibold text-sm sm:text-base">Enterprise Ascend</th>
                   </tr>
                 </thead>
                 <tbody>
                   {comparisonFeatures.map((feature, index) => (
                     <tr key={index} className="border-b border-muted/10 hover:bg-muted/20 transition-colors">
-                      <td className="p-6 text-muted-foreground font-medium">{feature.feature}</td>
-                      <td className="p-6 text-center">{renderFeatureValue(feature.launchpad)}</td>
-                      <td className="p-6 text-center">{renderFeatureValue(feature.growth)}</td>
-                      <td className="p-6 text-center">{renderFeatureValue(feature.enterprise)}</td>
+                      <td className="p-4 sm:p-6 text-muted-foreground font-medium text-sm sm:text-base">{feature.feature}</td>
+                      <td className="p-4 sm:p-6 text-center">{renderFeatureValue(feature.launchpad)}</td>
+                      <td className="p-4 sm:p-6 text-center">{renderFeatureValue(feature.growth)}</td>
+                      <td className="p-4 sm:p-6 text-center">{renderFeatureValue(feature.enterprise)}</td>
                     </tr>
                   ))}
                 </tbody>

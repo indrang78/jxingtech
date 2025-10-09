@@ -153,18 +153,18 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      <section className="hero-gradient py-12 sm:py-16 md:py-20">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Let's Connect and Grow Your Business
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed">
             Whether you have a question about digital marketing, need a custom quote for AI integration, or are ready to start your digital transformation journey, we're here to help.
           </p>
         </div>
       </section>
 
-      <div className="max-w-[1400px] mx-auto px-6 py-20">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
@@ -439,13 +439,13 @@ const ContactPage = () => {
       </div>
 
       {/* Cal.com Inline Booking */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-oxford-blue mb-4 sm:mb-6 leading-tight">
               Schedule Your Consultation
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Book a time that works for you directly in our calendar below. We'll discuss your digital transformation needs and how we can help grow your business.
             </p>
           </div>
