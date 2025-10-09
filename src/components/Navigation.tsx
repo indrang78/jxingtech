@@ -121,7 +121,7 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* CTA Buttons - Hidden per user request but kept in memory
+          {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <Button 
               variant="xanthous" 
@@ -138,7 +138,6 @@ const Navigation = () => {
               </a>
             </Button>
           </div>
-          */}
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -179,7 +178,7 @@ const Navigation = () => {
                 Contact Us
               </Link>
               
-              {/* Mobile CTA Buttons - Hidden per user request but kept in memory
+              {/* Mobile CTA Buttons */}
               <div className="px-3 py-4 border-t border-muted/20 mt-4">
                 <Button variant="xanthous" size="sm" className="w-full mb-3" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
                   <Calendar className="h-4 w-4 mr-2" />
@@ -191,7 +190,6 @@ const Navigation = () => {
                   </a>
                 </Button>
               </div>
-              */}
             </div>
           </div>}
       </div>

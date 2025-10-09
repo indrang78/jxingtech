@@ -98,22 +98,22 @@ const HomePage = () => {
 
   const challenges = [
     {
-      icon: <DollarSign className="h-8 w-8 text-red-500" />,
+      icon: <DollarSign className="h-8 w-8 text-destructive" />,
       title: "High upfront costs for digital agencies",
       description: "Traditional agencies require large retainers and long-term contracts"
     },
     {
-      icon: <Users className="h-8 w-8 text-red-500" />,
+      icon: <Users className="h-8 w-8 text-destructive" />,
       title: "Lack of in-house tech & marketing expertise",
       description: "Small teams can't cover all the specialized skills needed"
     },
     {
-      icon: <Settings className="h-8 w-8 text-red-500" />,
+      icon: <Settings className="h-8 w-8 text-destructive" />,
       title: "Fragmented services from multiple vendors",
       description: "Managing multiple providers creates complexity and inefficiency"
     },
     {
-      icon: <BarChart3 className="h-8 w-8 text-red-500" />,
+      icon: <BarChart3 className="h-8 w-8 text-destructive" />,
       title: "No measurable growth from one-off projects",
       description: "Isolated campaigns don't create sustainable long-term results"
     }
@@ -280,7 +280,7 @@ const HomePage = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
             {challenges.map((challenge, index) => (
-              <Card key={index} className="text-center bg-red-50 border-red-200">
+              <Card key={index} className="text-center bg-destructive/5 border-destructive/20 hover:border-destructive/40 transition-all duration-300">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
                     {challenge.icon}
