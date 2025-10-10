@@ -28,6 +28,9 @@ import {
   Bot,
 } from "lucide-react";
 import heroImage from "@/assets/hero-jxing-modern.jpg";
+import caseStudyEcommerce from "@/assets/case-study-ecommerce.jpg";
+import caseStudySaas from "@/assets/case-study-saas.jpg";
+import caseStudyTechStartup from "@/assets/case-study-tech-startup.jpg";
 
 export default function HomePage() {
   useEffect(() => {
@@ -111,19 +114,19 @@ export default function HomePage() {
 
   const caseStudies = [
     {
-      image: "/placeholder.svg",
+      image: caseStudyEcommerce,
       title: "E-Commerce Brand Triples Revenue",
       result: "3x revenue growth in 12 months",
       link: "/case-studies",
     },
     {
-      image: "/placeholder.svg",
+      image: caseStudySaas,
       title: "B2B SaaS Achieves 400% Lead Growth",
       result: "400% increase in qualified leads",
       link: "/case-studies",
     },
     {
-      image: "/placeholder.svg",
+      image: caseStudyTechStartup,
       title: "Local Service Business Dominates Market",
       result: "85% market share in 18 months",
       link: "/case-studies",
