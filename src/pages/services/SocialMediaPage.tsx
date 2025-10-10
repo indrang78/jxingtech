@@ -134,7 +134,7 @@ const SocialMediaPage = () => {
                 Social Media Management
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Omni-Channel Social Media Management: Engage Your Audience, Everywhere
+                Social Media Management
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Stay visible and relevant across all major platforms, consistently, for your audience.

@@ -85,7 +85,7 @@ const ContentSEOPage = () => {
             SEO & Content Strategy
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-            Growth-Driven Content & SEO: Rank Higher, Connect Deeper, Grow Organically
+            SEO & Content Strategy
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
             Combine the power of SEO with authentic brand storytelling. Build organic visibility, establish thought leadership, and create meaningful connections that convert visitors into loyal customers.

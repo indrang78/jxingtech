@@ -154,10 +154,10 @@ const AIIntegrationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                AI Integration & Agent Development
+                AI Integration & Smart Agents
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                AI Integration, Automation & Agent Development: Future-Proof Your Business with Smart Tech
+                AI Integration & Smart Agents
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Bring AI into your business where it matters most, driving innovation for SMEs.

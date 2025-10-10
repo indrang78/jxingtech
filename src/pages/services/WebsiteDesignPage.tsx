@@ -94,10 +94,10 @@ const WebsiteDesignPage = () => {
         <div className="container-standard container-padding relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-6 bg-accent text-accent-foreground border-0">
-              Web Design & Development
+              Website Design & Development
             </Badge>
             <h1 className="heading-responsive font-bold mb-6">
-              Growth-Driven Web Design & Development
+              Website Design & Development
             </h1>
             <p className="subheading-responsive text-white/90 mb-8 max-w-2xl mx-auto">
               Websites that adapt, convert, and evolve as your business grows.

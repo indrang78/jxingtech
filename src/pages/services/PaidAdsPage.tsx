@@ -149,7 +149,7 @@ const PaidAdsPage = () => {
                 Paid Ads Management
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Performance Marketing: Paid Ads Management - Accelerate Your Growth with Targeted Campaigns
+                Paid Ads Management
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Reach the right people, at the right time, with the right message for targeted ad campaigns.

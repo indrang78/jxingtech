@@ -151,10 +151,10 @@ const CRMAutomationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                CRM & Automation Integration
+                CRM & Automation
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                CRM & Automation Integration: Streamline Sales, Nurture Leads, Close More Deals
+                CRM & Automation
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Turn leads into customers with personalized follow-ups and workflows, optimizing your sales process.
