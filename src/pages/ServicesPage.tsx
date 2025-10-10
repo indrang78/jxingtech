@@ -155,28 +155,39 @@ const ServicesPage = () => {
       </section>
 
       {/* Core Services */}
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-background">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
               Our 6 Core Services
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Everything you need to build, grow, and scale your digital presence
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreServices.map((service, index) => (
-              <Card key={index} className="card-hover h-full bg-card border-2 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-                <CardHeader className="p-6">
-                  <div className="flex items-start space-x-4 mb-4">
-                    <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center ${
-                      service.category === 'Performance' ? 'bg-secondary/10' :
-                      service.category === 'Advanced' ? 'bg-accent/10' :
-                      'bg-primary/10'
+              <Card 
+                key={index} 
+                className="group relative h-full bg-card border border-border hover:border-primary/30 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
+              >
+                {/* Decorative gradient overlay */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${
+                  service.category === 'Performance' ? 'bg-gradient-to-r from-secondary/50 to-secondary' :
+                  service.category === 'Advanced' ? 'bg-gradient-to-r from-accent/50 to-accent' :
+                  'bg-gradient-to-r from-primary/50 to-primary'
+                }`} />
+                
+                <CardHeader className="p-8 pb-4">
+                  {/* Icon and Badge */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
+                      service.category === 'Performance' ? 'bg-gradient-to-br from-secondary/10 to-secondary/5' :
+                      service.category === 'Advanced' ? 'bg-gradient-to-br from-accent/10 to-accent/5' :
+                      'bg-gradient-to-br from-primary/10 to-primary/5'
                     }`}>
-                      <div className={`[&>svg]:w-7 [&>svg]:h-7 ${
+                      <div className={`[&>svg]:w-8 [&>svg]:h-8 ${
                         service.category === 'Performance' ? 'text-secondary' :
                         service.category === 'Advanced' ? 'text-accent' :
                         'text-primary'
@@ -184,54 +195,77 @@ const ServicesPage = () => {
                         {service.icon}
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <Badge className={`mb-2 text-xs ${
+                    <Badge 
+                      variant="outline"
+                      className={`text-xs font-medium border-0 ${
                         service.category === 'Performance' ? 'bg-secondary/10 text-secondary' :
                         service.category === 'Advanced' ? 'bg-accent/10 text-accent' :
                         'bg-primary/10 text-primary'
-                      }`}>
-                        {service.category}
-                      </Badge>
-                    </div>
+                      }`}
+                    >
+                      {service.category}
+                    </Badge>
                   </div>
-                  <CardTitle className="text-xl font-semibold mb-2 text-foreground leading-tight">
+                  
+                  {/* Title */}
+                  <CardTitle className="text-xl font-bold mb-3 text-foreground leading-tight group-hover:text-primary transition-colors">
                     {service.title}
                   </CardTitle>
-                  <div className={`text-sm font-bold mb-3 ${
-                    service.category === 'Performance' ? 'text-secondary' :
-                    service.category === 'Advanced' ? 'text-accent' :
-                    'text-primary'
-                  }`}>
-                    {service.priceRange}
+                  
+                  {/* Price */}
+                  <div className="flex items-baseline gap-2 mb-4">
+                    <span className={`text-2xl font-bold ${
+                      service.category === 'Performance' ? 'text-secondary' :
+                      service.category === 'Advanced' ? 'text-accent' :
+                      'text-primary'
+                    }`}>
+                      {service.priceRange}
+                    </span>
+                    {service.priceRange !== "Custom pricing" && (
+                      <span className="text-sm text-muted-foreground">/month</span>
+                    )}
                   </div>
+                  
+                  {/* Description */}
                   <CardDescription className="text-sm text-muted-foreground leading-relaxed">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-center space-x-2">
-                        <CheckCircle className={`h-4 w-4 flex-shrink-0 ${
-                          service.category === 'Performance' ? 'text-secondary' :
-                          service.category === 'Advanced' ? 'text-accent' :
-                          'text-primary'
-                        }`} />
-                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                
+                <CardContent className="p-8 pt-4">
+                  {/* Features List */}
+                  <div className="mb-6">
+                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
+                      What's Included
+                    </p>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, fIndex) => (
+                        <li key={fIndex} className="flex items-start gap-3">
+                          <CheckCircle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
+                            service.category === 'Performance' ? 'text-secondary' :
+                            service.category === 'Advanced' ? 'text-accent' :
+                            'text-primary'
+                          }`} />
+                          <span className="text-sm text-foreground leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* CTA Button */}
                   <Button 
-                    className={`w-full font-semibold rounded-lg ${
-                      service.category === 'Performance' ? 'bg-secondary hover:bg-secondary/90 text-white' :
-                      service.category === 'Advanced' ? 'bg-accent hover:bg-accent/90 text-primary' :
-                      'bg-primary hover:bg-primary/90 text-white'
+                    className={`w-full font-semibold rounded-xl h-12 transition-all duration-300 ${
+                      service.category === 'Performance' 
+                        ? 'bg-secondary hover:bg-secondary/90 text-white shadow-lg shadow-secondary/20 hover:shadow-xl hover:shadow-secondary/30' :
+                      service.category === 'Advanced' 
+                        ? 'bg-accent hover:bg-accent/90 text-primary shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30' :
+                        'bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30'
                     }`}
                     asChild
                   >
-                    <Link to={service.link}>
+                    <Link to={service.link} className="inline-flex items-center justify-center gap-2">
                       Learn More 
-                      <ArrowRight className="h-4 w-4 ml-2" />
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Link>
                   </Button>
                 </CardContent>
