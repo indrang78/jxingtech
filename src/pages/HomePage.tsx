@@ -32,7 +32,7 @@ import {
   TrendingUpIcon
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroCouple from "@/assets/hero-couple.jpg";
+import heroCouple from "@/assets/hero-reference.png";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
