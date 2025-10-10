@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -10,21 +11,16 @@ import {
 import { 
   CheckCircle,
   ArrowRight,
-  Star,
   Zap,
   TrendingUp,
-  Building,
-  Users,
-  Globe,
-  Search,
-  Share2,
   BarChart3,
-  Workflow,
   Bot,
   Shield,
-  Target,
-  Repeat,
-  X
+  X,
+  Plus,
+  FileText,
+  Users,
+  Clock
 } from "lucide-react";
 
 const PricingPage = () => {
@@ -156,6 +152,51 @@ const PricingPage = () => {
     ]
   };
 
+  const addOns = [
+    {
+      icon: FileText,
+      name: "Extra Content Pieces",
+      description: "Additional blog posts, social media content, or marketing materials",
+      price: "MYR 500 - 1,500",
+      unit: "per piece"
+    },
+    {
+      icon: BarChart3,
+      name: "Additional Landing Pages",
+      description: "Custom designed and optimized landing pages for campaigns",
+      price: "MYR 1,500 - 3,000",
+      unit: "per page"
+    },
+    {
+      icon: Bot,
+      name: "Advanced AI Features",
+      description: "Custom AI chatbots, automation workflows, or integrations",
+      price: "MYR 2,000 - 5,000",
+      unit: "per feature"
+    },
+    {
+      icon: Users,
+      name: "Priority Support Package",
+      description: "24/7 dedicated support with 2-hour response time SLA",
+      price: "MYR 1,500",
+      unit: "per month"
+    },
+    {
+      icon: TrendingUp,
+      name: "Additional Ad Spend Management",
+      description: "Extra paid advertising budget management and optimization",
+      price: "15% of ad spend",
+      unit: "management fee"
+    },
+    {
+      icon: Clock,
+      name: "Rush Development",
+      description: "Fast-track your project with priority development queue",
+      price: "30% premium",
+      unit: "on project cost"
+    }
+  ];
+
   const comparisonFeatures = [
     { feature: "Website Design & Development", launchpad: true, growth: true, enterprise: true },
     { feature: "Content Strategy & SEO", launchpad: "Basic", growth: "Advanced", enterprise: "Enterprise" },
@@ -208,14 +249,31 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Flexible Digital Marketing Plans for Every Stage of Your Growth
+      <section className="relative bg-gradient-to-br from-primary to-secondary text-white py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container-standard container-padding relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Pricing & Packages
           </h1>
-          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-            Choose from our integrated subscription packages or opt for a custom solution. Transparent pricing, no hidden fees for our SME digital services.
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Transparent subscription plans for every growth stage. No hidden fees, just results.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8"
+              asChild
+            >
+              <Link to="/contact">Start Your Plan</Link>
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-8"
+            >
+              Compare All Plans
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -385,33 +443,119 @@ const PricingPage = () => {
         </div>
       </section>
 
-      {/* Contract Flexibility Notice */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <Card className="bg-azure/5 border border-azure/20 rounded-xl">
-            <CardContent className="p-8 text-center">
-              <div className="flex justify-center mb-4">
-                <div className="w-12 h-12 bg-azure/10 rounded-xl flex items-center justify-center">
-                  <Zap className="h-6 w-6 text-azure" />
+      {/* Add-Ons Section */}
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Add-On Services
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Enhance your package with optional services tailored to your specific needs
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            {addOns.map((addon, index) => (
+              <Card key={index} className="p-6 border-2 border-border hover:border-primary/30 transition-all">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <addon.icon className="w-6 h-6 text-primary" />
                 </div>
-              </div>
-              <h3 className="text-2xl font-bold text-oxford-blue mb-4">
-                Flexible Contract Options
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto leading-relaxed">
-                <strong>Month-to-Month Flexibility:</strong> No long-term commitment required. Cancel or modify with 30 days' notice.<br />
-                <strong>Annual Contract Benefits:</strong> Save 10% with our annual plans, billed monthly with a 12-month minimum commitment for budget predictability.
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  {addon.name}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                  {addon.description}
+                </p>
+                <div className="pt-4 border-t border-border">
+                  <div className="text-xl font-bold text-primary mb-1">
+                    {addon.price}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {addon.unit}
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-6">
+              Need something custom? Let's discuss your unique requirements.
+            </p>
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full" asChild>
+              <Link to="/contact">
+                <Plus className="w-4 h-4 mr-2" />
+                Request Custom Add-Ons
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Pricing Model */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-standard container-padding">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-foreground">
+                Why Subscription Pricing?
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our subscription model is designed to align our success with yours
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="secondary">
-                  Learn More About Contracts
-                </Button>
-                <Button variant="outline">
-                  Compare Pricing Options
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-8 bg-white border-2 border-border">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Predictable Investment
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  No surprise bills or hidden fees. You know exactly what you're paying each month, making budgeting simple and stress-free.
+                </p>
+              </Card>
+
+              <Card className="p-8 bg-white border-2 border-border">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Continuous Optimization
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We don't just build and leave. Monthly subscriptions mean we're invested in your ongoing success and constantly improving your results.
+                </p>
+              </Card>
+
+              <Card className="p-8 bg-white border-2 border-border">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Flexibility to Scale
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Start small and scale up as you grow. Upgrade, downgrade, or pause services as your business needs change.
+                </p>
+              </Card>
+
+              <Card className="p-8 bg-white border-2 border-border">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <BarChart3 className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  Value-Focused Approach
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We focus on delivering measurable ROI every month, not just completing a project and moving on.
+                </p>
+              </Card>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -444,23 +588,52 @@ const PricingPage = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Find Your Perfect Digital Growth Plan?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Let's discuss which package fits your business stage and goals. Our digital strategy consultants are here to help.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-6 rounded-full">
-              Get a Custom Quote
-              <ArrowRight className="h-5 w-5 ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-full">
-              Schedule a Discovery Call
-            </Button>
+      {/* CTA with Guarantee */}
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div className="container-standard container-padding">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+              Ready to Start Growing?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Choose your plan and start seeing results within 30 days, or get a custom quote tailored to your unique needs.
+            </p>
+            
+            {/* Guarantee Badge */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8 border border-white/20">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Shield className="w-8 h-8 text-accent" />
+                <h3 className="text-2xl font-bold">Our Growth Guarantee</h3>
+              </div>
+              <p className="text-lg text-white/90 leading-relaxed">
+                We're committed to your success. If you don't see measurable improvements in your digital metrics within the first 90 days, we'll work with you at no additional cost until you do.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-full px-8"
+                asChild
+              >
+                <Link to="/contact">
+                  Start Your Plan Now
+                  <ArrowRight className="h-5 w-5 ml-2" />
+                </Link>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 font-semibold rounded-full px-8"
+                asChild
+              >
+                <Link to="/contact">Book a Strategy Call</Link>
+              </Button>
+            </div>
+
+            <p className="mt-8 text-white/70 text-sm">
+              No credit card required • Free consultation • Cancel anytime
+            </p>
           </div>
         </div>
       </section>
