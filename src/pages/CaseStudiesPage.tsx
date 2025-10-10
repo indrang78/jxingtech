@@ -17,6 +17,12 @@ import {
   Quote,
   ChevronRight
 } from "lucide-react";
+import caseStudySaas from "@/assets/case-study-saas.jpg";
+import caseStudyFnb from "@/assets/case-study-fnb.jpg";
+import caseStudyHealthcare from "@/assets/case-study-healthcare.jpg";
+import caseStudyManufacturing from "@/assets/case-study-manufacturing.jpg";
+import caseStudyEcommerce from "@/assets/case-study-ecommerce.jpg";
+import caseStudyTechStartup from "@/assets/case-study-tech-startup.jpg";
 
 const CaseStudiesPage = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
@@ -29,7 +35,7 @@ const CaseStudiesPage = () => {
       category: "Website",
       challenge: "Outdated website with 78% bounce rate and less than 1% conversion rate.",
       keyMetric: "285% Traffic Increase",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      image: caseStudySaas,
       icon: Globe,
       results: [
         { metric: "Traffic", value: "+285%" },
@@ -44,7 +50,7 @@ const CaseStudiesPage = () => {
       category: "SEO",
       challenge: "Low online visibility and declining foot traffic due to increased competition.",
       keyMetric: "3x Organic Traffic",
-      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+      image: caseStudyFnb,
       icon: Search,
       results: [
         { metric: "Organic Traffic", value: "+300%" },
@@ -59,7 +65,7 @@ const CaseStudiesPage = () => {
       category: "Social Media",
       challenge: "Limited social media presence and difficulty reaching younger demographics.",
       keyMetric: "500% Social Growth",
-      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop",
+      image: caseStudyHealthcare,
       icon: Share2,
       results: [
         { metric: "Social Following", value: "+500%" },
@@ -74,7 +80,7 @@ const CaseStudiesPage = () => {
       category: "Paid Ads",
       challenge: "High cost per acquisition and poor ROAS from existing advertising campaigns.",
       keyMetric: "180% ROAS Improvement",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+      image: caseStudyManufacturing,
       icon: BarChart3,
       results: [
         { metric: "Cost Per Lead", value: "-65%" },
@@ -89,7 +95,7 @@ const CaseStudiesPage = () => {
       category: "Automation",
       challenge: "Manual processes causing delays in customer service and inventory management.",
       keyMetric: "75% Task Reduction",
-      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=600&h=400&fit=crop",
+      image: caseStudyEcommerce,
       icon: Bot,
       results: [
         { metric: "Response Time", value: "-50%" },
@@ -104,7 +110,7 @@ const CaseStudiesPage = () => {
       category: "Automation",
       challenge: "Scaling challenges with customer onboarding and support processes.",
       keyMetric: "300% Faster Onboarding",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+      image: caseStudyTechStartup,
       icon: Workflow,
       results: [
         { metric: "Onboarding", value: "+300%" },
