@@ -27,7 +27,7 @@ import {
   MessageSquare,
   Bot,
 } from "lucide-react";
-import heroTeamImage from "@/assets/hero-team-collaboration.jpg";
+import heroImage from "@/assets/hero-jxing-modern.jpg";
 
 export default function HomePage() {
   useEffect(() => {
@@ -161,34 +161,67 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-primary text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary/90 z-10" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
+        {/* Background Image with Overlay */}
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30" 
-          style={{ backgroundImage: `url(${heroTeamImage})` }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroImage})` }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-primary/85 to-secondary/80" />
         
+        {/* Animated accent elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+        
+        {/* Content */}
         <div className="container max-w-7xl mx-auto px-6 relative z-20 text-center py-20">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Digital Growth, Made Simple
-          </h1>
-          <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-white/90">
-            We help small & medium businesses scale through unified web, marketing & automation systems.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-accent hover:bg-accent/90 text-primary font-semibold rounded-md px-8 py-6 text-lg"
-            >
-              Book Free Strategy Session
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-accent text-accent hover:bg-accent hover:text-primary rounded-md px-8 py-6 text-lg font-semibold"
-            >
-              Download Growth Playbook
-            </Button>
+          <div className="animate-fade-in-up">
+            <div className="inline-block mb-6 px-6 py-2 bg-accent/20 border border-accent/30 rounded-full">
+              <span className="text-accent font-semibold text-sm">Trusted by 100+ Growing Businesses</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white">
+              Digital Growth,
+              <span className="block bg-gradient-to-r from-accent via-accent/90 to-accent/80 bg-clip-text text-transparent">
+                Made Simple
+              </span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto text-white/90 leading-relaxed">
+              We help small & medium businesses scale through unified web, marketing & automation systems—without the complexity.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-primary font-semibold rounded-lg px-10 py-7 text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+              >
+                Book Free Strategy Session
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary rounded-lg px-10 py-7 text-lg font-semibold backdrop-blur-sm transition-all hover:scale-105"
+              >
+                Download Growth Playbook
+              </Button>
+            </div>
+            
+            {/* Trust indicators */}
+            <div className="mt-12 flex flex-wrap justify-center gap-8 text-white/70 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-accent" />
+                <span>No Long-term Contracts</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-accent" />
+                <span>Cancel Anytime</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-accent" />
+                <span>Transparent Pricing</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
