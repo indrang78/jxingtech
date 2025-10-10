@@ -84,20 +84,20 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
+      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl mx-auto">
             About JXING Tech: Your Digital Growth Partner
           </h1>
-          <p className="text-xl text-white/80 mb-8 max-w-[600px] mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Built for SMEs. Powered by Passion. Fueled by Results.
           </p>
         </div>
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold text-primary mb-6 leading-tight">
@@ -151,8 +151,8 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
               Our Story
@@ -184,8 +184,8 @@ const AboutPage = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Our Core Values as a Leading Digital Agency
@@ -218,8 +218,8 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
               Meet the JXING Tech Digital Experts
@@ -271,8 +271,8 @@ const AboutPage = () => {
       </section>
 
       {/* Why Work With Us Section */}
-      <section className="py-20 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
               Why JXING Tech is the Right Digital Partner for Your SME
@@ -303,23 +303,27 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 hero-gradient">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-primary">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             What's Next for Your Digital Growth Journey?
           </h2>
-          <p className="text-xl text-white/80 mb-8">
+          <p className="text-xl text-white/90 mb-8">
             Let's talk about what your business needs right now. Whether you're just starting out or ready to scale, 
             we're here to help SMEs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="xl">
-              Choose Your Plan
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-            <Button variant="outline-azure" size="xl">
-              Schedule a Discovery Call
-            </Button>
+            <Link to="/pricing">
+              <Button size="lg" className="bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-6 rounded-full">
+                Choose Your Plan
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Button>
+            </Link>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-full">
+                Schedule a Discovery Call
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

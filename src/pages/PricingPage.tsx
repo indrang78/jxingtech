@@ -208,20 +208,20 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-12 sm:py-16 md:py-20">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+      <section className="bg-gradient-to-br from-gray-50 to-white py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
             Flexible Digital Marketing Plans for Every Stage of Your Growth
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
             Choose from our integrated subscription packages or opt for a custom solution. Transparent pricing, no hidden fees for our SME digital services.
           </p>
         </div>
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-12 sm:py-16 md:py-20 bg-background">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {packages.map((pkg, index) => (
               <Card key={index} className={`relative bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200 ${pkg.badge === "Best Value" ? "ring-2 ring-azure" : ""}`}>
@@ -287,12 +287,12 @@ const PricingPage = () => {
                   </div>
 
                   <Button 
-                    className={`w-full h-12 font-semibold rounded-lg transition-all duration-200 ${
+                    className={`w-full h-12 font-semibold rounded-full transition-all duration-200 ${
                       pkg.badge === "Best Value" 
-                        ? "bg-azure hover:bg-azure/90 text-white" 
+                        ? "bg-primary hover:bg-primary/90 text-white" 
                         : pkg.badge === "Premium"
                         ? "bg-xanthous hover:bg-xanthous/90 text-oxford-blue"
-                        : "bg-marian-blue hover:bg-marian-blue/90 text-white"
+                        : "bg-primary hover:bg-primary/90 text-white"
                     }`}
                   >
                     Get Started
@@ -347,8 +347,8 @@ const PricingPage = () => {
       </section>
 
       {/* Comparison Table */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
               Compare Our Plans
@@ -386,8 +386,8 @@ const PricingPage = () => {
       </section>
 
       {/* Contract Flexibility Notice */}
-      <section className="py-16 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
           <Card className="bg-azure/5 border border-azure/20 rounded-xl">
             <CardContent className="p-8 text-center">
               <div className="flex justify-center mb-4">
@@ -416,8 +416,8 @@ const PricingPage = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
               Pricing FAQs
@@ -445,7 +445,7 @@ const PricingPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 hero-gradient">
+      <section className="py-20 bg-primary">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Find Your Perfect Digital Growth Plan?
@@ -454,11 +454,11 @@ const PricingPage = () => {
             Let's discuss which package fits your business stage and goals. Our digital strategy consultants are here to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+            <Button size="lg" className="bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-6 rounded-full">
               Get a Custom Quote
               <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline-white" size="lg">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-full">
               Schedule a Discovery Call
             </Button>
           </div>
