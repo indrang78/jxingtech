@@ -486,7 +486,7 @@ const PricingPage = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-primary font-semibold px-8"
               asChild
             >
               <Link to="/contact">Request Quote</Link>
