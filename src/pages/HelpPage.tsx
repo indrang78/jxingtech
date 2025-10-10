@@ -1,8 +1,9 @@
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -24,6 +25,10 @@ import {
   Clock,
   Shield,
   Phone,
+  CreditCard,
+  Lightbulb,
+  BookOpen,
+  FileCheck,
   Mail
 } from "lucide-react";
 
@@ -31,91 +36,111 @@ const HelpPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", "Pre-sale Questions", "Client Support"];
+  const categories = ["All", "Services", "Billing", "Onboarding", "Technical"];
 
   const faqData = [
-    // Pre-sale Questions
+    // Services
     {
       id: 1,
-      category: "Pre-sale Questions",
-      question: "What digital marketing services does JXING Tech offer?",
-      answer: "JXING Tech offers a comprehensive suite of digital marketing services including Growth-Driven Website Design & Development, Content-Led SEO & Brand Storytelling, Omni-Channel Social Media Management, Performance Marketing (Paid Ads), CRM & Automation Integration, Behavioral Marketing Automation, AI Integration & Agent Development, Content Repurposing Engine, Journey-Driven Content Distribution, and Website Care & Optimization Plans. We specialize in integrated solutions for SMEs looking to scale their digital presence.",
+      category: "Services",
+      question: "How do I sign up for JXING Tech's services?",
+      answer: "Signing up is simple! Start by booking a free consultation through our website or contact page. We'll discuss your business goals, recommend the right package, and create a custom proposal. Once approved, we'll send a service agreement and invoice. After payment confirmation, we'll schedule your onboarding session and assign your dedicated account team. The entire process typically takes 2-3 business days from initial contact to project kickoff.",
       icon: Globe,
-      tags: ["services", "digital marketing", "SEO", "website design", "social media"]
+      tags: ["signup", "onboarding", "getting started", "consultation"]
     },
     {
       id: 2,
-      category: "Pre-sale Questions",
-      question: "How does your subscription model for SME digital solutions work?",
-      answer: "Our subscription model is designed for flexibility and value. We offer three main packages: Digital Launchpad (MYR 2,500-3,500/month), Growth Engine (MYR 4,500-6,500/month), and Enterprise Ascend (MYR 8,000-12,000/month). You can choose between month-to-month flexibility or annual contracts with 10% savings. All plans are billed monthly, and annual contracts have a 12-month minimum commitment. You can upgrade anytime, and downgrades take effect at your next billing cycle.",
-      icon: BarChart3,
-      tags: ["subscription", "pricing", "packages", "billing", "SME"]
+      category: "Services",
+      question: "What digital marketing services does JXING Tech offer?",
+      answer: "We offer comprehensive digital solutions including Growth-Driven Web Design, Content-Led SEO, Social Media Management, Paid Ads (Google & Facebook), CRM & Marketing Automation, AI Integration & Chatbots, Content Repurposing, Customer Journey Marketing, and Website Care Plans. All services are designed to work together as an integrated ecosystem for maximum impact.",
+      icon: Zap,
+      tags: ["services", "digital marketing", "SEO", "web design", "automation"]
     },
     {
       id: 3,
-      category: "Pre-sale Questions",
-      question: "What's the typical project timeline for web development?",
-      answer: "Website development timelines vary based on complexity and scope. A standard business website typically takes 4-6 weeks from concept to launch, including design, development, content creation, and testing. E-commerce sites may take 6-8 weeks. Complex custom solutions can take 8-12 weeks. We follow a structured process: Discovery & Planning (1 week), Design & Approval (1-2 weeks), Development & Content (2-4 weeks), Testing & Launch (1 week). We provide detailed timelines during our initial consultation.",
-      icon: Clock,
-      tags: ["timeline", "web development", "website", "project duration"]
+      category: "Services",
+      question: "Can I customize my service package?",
+      answer: "Absolutely! While we offer three standard packages (Digital Launchpad, Growth Engine, Enterprise Ascend), we understand every business is unique. You can add specific services, remove unnecessary ones, or create a completely custom package. We also offer one-off projects starting at MYR 10,000 for specialized needs like custom AI development or complex integrations.",
+      icon: Settings,
+      tags: ["customization", "packages", "custom solutions", "flexibility"]
     },
+
+    // Billing
     {
       id: 4,
-      category: "Pre-sale Questions",
-      question: "Do you offer custom AI automation solutions?",
-      answer: "Yes! We specialize in AI integration and automation solutions tailored to your business needs. Our AI services include custom chatbot development, intelligent customer service automation, predictive analytics implementation, workflow automation, and AI-powered content generation. We work with leading AI platforms and can develop custom solutions starting from MYR 10,000 based on scope. Our Enterprise Ascend package includes AI integration as a standard feature.",
-      icon: Zap,
-      tags: ["AI", "automation", "custom solutions", "chatbots", "enterprise"]
+      category: "Billing",
+      question: "Can I change plans mid-subscription?",
+      answer: "Yes! You can upgrade your plan at any time, and changes take effect immediately with prorated billing. For downgrades, changes apply at your next billing cycle to ensure continuity of services. Our team will help you transition smoothly between plans and adjust your services accordingly. There are no penalties for plan changes.",
+      icon: CreditCard,
+      tags: ["billing", "plan changes", "upgrade", "downgrade", "subscription"]
     },
     {
       id: 5,
-      category: "Pre-sale Questions",
-      question: "What platforms do you work with for digital marketing?",
-      answer: "We work with all major digital marketing platforms including Google Ads, Facebook Ads, Instagram, LinkedIn, TikTok, YouTube, Google Analytics, Google Search Console, Facebook Business Manager, Mailchimp, HubSpot, Salesforce, WordPress, Shopify, Wix, and many more. Our team stays current with platform updates and best practices. We recommend platforms based on your target audience, budget, and business goals rather than pushing specific tools.",
-      icon: Settings,
-      tags: ["platforms", "tools", "Google Ads", "Facebook", "social media", "CRM"]
+      category: "Billing",
+      question: "What payment methods do you accept?",
+      answer: "We accept bank transfers (preferred for Malaysian clients), credit/debit cards (Visa, Mastercard, Amex), and online banking. Subscriptions are billed monthly in advance. Annual plans receive a 10% discount and are also billed monthly (not upfront). All invoices are sent via email 5 days before the billing date.",
+      icon: CreditCard,
+      tags: ["payment", "billing methods", "invoicing", "credit card"]
     },
-
-    // Client Support FAQs
     {
       id: 6,
-      category: "Client Support",
-      question: "How do I access my client dashboard for project updates?",
-      answer: "Your client dashboard is accessible at clients.jxingtech.com. You'll receive login credentials via email after your project kicks off. The dashboard provides real-time project updates, performance reports, campaign analytics, content calendars, and direct communication with your account team. If you've forgotten your login details, use the 'Forgot Password' feature or contact our support team. The dashboard is mobile-friendly and updated in real-time.",
-      icon: Users,
-      tags: ["client dashboard", "login", "project updates", "access"]
+      category: "Billing",
+      question: "What happens if I cancel my subscription?",
+      answer: "Monthly subscribers can cancel with 30 days' written notice. Annual subscribers are committed for 12 months but can discuss early termination options with potential fees waived in special circumstances. Upon cancellation, you'll receive all completed work, final reports, and website/content ownership transfers. We also offer a 60-day transition support period to help you smoothly move to another provider if needed.",
+      icon: Shield,
+      tags: ["cancellation", "refund", "termination", "exit policy"]
     },
+
+    // Onboarding
     {
       id: 7,
-      category: "Client Support",
-      question: "How do I request a website update or SEO change?",
-      answer: "Website updates and SEO changes can be requested through multiple channels: 1) Your client dashboard has a 'Request Update' feature, 2) Email your account manager directly, 3) Use our support portal, or 4) Submit requests via our website contact form. Include specific details about the changes needed. Minor updates (text changes, image swaps) are typically completed within 24-48 hours. Larger changes may take 3-5 business days. All requests are prioritized based on urgency and complexity.",
-      icon: FileText,
-      tags: ["website updates", "SEO changes", "requests", "support"]
+      category: "Onboarding",
+      question: "How long does onboarding take?",
+      answer: "Standard onboarding takes 1-2 weeks and includes: initial strategy session, access setup to all tools and dashboards, brand discovery workshop, competitor analysis, content audit, and goal setting. You'll be assigned a dedicated account manager who will guide you through each step. We provide a detailed onboarding checklist and timeline so you know exactly what to expect.",
+      icon: Clock,
+      tags: ["onboarding", "timeline", "getting started", "setup"]
     },
     {
       id: 8,
-      category: "Client Support",
-      question: "What's included in my monthly website care plan?",
-      answer: "Your monthly website care plan includes: security monitoring and updates, performance optimization, backup management, plugin/software updates, broken link checks, uptime monitoring, basic SEO maintenance, monthly performance reports, priority support, and minor content updates (up to 2 hours per month). Additional services like major design changes, new page creation, or extensive content updates may incur additional charges. Detailed plan features are outlined in your service agreement.",
-      icon: Shield,
-      tags: ["website care", "maintenance", "security", "updates", "support"]
+      category: "Onboarding",
+      question: "What information do you need from me to get started?",
+      answer: "We'll need: business background and goals, current website/social media access, brand guidelines (logo, colors, fonts), existing marketing materials, competitor information, target audience details, and login credentials for platforms you use. Don't worry if you don't have everything—we'll help you gather what's needed during onboarding. We provide a detailed questionnaire to make this easy.",
+      icon: FileText,
+      tags: ["onboarding", "requirements", "information needed", "setup"]
     },
     {
       id: 9,
-      category: "Client Support",
-      question: "Can I pause or upgrade my digital service subscription?",
-      answer: "Yes! Upgrades can be made anytime and take effect immediately. For downgrades or pausing services, changes take effect at your next billing cycle to ensure service continuity. Monthly subscribers can pause with 30 days' notice. Annual subscribers can discuss temporary adjustments with their account manager. We'll work with you to find solutions that fit your changing business needs while maintaining service quality.",
-      icon: Settings,
-      tags: ["subscription", "upgrade", "pause", "billing", "changes"]
+      category: "Onboarding",
+      question: "Will I have a dedicated account manager?",
+      answer: "Growth Engine and Enterprise Ascend clients receive a dedicated account manager. Digital Launchpad clients work with our shared support team but have a consistent point of contact. Your account manager oversees all aspects of your campaigns, coordinates with specialists, provides strategic guidance, and is available for regular check-ins. Enterprise clients also get a backup manager for 24/7 coverage.",
+      icon: Users,
+      tags: ["account manager", "support", "contact", "team"]
     },
+
+    // Technical
     {
       id: 10,
-      category: "Client Support",
-      question: "Who do I contact for urgent support regarding my digital campaigns?",
-      answer: "For urgent support, contact us through: 1) Priority support hotline (provided in your welcome packet), 2) Email support@jxingtech.com with 'URGENT' in the subject line, 3) Your dedicated account manager's direct contact, 4) Live chat on our website during business hours, or 5) Your client dashboard's emergency contact feature. Enterprise clients have 24/7 priority support. We aim to respond to urgent issues within 2 hours during business hours and 4 hours outside business hours.",
-      icon: Phone,
-      tags: ["urgent support", "emergency", "contact", "campaigns", "priority"]
+      category: "Technical",
+      question: "How do I access my client dashboard?",
+      answer: "Your dashboard is at clients.jxingtech.com (credentials emailed after onboarding). It provides real-time project updates, performance metrics, content calendars, campaign analytics, invoice history, and direct team messaging. The dashboard works on all devices and is updated in real-time. Use the 'Forgot Password' feature if needed or contact support@jxingtech.com.",
+      icon: Globe,
+      tags: ["dashboard", "login", "access", "portal", "technical"]
+    },
+    {
+      id: 11,
+      category: "Technical",
+      question: "How do I request website updates or changes?",
+      answer: "Submit update requests via: 1) Your client dashboard's 'Request Update' feature (recommended), 2) Email your account manager, 3) Our support portal, or 4) Website contact form. Include specific details and attach files/screenshots if needed. Minor changes (text, images) complete in 24-48 hours. Major updates (new pages, features) take 3-5 business days. All requests are tracked and confirmed.",
+      icon: FileText,
+      tags: ["updates", "changes", "requests", "website", "support"]
+    },
+    {
+      id: 12,
+      category: "Technical",
+      question: "Do you provide training on how to use my new website?",
+      answer: "Yes! All website clients receive: 1-hour live training session covering CMS basics, content updates, image management, and SEO best practices. We provide video tutorials, written guides, and ongoing email support. Additional training sessions can be scheduled as needed. Enterprise clients get unlimited training for their team members.",
+      icon: Lightbulb,
+      tags: ["training", "education", "CMS", "website management", "support"]
     }
   ];
 
@@ -156,13 +181,14 @@ const HelpPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            How Can We Help Your Business?
+      <section className="relative bg-gradient-to-br from-primary to-secondary text-white py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container-standard container-padding relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Help & FAQs
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
-            Find answers to common questions about our digital agency services, processes, and client support.
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Answers to common questions about our services, process, and support
           </p>
         </div>
       </section>
@@ -280,9 +306,9 @@ const HelpPage = () => {
                     <CardTitle className="text-lg font-bold text-oxford-blue">
                       Need More Help?
                     </CardTitle>
-                    <CardDescription>
+                    <p className="text-sm text-muted-foreground mt-2">
                       Still can't find what you're looking for?
-                    </CardDescription>
+                    </p>
                   </CardHeader>
                   <CardContent className="p-6">
                     <div className="space-y-3">
@@ -381,27 +407,114 @@ const HelpPage = () => {
         </div>
       </section>
 
+      {/* Helpful Resources */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Helpful Resources
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore more resources to help you make the most of our services
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <Link to="/blog">
+              <Card className="p-6 card-hover border-2 border-border hover:border-primary/30 h-full">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <BookOpen className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Blog
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Latest insights on digital marketing, SEO, and growth strategies
+                </p>
+                <div className="flex items-center text-primary text-sm font-semibold">
+                  Read Articles <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </Card>
+            </Link>
+
+            <Link to="/resources/website-growth-playbook">
+              <Card className="p-6 card-hover border-2 border-border hover:border-primary/30 h-full">
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-4">
+                  <FileCheck className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Growth Playbook
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Free comprehensive guide to scaling your digital presence
+                </p>
+                <div className="flex items-center text-primary text-sm font-semibold">
+                  Download Free <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </Card>
+            </Link>
+
+            <Link to="/case-studies">
+              <Card className="p-6 card-hover border-2 border-border hover:border-primary/30 h-full">
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <BarChart3 className="w-6 h-6 text-accent-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Case Studies
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Real success stories from businesses we've helped grow
+                </p>
+                <div className="flex items-center text-primary text-sm font-semibold">
+                  View Results <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </Card>
+            </Link>
+
+            <Link to="/contact">
+              <Card className="p-6 card-hover border-2 border-border hover:border-primary/30 h-full">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                  <MessageCircle className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Contact Support
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Get in touch with our team for personalized assistance
+                </p>
+                <div className="flex items-center text-primary text-sm font-semibold">
+                  Get Help <ArrowRight className="w-4 h-4 ml-1" />
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
-      <section className="py-20 hero-gradient">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Still Can't Find What You're Looking For?
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div className="container-standard container-padding text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+            Still Have Questions?
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Our digital strategy experts are here to help. Get personalized assistance for your specific needs.
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Our team is here to help. Get personalized assistance for your specific needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
-              <a href="mailto:hello@jxingtech.my">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-full px-8"
+              asChild
+            >
+              <Link to="/contact">
                 <Mail className="h-5 w-5 mr-2" />
-                Contact Our Support Team
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </a>
+                Contact Support Team
+              </Link>
             </Button>
             <Button 
-              variant="outline-white" 
               size="lg" 
-              className="font-semibold px-8 py-4 rounded-lg"
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 font-semibold rounded-full px-8"
               data-cal-link="jxingtech/book-a-free-consult"
               data-cal-config='{"layout":"month_view"}'
             >
@@ -410,10 +523,10 @@ const HelpPage = () => {
             </Button>
           </div>
           
-          <div className="mt-8 p-4 bg-white/10 rounded-lg backdrop-blur-sm">
+          <div className="mt-8 p-4 bg-white/10 rounded-lg backdrop-blur-sm max-w-md mx-auto">
             <p className="text-white/90 text-sm">
               <MessageCircle className="h-4 w-4 inline mr-2" />
-              <strong>Live Chat Available:</strong> Get instant help during business hours via our website chat widget
+              <strong>Live Chat Available:</strong> Instant help during business hours
             </p>
           </div>
         </div>
