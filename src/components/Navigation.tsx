@@ -102,15 +102,8 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Removed */}
           <div className="hidden lg:flex items-center space-x-3">
-            <Button 
-              className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 rounded-full shadow-sm"
-              data-cal-link="jxingtech/book-a-free-consult" 
-              data-cal-config='{"layout":"month_view"}'
-            >
-              Contact Us
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -152,12 +145,7 @@ const Navigation = () => {
                 Contact Us
               </Link>
               
-              {/* Mobile CTA Buttons */}
-              <div className="px-3 py-4 border-t border-muted/20 mt-4">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold rounded-full" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
-                  Contact Us
-                </Button>
-              </div>
+              {/* Mobile CTA Buttons - Removed */}
             </div>
           </div>}
       </div>
