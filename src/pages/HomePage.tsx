@@ -205,7 +205,7 @@ export default function HomePage() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary rounded-md px-8 py-6 text-lg"
+              className="border-2 border-accent text-accent hover:bg-accent hover:text-primary rounded-md px-8 py-6 text-lg font-semibold"
             >
               Download Growth Playbook
             </Button>
