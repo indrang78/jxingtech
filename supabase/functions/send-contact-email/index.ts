@@ -16,33 +16,6 @@ interface ContactEmailRequest {
   company?: string;
   inquiryType: string;
   message: string;
-  recaptchaToken: string;
-}
-
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  const secretKey = Deno.env.get("RECAPTCHA_SECRET_KEY");
-  if (!secretKey) {
-    console.error("RECAPTCHA_SECRET_KEY not found in environment variables");
-    return false;
-  }
-
-  try {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: `secret=${secretKey}&response=${token}`,
-    });
-
-    const data = await response.json();
-    console.log("reCAPTCHA verification response:", data);
-    
-    return data.success === true;
-  } catch (error) {
-    console.error("Error verifying reCAPTCHA:", error);
-    return false;
-  }
 }
 
 const handler = async (req: Request): Promise<Response> => {
@@ -52,29 +25,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, phone, company, inquiryType, message, recaptchaToken }: ContactEmailRequest = await req.json();
-
-    // Verify reCAPTCHA token
-    if (!recaptchaToken) {
-      return new Response(
-        JSON.stringify({ error: "reCAPTCHA token is required" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
-
-    const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
-    if (!isRecaptchaValid) {
-      return new Response(
-        JSON.stringify({ error: "reCAPTCHA verification failed" }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
-        }
-      );
-    }
+    const { name, email, phone, company, inquiryType, message }: ContactEmailRequest = await req.json();
 
     // Send confirmation email to the user
     const userEmailResponse = await resend.emails.send({

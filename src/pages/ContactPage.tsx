@@ -1,6 +1,5 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import ReCAPTCHA from 'react-google-recaptcha';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,8 +24,6 @@ import { supabase } from "@/integrations/supabase/client";
 const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', content: '' });
-  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -94,16 +91,6 @@ const ContactPage = () => {
       return;
     }
 
-    // Validate CAPTCHA
-    if (!captchaValue) {
-      setMessage({ 
-        type: 'error', 
-        content: 'Please complete the CAPTCHA verification.' 
-      });
-      setIsLoading(false);
-      return;
-    }
-
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
@@ -112,8 +99,7 @@ const ContactPage = () => {
           phone: formData.phone,
           company: formData.company,
           inquiryType: formData.inquiryType,
-          message: formData.message,
-          recaptchaToken: captchaValue
+          message: formData.message
         }
       });
 
@@ -133,12 +119,6 @@ const ContactPage = () => {
         inquiryType: "",
         message: ""
       });
-      
-      // Reset CAPTCHA
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
-      setCaptchaValue(null);
     } catch (error) {
       console.error('Error sending message:', error);
       setMessage({ 
@@ -288,19 +268,7 @@ const ContactPage = () => {
                   />
                 </div>
 
-                <div>
-                  <Label className="text-sm font-semibold text-foreground mb-2 block">
-                    Security Verification *
-                  </Label>
-                  <ReCAPTCHA
-                    ref={recaptchaRef}
-                    sitekey="6LeExLkqAAAAAJ9xiK6EQcfzqzjUwZ9xVCXG1bJZ"
-                    onChange={(value) => setCaptchaValue(value)}
-                    onExpired={() => setCaptchaValue(null)}
-                  />
-                </div>
-
-                <Button 
+                <Button
                   type="submit" 
                   size="lg" 
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full"
