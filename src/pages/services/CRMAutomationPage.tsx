@@ -151,10 +151,10 @@ const CRMAutomationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                CRM & Automation
+                Custom Web Solution
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                CRM & Automation
+                Custom Web Solution
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Turn leads into customers with personalized follow-ups and workflows, optimizing your sales process.
@@ -234,7 +234,7 @@ const CRMAutomationPage = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Our Integrated CRM & Automation Solution
+              Our Integrated Custom Web Solution
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We create a unified system that automates your sales process, nurtures leads intelligently, and gives you complete visibility into your customer relationships.
@@ -315,7 +315,7 @@ const CRMAutomationPage = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              What You Get: Complete CRM & Automation System
+              What You Get: Complete Custom Web Solution
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Everything you need to automate your sales process, nurture leads effectively, and scale your customer relationships.

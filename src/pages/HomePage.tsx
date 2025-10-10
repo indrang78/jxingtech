@@ -54,7 +54,7 @@ export default function HomePage() {
     },
     {
       icon: Settings,
-      title: "CRM & Automation",
+      title: "Custom Web Solution",
       benefit: "Streamline operations and nurture leads effectively",
       link: "/services/crm-automation",
     },

@@ -83,7 +83,7 @@ const ServicesPage = () => {
     },
     {
       icon: <Users className="h-7 w-7" />,
-      title: "CRM & Automation",
+      title: "Custom Web Solution",
       description: "Streamline customer engagement with powerful CRM systems and marketing automation workflows.",
       features: [
         "CRM implementation",

@@ -52,7 +52,7 @@ const HelpPage = () => {
       id: 2,
       category: "Services",
       question: "What digital marketing services does JXING Tech offer?",
-      answer: "We offer comprehensive digital solutions including Growth-Driven Web Design, Content-Led SEO, Social Media Management, Paid Ads (Google & Facebook), CRM & Marketing Automation, AI Integration & Chatbots, Content Repurposing, Customer Journey Marketing, and Website Care Plans. All services are designed to work together as an integrated ecosystem for maximum impact.",
+      answer: "We offer comprehensive digital solutions including Growth-Driven Web Design, Content-Led SEO, Social Media Management, Paid Ads (Google & Facebook), Custom Web Solution, AI Integration & Chatbots, Content Repurposing, Customer Journey Marketing, and Website Care Plans. All services are designed to work together as an integrated ecosystem for maximum impact.",
       icon: Zap,
       tags: ["services", "digital marketing", "SEO", "web design", "automation"]
     },

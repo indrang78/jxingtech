@@ -22,7 +22,7 @@ const Navigation = () => {
       name: "Paid Ads Management",
       path: "/services/paid-ads"
     }, {
-      name: "CRM & Automation",
+      name: "Custom Web Solution",
       path: "/services/crm-automation"
     }, {
       name: "AI Integration & Smart Agents",
