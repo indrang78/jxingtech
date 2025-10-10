@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import {
   DollarSign,
   Puzzle,
@@ -27,6 +29,14 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"book-a-free-consult"});
+      cal("floatingButton", {"calLink":"jxingtech/book-a-free-consult","config":{"layout":"month_view"}});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, []);
+
   const painPoints = [
     { icon: DollarSign, text: "High upfront agency costs" },
     { icon: Puzzle, text: "Disconnected tools & platforms" },
