@@ -21,6 +21,7 @@ import WebsiteCarePage from "./pages/services/WebsiteCarePage";
 import AboutPage from "./pages/AboutPage";
 import PricingPage from "./pages/PricingPage";
 import CaseStudiesPage from "./pages/CaseStudiesPage";
+import CaseStudyDetailPage from "./pages/CaseStudyDetailPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogArticlePage from "./pages/BlogArticlePage";
@@ -58,6 +59,7 @@ const AppContent = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/case-studies" element={<CaseStudiesPage />} />
+          <Route path="/case-studies/:id" element={<CaseStudyDetailPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:id" element={<BlogArticlePage />} />

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { 
   ArrowRight,
   TrendingUp,
@@ -14,7 +15,7 @@ import {
   Bot,
   Filter,
   Quote,
-  Clock
+  ChevronRight
 } from "lucide-react";
 
 const CaseStudiesPage = () => {
@@ -23,87 +24,77 @@ const CaseStudiesPage = () => {
   const caseStudies = [
     {
       id: 1,
-      clientName: "Leading F&B Brand",
-      industry: "Food & Beverage",
-      category: "SEO",
-      challenge: "Low online visibility and declining foot traffic due to increased competition in the local market.",
-      solution: "Implemented comprehensive SEO strategy with local optimization, content marketing, and social media integration.",
-      outcome: "3x increase in organic traffic, 85% improvement in local search rankings, 40% boost in store visits",
-      quote: "JXING Tech transformed our digital presence completely. We went from being invisible online to dominating local search results.",
-      clientRole: "Marketing Director",
-      icon: Search,
+      clientName: "TechStart Solutions",
+      industry: "B2B SaaS",
+      category: "Website",
+      challenge: "Outdated website with 78% bounce rate and less than 1% conversion rate.",
+      keyMetric: "285% Traffic Increase",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
+      icon: Globe,
       results: [
-        { metric: "Organic Traffic", value: "300%" },
-        { metric: "Local Rankings", value: "85%" },
-        { metric: "Store Visits", value: "40%" }
+        { metric: "Traffic", value: "+285%" },
+        { metric: "Bounce Rate", value: "-52%" },
+        { metric: "Conversions", value: "+320%" }
       ]
     },
     {
       id: 2,
-      clientName: "Growing E-commerce Startup",
-      industry: "E-commerce",
-      category: "Automation",
-      challenge: "Manual processes causing delays in customer service and inventory management, leading to poor customer experience.",
-      solution: "Deployed AI-powered customer service automation and integrated CRM system with inventory management.",
-      outcome: "50% reduction in response time, 75% decrease in manual tasks, doubled customer satisfaction scores",
-      quote: "The automation solutions saved us countless hours and dramatically improved our customer experience. Our team can now focus on growth instead of repetitive tasks.",
-      clientRole: "Operations Manager",
-      icon: Bot,
+      clientName: "Leading F&B Brand",
+      industry: "Food & Beverage",
+      category: "SEO",
+      challenge: "Low online visibility and declining foot traffic due to increased competition.",
+      keyMetric: "3x Organic Traffic",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop",
+      icon: Search,
       results: [
-        { metric: "Response Time", value: "-50%" },
-        { metric: "Manual Tasks", value: "-75%" },
-        { metric: "Customer Satisfaction", value: "100%" }
+        { metric: "Organic Traffic", value: "+300%" },
+        { metric: "Local Rankings", value: "+85%" },
+        { metric: "Store Visits", value: "+40%" }
       ]
     },
     {
       id: 3,
-      clientName: "Professional Services Firm",
-      industry: "Professional Services",
-      category: "Website",
-      challenge: "Outdated website with poor mobile experience resulting in high bounce rates and lost leads.",
-      solution: "Complete website redesign with mobile-first approach, lead capture optimization, and performance enhancement.",
-      outcome: "Doubled conversion rates, 60% reduction in bounce rate, 4x increase in qualified leads",
-      quote: "Our new website is not just beautiful—it's a lead generation machine. The results speak for themselves.",
-      clientRole: "Managing Partner",
-      icon: Globe,
+      clientName: "Regional Healthcare Provider",
+      industry: "Healthcare",
+      category: "Social Media",
+      challenge: "Limited social media presence and difficulty reaching younger demographics.",
+      keyMetric: "500% Social Growth",
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop",
+      icon: Share2,
       results: [
-        { metric: "Conversion Rate", value: "200%" },
-        { metric: "Bounce Rate", value: "-60%" },
-        { metric: "Qualified Leads", value: "400%" }
+        { metric: "Social Following", value: "+500%" },
+        { metric: "Appointments", value: "+250%" },
+        { metric: "Brand Awareness", value: "+90%" }
       ]
     },
     {
       id: 4,
-      clientName: "Regional Healthcare Provider",
-      industry: "Healthcare",
-      category: "Social Media",
-      challenge: "Limited social media presence and difficulty reaching younger demographics for health awareness campaigns.",
-      solution: "Comprehensive social media strategy with targeted content, community management, and paid advertising campaigns.",
-      outcome: "500% growth in social following, 250% increase in appointment bookings, 90% improvement in brand awareness",
-      quote: "JXING Tech helped us connect with our community in ways we never thought possible. Our patient engagement has never been higher.",
-      clientRole: "Marketing Coordinator",
-      icon: Share2,
+      clientName: "Manufacturing SME",
+      industry: "Manufacturing",
+      category: "Paid Ads",
+      challenge: "High cost per acquisition and poor ROAS from existing advertising campaigns.",
+      keyMetric: "180% ROAS Improvement",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop",
+      icon: BarChart3,
       results: [
-        { metric: "Social Following", value: "500%" },
-        { metric: "Appointment Bookings", value: "250%" },
-        { metric: "Brand Awareness", value: "90%" }
+        { metric: "Cost Per Lead", value: "-65%" },
+        { metric: "ROAS", value: "+180%" },
+        { metric: "Inquiries", value: "+45%" }
       ]
     },
     {
       id: 5,
-      clientName: "Manufacturing SME",
-      industry: "Manufacturing",
-      category: "Paid Ads",
-      challenge: "High cost per acquisition and poor ROAS from existing advertising campaigns across multiple platforms.",
-      solution: "Restructured paid advertising strategy with advanced targeting, A/B testing, and performance optimization.",
-      outcome: "65% reduction in cost per lead, 180% improvement in ROAS, 45% increase in qualified inquiries",
-      quote: "We were hemorrhaging money on ads before JXING Tech. Now every dollar spent brings measurable returns.",
-      clientRole: "Sales Director",
-      icon: BarChart3,
+      clientName: "Growing E-commerce Startup",
+      industry: "E-commerce",
+      category: "Automation",
+      challenge: "Manual processes causing delays in customer service and inventory management.",
+      keyMetric: "75% Task Reduction",
+      image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=600&h=400&fit=crop",
+      icon: Bot,
       results: [
-        { metric: "Cost Per Lead", value: "-65%" },
-        { metric: "ROAS", value: "180%" },
-        { metric: "Qualified Inquiries", value: "45%" }
+        { metric: "Response Time", value: "-50%" },
+        { metric: "Manual Tasks", value: "-75%" },
+        { metric: "Satisfaction", value: "+100%" }
       ]
     },
     {
@@ -111,16 +102,14 @@ const CaseStudiesPage = () => {
       clientName: "Tech Startup",
       industry: "Technology",
       category: "Automation",
-      challenge: "Scaling challenges with customer onboarding and support processes limiting growth potential.",
-      solution: "Implemented behavioral automation, customer journey mapping, and AI-powered support systems.",
-      outcome: "300% faster onboarding process, 80% reduction in support tickets, 120% increase in customer retention",
-      quote: "The automation systems JXING Tech built allowed us to scale without adding headcount. It's been transformational.",
-      clientRole: "CEO",
+      challenge: "Scaling challenges with customer onboarding and support processes.",
+      keyMetric: "300% Faster Onboarding",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
       icon: Workflow,
       results: [
-        { metric: "Onboarding Speed", value: "300%" },
+        { metric: "Onboarding", value: "+300%" },
         { metric: "Support Tickets", value: "-80%" },
-        { metric: "Customer Retention", value: "120%" }
+        { metric: "Retention", value: "+120%" }
       ]
     }
   ];
@@ -141,22 +130,23 @@ const CaseStudiesPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Real Results, Real Growth: Our Client Success Stories
+      <section className="relative bg-gradient-to-br from-primary to-secondary text-white py-20 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="container-standard container-padding relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Real Results, Real Growth
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
-            See how JXING Tech has helped businesses like yours achieve their digital goals and scale with confidence.
+          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+            See how we've helped businesses like yours achieve transformational digital growth.
           </p>
         </div>
       </section>
 
-      {/* Overall Impact Stats */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
+      {/* Metrics Section */}
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-oxford-blue mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
               Proven Results Across Industries
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -164,16 +154,16 @@ const CaseStudiesPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {overallStats.map((stat, index) => (
-              <Card key={index} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] text-center p-6">
-                <div className="w-12 h-12 bg-azure/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <stat.icon className="h-6 w-6 text-azure" />
+              <Card key={index} className="p-8 text-center bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/10">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <stat.icon className="h-7 w-7 text-primary" />
                 </div>
-                <div className="text-3xl font-bold text-oxford-blue mb-2">
+                <div className="text-4xl font-bold text-primary mb-2">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </Card>
@@ -183,8 +173,8 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <section className="py-8 bg-gray-50 border-y border-border">
+        <div className="container-standard container-padding">
           <div className="flex flex-wrap items-center justify-center gap-3">
             <div className="flex items-center space-x-2 mr-4">
               <Filter className="h-4 w-4 text-muted-foreground" />
@@ -198,7 +188,7 @@ const CaseStudiesPage = () => {
                 onClick={() => setSelectedFilter(category)}
                 className={`rounded-full ${
                   selectedFilter === category 
-                    ? "bg-azure text-white hover:bg-azure/90" 
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90" 
                     : "hover:bg-muted"
                 }`}
               >
@@ -210,110 +200,114 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* Case Studies Grid */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1400px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {filteredCaseStudies.map((study) => (
-              <Card key={study.id} className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200 overflow-hidden">
-                <CardHeader className="p-8 border-b border-muted/20">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <CardTitle className="text-xl font-bold text-oxford-blue mb-2">
-                        {study.clientName}
-                      </CardTitle>
-                      <Badge variant="secondary" className="bg-azure/10 text-azure border-azure/20">
-                        {study.industry}
+              <Link 
+                key={study.id} 
+                to={`/case-studies/${study.id}`}
+                className="block"
+              >
+                <Card className="card-hover overflow-hidden h-full">
+                  <div className="aspect-video bg-gray-200 overflow-hidden relative">
+                    <img 
+                      src={study.image} 
+                      alt={study.clientName}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-primary text-primary-foreground">
+                        {study.category}
                       </Badge>
-                    </div>
-                    <div className="w-12 h-12 bg-azure/10 rounded-xl flex items-center justify-center">
-                      <study.icon className="h-6 w-6 text-azure" />
                     </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-sm font-semibold text-oxford-blue mb-2 uppercase tracking-wide">
+                  <CardHeader className="p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex-1">
+                        <CardTitle className="text-xl font-bold text-foreground mb-2 leading-tight">
+                          {study.clientName}
+                        </CardTitle>
+                        <Badge variant="outline" className="text-xs">
+                          {study.industry}
+                        </Badge>
+                      </div>
+                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 ml-3">
+                        <study.icon className="h-5 w-5 text-primary" />
+                      </div>
+                    </div>
+                  </CardHeader>
+
+                  <CardContent className="p-6 pt-0">
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
                         Challenge
                       </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed line-clamp-2">
                         {study.challenge}
                       </p>
                     </div>
                     
-                    <div>
-                      <h4 className="text-sm font-semibold text-oxford-blue mb-2 uppercase tracking-wide">
-                        Solution
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wide">
+                        Key Results
                       </h4>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {study.solution}
-                      </p>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="p-8">
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-oxford-blue mb-3 uppercase tracking-wide">
-                      Key Results
-                    </h4>
-                    <div className="grid grid-cols-3 gap-4 mb-4">
-                      {study.results.map((result, index) => (
-                        <div key={index} className="text-center">
-                          <div className="text-2xl font-bold text-azure mb-1">
-                            {result.value}
+                      <div className="grid grid-cols-3 gap-3">
+                        {study.results.map((result, index) => (
+                          <div key={index} className="text-center">
+                            <div className="text-xl font-bold text-primary mb-1">
+                              {result.value}
+                            </div>
+                            <div className="text-xs text-muted-foreground">
+                              {result.metric}
+                            </div>
                           </div>
-                          <div className="text-xs text-muted-foreground">
-                            {result.metric}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-sm text-muted-foreground">
-                      {study.outcome}
-                    </p>
-                  </div>
-
-                  <div className="bg-muted/30 rounded-lg p-4 mb-6">
-                    <div className="flex items-start space-x-3">
-                      <Quote className="h-5 w-5 text-azure flex-shrink-0 mt-1" />
-                      <div>
-                        <p className="text-sm text-muted-foreground italic leading-relaxed mb-2">
-                          "{study.quote}"
-                        </p>
-                        <p className="text-xs text-azure font-medium">
-                          — {study.clientRole}
-                        </p>
+                        ))}
                       </div>
                     </div>
-                  </div>
 
-                  <Button variant="outline" className="w-full" disabled>
-                    Coming Soon
-                    <Clock className="h-4 w-4 ml-2" />
-                  </Button>
-                </CardContent>
-              </Card>
+                    <div className="p-4 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg mb-4">
+                      <p className="text-2xl font-bold text-primary text-center">
+                        {study.keyMetric}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-center text-primary font-semibold">
+                      View Case Study <ChevronRight className="w-4 h-4 ml-1" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 hero-gradient">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Write Your Own Success Story?
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div className="container-standard container-padding text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6 leading-tight">
+            Write Your Success Story With Us
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             Join the businesses that have transformed their digital presence with JXING Tech. Let's discuss how we can help you achieve similar results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-              Schedule a Free Consultation
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8"
+              asChild
+            >
+              <Link to="/contact">Schedule a Call</Link>
             </Button>
-            <Button variant="outline-white" size="lg">
-              View Our Services
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-8"
+              asChild
+            >
+              <Link to="/services">View Our Services</Link>
             </Button>
           </div>
         </div>
