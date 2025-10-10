@@ -19,197 +19,135 @@ import {
 } from "lucide-react";
 
 const AboutPage = () => {
-  const values = [
+  const differentiators = [
     {
-      icon: <Eye className="h-8 w-8 text-azure" />,
-      title: "Transparency",
-      description: "Honest conversations and clear communication. No hidden fees or tech jargon in our digital solutions."
+      icon: <Handshake className="h-8 w-8 text-secondary" />,
+      title: "Subscription Alignment",
+      description: "We grow when you grow. Our subscription model means we're invested in your long-term success, not just one-off projects."
     },
     {
-      icon: <TrendingUp className="h-8 w-8 text-azure" />,
-      title: "Growth-Driven",
-      description: "Everything we do is tied to measurable outcomes. We build with your business goals in mind."
+      icon: <Zap className="h-8 w-8 text-secondary" />,
+      title: "Full Integration",
+      description: "No more juggling multiple vendors. We bring web, marketing, automation, and AI together in one cohesive system."
     },
     {
-      icon: <Lightbulb className="h-8 w-8 text-azure" />,
-      title: "Innovation",
-      description: "From AI tools to modern tech stacks, we stay ahead so your SME can too."
+      icon: <Target className="h-8 w-8 text-secondary" />,
+      title: "Pragmatic Approach",
+      description: "We focus on what actually works. No unnecessary complexity—just practical solutions that deliver measurable results."
     },
     {
-      icon: <Handshake className="h-8 w-8 text-azure" />,
-      title: "Partnership",
-      description: "We don't see you as just a client. We're here to work alongside you, through the ups and downs."
-    },
-    {
-      icon: <CheckCircle className="h-8 w-8 text-azure" />,
-      title: "Accountability",
-      description: "If we say we'll deliver, we do. It's that simple."
-    },
-    {
-      icon: <Shield className="h-8 w-8 text-azure" />,
-      title: "Trust",
-      description: "We know trust is earned. That's why we build it through consistency, not just promises, for our clients."
+      icon: <Eye className="h-8 w-8 text-secondary" />,
+      title: "Full Transparency",
+      description: "Clear pricing. Clear timelines. Clear communication. You'll always know where you stand and what's happening."
     }
   ];
 
-  const team = [
+  const processSteps = [
     {
-      name: "Indran Gegathesa",
-      role: "Managing Director",
-      bio: "Visionary leader driving digital transformation for SMEs across multiple industries.",
-      expertise: ["Strategy", "Business Development", "Digital Transformation"]
+      number: "01",
+      title: "Discover",
+      description: "We start by understanding your business, goals, and challenges through in-depth conversations."
     },
     {
-      name: "Evelyn", 
-      role: "Head of Marketing",
-      bio: "Marketing strategist with expertise in growth marketing and content-driven campaigns.",
-      expertise: ["Growth Marketing", "Content Strategy", "Campaign Management"]
+      number: "02",
+      title: "Build",
+      description: "We create your digital foundation—website, systems, and workflows tailored to your needs."
     },
     {
-      name: "Bagas",
-      role: "Head of Tech",
-      bio: "Technical architect specializing in AI integration, automation, and scalable web solutions.",
-      expertise: ["AI Integration", "Automation", "Full-Stack Development"]
+      number: "03",
+      title: "Optimize",
+      description: "We continuously test, refine, and improve based on real data and user behavior."
+    },
+    {
+      number: "04",
+      title: "Grow",
+      description: "We scale what works, double down on winning strategies, and evolve with your business."
     }
   ];
 
-  const whyWorkWithUs = [
-    "We bring strategy and execution together for measurable digital results.",
-    "We use AI and automation to get things done better and faster, saving you time and budget.",
-    "We build long-term relationships. Most of our clients stick with us because we show up, listen, and stay involved.",
-    "We keep things simple. You get one dashboard to track your project, your performance, and your progress.",
-    "Our full range of services includes web development, SEO, social media, paid ads, automation, and AI integrations."
+  const metrics = [
+    { value: "50+", label: "Projects Delivered" },
+    { value: "30+", label: "Active Clients" },
+    { value: "85%", label: "Client Retention" },
+    { value: "3x", label: "Average ROI Growth" }
   ];
+
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-gray-50 to-white py-20">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight max-w-4xl mx-auto">
-            About JXING Tech: Your Digital Growth Partner
+      <section className="relative py-24 bg-gradient-to-br from-primary via-secondary to-primary overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] animate-shimmer opacity-30"></div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            About JXING Tech
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-            Built for SMEs. Powered by Passion. Fueled by Results.
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            Your growth partner in digital transformation
           </p>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-primary mb-6 leading-tight">
-                Our Mission & Vision
-              </h2>
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-marian-blue mb-4">Mission</h3>
-                <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-                  We help small and mid-sized businesses grow with affordable, high-performing digital solutions. 
-                  By combining automation, AI, and human expertise, we make complex tech simple and scalable for businesses.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-marian-blue mb-4">Vision</h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  We aim to become a trusted subscription-based digital agency, fostering long-term partnerships 
-                  that evolve as your business grows.
-                </p>
-              </div>
-            </div>
-            <div className="lg:pl-8">
-              <Card className="card-glow">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <Target className="h-6 w-6 text-xanthous" />
-                    <span>Our Approach</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-azure rounded-full"></div>
-                    <span className="text-sm text-muted-foreground">Growth-driven strategies</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-azure rounded-full"></div>
-                    <span className="text-sm text-muted-foreground">AI & automation integration</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-azure rounded-full"></div>
-                    <span className="text-sm text-muted-foreground">Human expertise & support</span>
-                  </div>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-azure rounded-full"></div>
-                    <span className="text-sm text-muted-foreground">Long-term partnerships</span>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Story Section */}
-      <section className="py-20 bg-gray-50">
+      {/* MD's Introduction */}
+      <section className="py-20 bg-background">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Our Story
+            <Badge className="mb-4 bg-secondary text-white">From the Managing Director</Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Why I Started JXING Tech
             </h2>
           </div>
           
           <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
             <p>
-              JXING Tech started with a simple observation: most SMEs aren't getting the support they need to succeed online. 
-              Traditional agencies often prioritize design over real results. Freelancers can be great, but they're not always 
-              consistent. And even in large companies, digital knowledge is often scattered or missing.
+              Hi, I'm Indran Gegathesa, founder and MD of JXING Tech. Let me share why this company exists and what drives us every day.
             </p>
             <p>
-              I saw this firsthand during my time at Heineken. Despite the company's size and resources, managing digital 
-              platforms was still a challenge. That made me realize how much harder it must be for smaller businesses with 
-              fewer tools and tighter budgets.
+              Before JXING Tech, I spent years at Heineken, managing digital platforms and seeing firsthand how challenging it is to coordinate digital efforts—even in a large multinational. If a company with those resources struggles, imagine what it's like for SMEs with limited budgets and fragmented support.
             </p>
             <p>
-              JXING Tech actually began as JKING Tech during the COVID-19 lockdown, originally built to sell vegetables online. 
-              As the world reopened, we pivoted into web development and digital marketing services. After my time at Heineken, 
-              I knew we needed to take this further—to make these services accessible, reliable, and focused on outcomes for the market.
+              That realization stuck with me. I saw too many small businesses getting stuck with beautiful websites that didn't convert, marketing campaigns without clear ROI, or tech tools that didn't talk to each other. They deserved better—a partner who actually cared about their growth, not just deliverables.
             </p>
             <p>
-              That's when we rebranded and registered as JXING Tech Sdn. Bhd. Today, we help businesses grow online not just 
-              with websites, but with full systems that support real, lasting growth.
+              JXING Tech started during the COVID-19 lockdown as JKING Tech, initially built to sell vegetables online. When the world reopened, we pivoted into web development and digital marketing. After my corporate experience, I knew we needed to do this properly—to build a business that treats SMEs with the same strategic thinking and integrated approach that big companies get.
+            </p>
+            <p>
+              We rebranded to JXING Tech Sdn. Bhd. with a clear mission: help SMEs grow with transparency, integration, and real results. No fluff, no jargon—just honest work and tangible outcomes.
+            </p>
+            <p className="font-semibold text-foreground">
+              We're not here to be just another agency. We're here to be your long-term growth partner.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-20 bg-white">
+      {/* What Sets Us Apart */}
+      <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Our Core Values as a Leading Digital Agency
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              What Sets Us Apart
             </h2>
-            <p className="text-xl text-muted-foreground">
-              The principles that guide everything we do
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              We're different because we've built our business around what SMEs actually need
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => (
-              <Card key={index} className="card-hover text-center h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {differentiators.map((item, index) => (
+              <Card key={index} className="card-hover text-center h-full border-2 hover:border-secondary transition-colors">
                 <CardHeader>
                   <div className="flex justify-center mb-4">
-                    {value.icon}
+                    {item.icon}
                   </div>
                   <CardTitle className="text-lg font-semibold">
-                    {value.title}
+                    {item.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-base">
-                    {value.description}
-                  </CardDescription>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </CardContent>
               </Card>
             ))}
@@ -217,114 +155,143 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Our Approach & Philosophy */}
+      <section className="py-20 bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Meet the JXING Tech Digital Experts
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our Approach & Philosophy
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're a team of strategists, developers, marketers, and creatives who care deeply about what we do. 
-              We bring a mix of experience in digital strategy, AI integration, SEO, marketing automation, and content creation. 
-              More than that, we bring energy and commitment to every project we take on.
+              We combine lean methods, data-driven insights, and creative thinking to build partnerships that actually work
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {team.map((member, index) => (
-              <Card key={index} className="card-hover text-center">
-                <CardHeader>
-                  <div className="w-20 h-20 bg-gradient-to-br from-azure to-robin-egg-blue rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="h-10 w-10 text-white" />
+          <div className="mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {processSteps.map((step, index) => (
+                <div key={index} className="relative">
+                  <div className="text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary text-white text-2xl font-bold mb-4">
+                      {step.number}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
-                  <CardTitle className="text-lg font-semibold">
-                    {member.name}
-                  </CardTitle>
-                  <CardDescription className="text-azure font-medium">
-                    {member.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {member.bio}
+                  {index < processSteps.length - 1 && (
+                    <div className="hidden lg:block absolute top-8 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-0.5 bg-gradient-to-r from-secondary to-transparent"></div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <Card className="bg-gradient-to-br from-muted/50 to-background border-2">
+            <CardHeader>
+              <CardTitle className="text-2xl text-center">How We Work With You</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 mb-4">
+                    <Target className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h4 className="font-semibold text-foreground mb-2">Data + Creativity</h4>
+                  <p className="text-sm text-muted-foreground">
+                    We let the numbers guide us, but we're not robots. Great marketing needs both insight and imagination.
                   </p>
-                  <div className="flex flex-wrap gap-1 justify-center">
-                    {member.expertise.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary" className="text-xs">
-                        {skill}
-                      </Badge>
-                    ))}
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 mb-4">
+                    <Handshake className="h-6 w-6 text-secondary" />
                   </div>
+                  <h4 className="font-semibold text-foreground mb-2">True Partnership</h4>
+                  <p className="text-sm text-muted-foreground">
+                    You're not just a client. We collaborate, listen, and adapt as your business evolves.
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 mb-4">
+                    <Zap className="h-6 w-6 text-secondary" />
+                  </div>
+                  <h4 className="font-semibold text-foreground mb-2">Lean Execution</h4>
+                  <p className="text-sm text-muted-foreground">
+                    We move fast, test quickly, and iterate based on what actually works—no bloat, no waste.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Metrics & Milestones */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Growth in Numbers
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Real results from real partnerships
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {metrics.map((metric, index) => (
+              <Card key={index} className="card-hover text-center border-2 hover:border-secondary transition-colors">
+                <CardContent className="pt-8 pb-8">
+                  <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
+                    {metric.value}
+                  </div>
+                  <p className="text-sm text-muted-foreground font-medium">
+                    {metric.label}
+                  </p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              Plus our wider team of designers, developers, writers, and support staff. We're not just service providers. 
-              We're the team you can rely on to help move things forward for your business.
+
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              These numbers tell part of the story, but what matters most is the impact—businesses that are growing, 
+              teams that are more efficient, and entrepreneurs who feel supported in their journey.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why Work With Us Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              Why JXING Tech is the Right Digital Partner for Your SME
-            </h2>
-          </div>
-          
-          <div className="space-y-6">
-            {whyWorkWithUs.map((reason, index) => (
-              <div key={index} className="flex items-start space-x-4">
-                <CheckCircle className="h-6 w-6 text-azure mt-1 flex-shrink-0" />
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {reason}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8 text-center">
-            <p className="text-muted-foreground">
-              You can explore all 10 of our services on the{" "}
-              <Link to="/services" className="text-azure hover:underline font-medium">
-                Services page
-              </Link>
-              .
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+      <section className="relative py-24 bg-gradient-to-br from-primary via-secondary to-primary overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] opacity-30"></div>
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            What's Next for Your Digital Growth Journey?
+            Let's Talk Growth
           </h2>
-          <p className="text-xl text-white/90 mb-8">
-            Let's talk about what your business needs right now. Whether you're just starting out or ready to scale, 
-            we're here to help SMEs.
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Whether you're just starting out or ready to scale, I'd love to hear about your business and explore how we can help. No pressure, no sales pitch—just an honest conversation about what's possible.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/pricing">
-              <Button size="lg" className="bg-white hover:bg-gray-100 text-primary font-semibold px-8 py-6 rounded-full">
-                Choose Your Plan
+            <Link to="/contact">
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all">
+                Book a Call with the MD
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 rounded-full">
-                Schedule a Discovery Call
+            <Link to="/pricing">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-6 text-base transition-all">
+                View Our Plans
               </Button>
             </Link>
           </div>
+          <p className="text-sm text-white/70 mt-6">
+            — Indran Gegathesa, Managing Director
+          </p>
         </div>
       </section>
     </div>
