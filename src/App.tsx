@@ -23,6 +23,7 @@ import PricingPage from "./pages/PricingPage";
 import CaseStudiesPage from "./pages/CaseStudiesPage";
 import ResourcesPage from "./pages/ResourcesPage";
 import BlogPage from "./pages/BlogPage";
+import BlogArticlePage from "./pages/BlogArticlePage";
 import WebsiteGrowthPlaybookPage from "./pages/WebsiteGrowthPlaybookPage";
 import HelpPage from "./pages/HelpPage";
 import ClientLoginPage from "./pages/ClientLoginPage";
@@ -59,6 +60,7 @@ const AppContent = () => {
           <Route path="/case-studies" element={<CaseStudiesPage />} />
           <Route path="/resources" element={<ResourcesPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:id" element={<BlogArticlePage />} />
           <Route path="/resources/website-growth-playbook" element={<WebsiteGrowthPlaybookPage />} />
           <Route path="/help" element={<HelpPage />} />
           <Route path="/client-login" element={<ClientLoginPage />} />
