@@ -29,6 +29,7 @@ import {
   Target
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import aiImage from "@/assets/service-ai-integration.jpg";
 
 const AIIntegrationPage = () => {
   const deliverables = [
@@ -171,10 +172,12 @@ const AIIntegrationPage = () => {
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
-                <Brain className="h-24 w-24 text-white/60" />
-              </div>
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={aiImage} 
+                alt="Professional interacting with AI technology interface" 
+                className="w-full h-auto object-cover"
+              />
             </div>
           </div>
         </div>

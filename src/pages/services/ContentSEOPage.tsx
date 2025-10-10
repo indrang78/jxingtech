@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, Search, PenTool, TrendingUp, Heart, Users, ShoppingCart, Briefcase, BarChart3, Clock, Target } from "lucide-react";
 import { Link } from "react-router-dom";
+import seoImage from "@/assets/service-seo-content.jpg";
 
 const ContentSEOPage = () => {
   const deliverables = [
@@ -131,13 +132,24 @@ const ContentSEOPage = () => {
         </div>
       </section>
 
-      {/* Our Solution */}
+      {/* Our Solution with Image */}
       <section className="py-16 px-4 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Our Content-Led SEO & Brand Storytelling System</h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            We merge technical SEO expertise with authentic brand storytelling to create content that ranks well, engages deeply, and converts consistently. Your brand story becomes your competitive advantage.
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+            <div className="rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1">
+              <img 
+                src={seoImage} 
+                alt="Professional analyzing SEO data and content strategy" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="order-1 lg:order-2">
+              <h2 className="text-3xl font-bold mb-6">Our Content-Led SEO & Brand Storytelling System</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                We merge technical SEO expertise with authentic brand storytelling to create content that ranks well, engages deeply, and converts consistently. Your brand story becomes your competitive advantage.
+              </p>
+            </div>
+          </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">

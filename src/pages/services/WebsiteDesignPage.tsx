@@ -18,6 +18,7 @@ import {
   ChevronRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import webDesignImage from "@/assets/service-web-design.jpg";
 
 const WebsiteDesignPage = () => {
   const challenges = [
@@ -146,16 +147,25 @@ const WebsiteDesignPage = () => {
         </div>
       </section>
 
-      {/* Solution Section */}
+      {/* Solution Section with Image */}
       <section className="py-20 bg-white">
         <div className="container-standard container-padding">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
-              What We Do / Our Solution
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Modern, conversion-focused websites built for growth and continuous improvement
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+                What We Do / Our Solution
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Modern, conversion-focused websites built for growth and continuous improvement
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={webDesignImage} 
+                alt="Professional web developer working on website design" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {solutions.map((solution, index) => (

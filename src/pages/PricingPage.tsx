@@ -22,6 +22,7 @@ import {
   Users,
   Clock
 } from "lucide-react";
+import pricingImage from "@/assets/pricing-decision.jpg";
 
 const PricingPage = () => {
   // Pillar 1: Platform Architecture & Management
@@ -207,6 +208,29 @@ const PricingPage = () => {
           <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             We categorize our offerings into core platform development and advanced performance growth, ensuring a unified strategy for every client.
           </p>
+        </div>
+      </section>
+
+      {/* Image Section */}
+      <section className="py-16 bg-background">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                Flexible Pricing That Grows With You
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Choose the package that fits your current needs, then scale up as your business grows. No surprises, just transparent monthly pricing designed for SMEs.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={pricingImage} 
+                alt="Business owner reviewing pricing options" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

@@ -17,6 +17,8 @@ import {
   Eye,
   Award
 } from "lucide-react";
+import aboutTeamImage from "@/assets/about-team-success.jpg";
+import heroTeamImage from "@/assets/hero-team-collaboration.jpg";
 
 const AboutPage = () => {
   const differentiators = [
@@ -121,9 +123,18 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* What Sets Us Apart */}
+      {/* What Sets Us Apart with Image */}
       <section className="py-20 bg-muted/30">
         <div className="max-w-7xl mx-auto px-6">
+          {/* Hero Image */}
+          <div className="rounded-2xl overflow-hidden shadow-2xl mb-16">
+            <img 
+              src={aboutTeamImage} 
+              alt="JXING Tech team celebrating success" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               What Sets Us Apart

@@ -27,6 +27,7 @@ import {
   MessageSquare,
   Bot,
 } from "lucide-react";
+import heroTeamImage from "@/assets/hero-team-collaboration.jpg";
 
 export default function HomePage() {
   useEffect(() => {
@@ -162,7 +163,10 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-primary text-white overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/95 to-secondary/90 z-10" />
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-20" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30" 
+          style={{ backgroundImage: `url(${heroTeamImage})` }}
+        />
         
         <div className="container max-w-7xl mx-auto px-6 relative z-20 text-center py-20">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
