@@ -164,7 +164,7 @@ const CRMAutomationPage = () => {
                   Automate Your Sales
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+                <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 rounded-lg">
                   Get CRM Consultation
                 </Button>
               </div>
