@@ -23,177 +23,104 @@ import {
 } from "lucide-react";
 
 const ServicesPage = () => {
-  // Pillar 1: Platform Architecture & Management Services
-  const platformServices = [
+  // 6 Core Services
+  const coreServices = [
     {
       icon: <Globe className="h-7 w-7" />,
-      title: "Core Digital Presence",
-      description: "Professional corporate website package for businesses ready to establish a solid online foundation.",
-      priceRange: "MYR 788",
+      title: "Website Design & Development",
+      description: "Professional, scalable websites that convert visitors into customers. From corporate sites to full e-commerce platforms.",
+      priceRange: "Starting MYR 788",
       features: [
-        "Up to 5 web pages",
         "Mobile-responsive design",
-        "1 content article per month",
-        "Monthly change allowance"
+        "SEO optimization built-in",
+        "E-commerce capabilities",
+        "Content management system",
+        "Ongoing care & maintenance"
       ],
-      link: "/services/website-design"
+      link: "/services/website-design",
+      category: "Platform"
     },
-    {
-      icon: <Globe className="h-7 w-7" />,
-      title: "Corporate Growth Plus",
-      description: "Scalable solution for growing businesses with enhanced features and capacity.",
-      priceRange: "MYR 1,188",
-      badge: "Most Popular",
-      features: [
-        "Up to 12 web pages",
-        "Advanced SEO optimization",
-        "2 content articles per month",
-        "Calendar booking integration",
-        "FREE setup fee (MYR 1,500 value)"
-      ],
-      link: "/services/website-design"
-    },
-    {
-      icon: <TrendingUp className="h-7 w-7" />,
-      title: "E-commerce Platform",
-      description: "Complete e-commerce solution focused on driving online sales for your business.",
-      priceRange: "MYR 1,388",
-      features: [
-        "Up to 50 product listings",
-        "2 payment gateway integrations",
-        "Content creation support",
-        "30-day data backup retention"
-      ],
-      link: "/services/website-design"
-    },
-    {
-      icon: <Users className="h-7 w-7" />,
-      title: "Customer Experience (CX) Orchestration",
-      description: "Specialized modules for running comprehensive customer engagement platforms.",
-      priceRange: "MYR 1,888 per module",
-      features: [
-        "Strategy & Insights",
-        "Implementation & Integration",
-        "Campaign Management",
-        "Optimization & Support"
-      ],
-      link: "/services/crm-automation"
-    }
-  ];
-
-  // Pillar 2: Performance Growth Modules
-  const performanceServices = [
     {
       icon: <Search className="h-7 w-7" />,
-      title: "Organic Authority System",
-      description: "Comprehensive SEO package for dominant search presence and organic traffic growth.",
-      priceRange: "MYR 1,188",
+      title: "SEO & Content Strategy",
+      description: "Comprehensive SEO package for dominant search presence and sustainable organic traffic growth.",
+      priceRange: "MYR 1,188/month",
       features: [
-        "20-30 keywords research & scope",
+        "20-30 keywords research",
         "5 blog articles per month",
-        "Advanced schema & technical SEO",
-        "Monthly competitor analysis"
+        "Advanced technical SEO",
+        "Monthly competitor analysis",
+        "Performance tracking"
       ],
       link: "/services/content-seo",
-      color: "yellow"
-    },
-    {
-      icon: <Workflow className="h-7 w-7" />,
-      title: "Nurture Flow & Conversion",
-      description: "Email marketing programs and audience targeting to convert leads into customers.",
-      priceRange: "MYR 888",
-      features: [
-        "1 social platform management",
-        "Up to 10,000 monthly sends",
-        "Subscription form included",
-        "Advanced segmentation & targeting"
-      ],
-      link: "/services/behavior-automation",
-      color: "cyan"
-    },
-    {
-      icon: <TrendingUp className="h-7 w-7" />,
-      title: "Performance Acquisition",
-      description: "ROI-focused paid digital ads campaigns for immediate market impact.",
-      priceRange: "MYR 588",
-      features: [
-        "1 social platform campaign",
-        "Content planning included",
-        "2 campaign events per month",
-        "Monthly social media audit",
-        "Max client spend: MYR 5,000"
-      ],
-      link: "/services/paid-ads",
-      color: "red"
+      category: "Performance"
     },
     {
       icon: <Share2 className="h-7 w-7" />,
-      title: "Social Media Organic Growth",
-      description: "Full organic reach creation across multiple social platforms.",
-      priceRange: "MYR 1,188",
+      title: "Social Media Management",
+      description: "Build consistent brand presence and organic reach across multiple social platforms.",
+      priceRange: "MYR 1,188/month",
       features: [
-        "3 social platform management",
-        "Content planning & strategy",
+        "3 platform management",
         "20 content posts per month",
-        "Monthly competitor analysis"
+        "Content planning & strategy",
+        "Community engagement",
+        "Monthly analytics reporting"
       ],
       link: "/services/social-media",
-      color: "green"
-    }
-  ];
-
-  // Additional Services
-  const additionalServices = [
-    {
-      icon: <Shield className="h-7 w-7" />,
-      title: "Website Care & Optimization",
-      description: "Ongoing maintenance, security, and performance optimization to keep your site running smoothly.",
-      features: [
-        "Regular security updates",
-        "Performance monitoring",
-        "Backup & maintenance"
-      ],
-      link: "/services/website-care"
+      category: "Performance"
     },
     {
-      icon: <Repeat className="h-7 w-7" />,
-      title: "Content Repurposing Engine",
-      description: "Maximize your content ROI by transforming core content into multiple formats.",
+      icon: <TrendingUp className="h-7 w-7" />,
+      title: "Paid Ads Management",
+      description: "ROI-focused paid digital advertising campaigns for immediate market impact and lead generation.",
+      priceRange: "MYR 588/month",
       features: [
-        "Multi-format content creation",
-        "Cross-platform optimization",
-        "Content lifecycle management"
+        "Multi-platform campaigns",
+        "Ad creative & copywriting",
+        "A/B testing & optimization",
+        "Conversion tracking",
+        "Monthly performance reports"
       ],
-      link: "/services/repurposing"
+      link: "/services/paid-ads",
+      category: "Performance"
     },
     {
-      icon: <Target className="h-7 w-7" />,
-      title: "Journey-Driven Content Distribution",
-      description: "Strategic content placement across your conversion funnel for maximum impact.",
+      icon: <Users className="h-7 w-7" />,
+      title: "CRM & Automation",
+      description: "Streamline customer engagement with powerful CRM systems and marketing automation workflows.",
+      priceRange: "MYR 1,888/month",
       features: [
-        "Funnel-based content strategy",
-        "Conversion optimization",
-        "Performance tracking"
+        "CRM implementation",
+        "Email marketing automation",
+        "Lead nurturing workflows",
+        "Customer segmentation",
+        "Integration with existing tools"
       ],
-      link: "/services/content-distribution"
+      link: "/services/crm-automation",
+      category: "Platform"
     },
     {
       icon: <Bot className="h-7 w-7" />,
       title: "AI Integration & Smart Agents",
-      description: "Custom AI solutions and smart automation for modern business operations.",
+      description: "Custom AI solutions and intelligent automation for modern, efficient business operations.",
+      priceRange: "Custom pricing",
       features: [
-        "Custom AI implementation",
-        "Smart chatbots & agents",
-        "Process automation"
+        "AI chatbot development",
+        "Process automation",
+        "Custom AI integrations",
+        "Smart workflow optimization",
+        "Ongoing AI training & refinement"
       ],
-      link: "/services/ai-integration"
+      link: "/services/ai-integration",
+      category: "Advanced"
     }
   ];
 
   const advantages = [
     {
       icon: <Settings className="h-6 w-6" />,
-      title: "No more fragmented vendors or DIY struggles"
+      title: "Complete digital ecosystem in one place"
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
@@ -201,225 +128,112 @@ const ServicesPage = () => {
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "All-in-one dashboard to track your growth"
+      title: "Proven results across multiple industries"
     },
     {
       icon: <Headphones className="h-6 w-6" />,
-      title: "AI + human-powered team working with you"
-    },
-    {
-      icon: <Target className="h-6 w-6" />,
-      title: "Modular services built for your growth stage"
+      title: "AI + human expertise working for you"
     }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
-            Your Complete Digital Growth Ecosystem for Businesses
+      <section className="relative bg-gradient-to-br from-primary via-secondary to-primary text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] opacity-30"></div>
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
+            Your Complete Digital Growth Ecosystem
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-[600px] mx-auto leading-relaxed font-medium">
-            Integrated Digital Solutions. Scalable Outcomes. One Expert Team.
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
+            6 core services to power your business transformation. From websites to AI, we've got you covered.
           </p>
-          <p className="text-base text-white/80 mb-8 max-w-[700px] mx-auto leading-relaxed">
-            At JXING Tech, we believe growth shouldn't come from random guesswork or juggling multiple vendors. That's why we offer integrated, subscription-based digital solutions for SMEs that bring your website, content, automation, social media, and ads together in one place. Whether you're just starting out or scaling fast, our services are built to grow with you—powered by strategy, supported by AI, and delivered by a team that's just as invested in your success as you are.
-          </p>
+          <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8" asChild>
+            <Link to="/pricing">View Our Packages</Link>
+          </Button>
         </div>
       </section>
 
-      {/* Pillar 1: Platform Architecture & Management */}
+      {/* Core Services */}
       <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <Badge className="mb-4 bg-secondary text-white">Pillar 1</Badge>
             <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
-              Platform Architecture & Management
+              Our 6 Core Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Scalable digital presence solutions from corporate websites to full-stack e-commerce
+              Everything you need to build, grow, and scale your digital presence
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {platformServices.map((service, index) => (
-              <Card key={index} className="card-hover h-full bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-                {service.badge && (
-                  <div className="absolute -top-3 left-6">
-                    <Badge className="bg-secondary text-white">{service.badge}</Badge>
-                  </div>
-                )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {coreServices.map((service, index) => (
+              <Card key={index} className="card-hover h-full bg-card border-2 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
                 <CardHeader className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center">
-                      <div className="text-secondary [&>svg]:w-7 [&>svg]:h-7">
-                        {service.icon}
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-xl font-semibold mb-2 text-foreground leading-tight">
-                        {service.title}
-                      </CardTitle>
-                      <div className="text-sm font-bold text-secondary mb-2">
-                        {service.priceRange}
-                      </div>
-                      <CardDescription className="text-sm text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </CardDescription>
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3">
-                        <CheckCircle className="h-4 w-4 text-secondary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button variant="secondary" className="w-full h-11 text-sm font-semibold rounded-lg group">
-                    Learn More 
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pillar 2: Performance Growth Modules */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <Badge className="mb-4 bg-primary text-white">Pillar 2</Badge>
-            <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
-              Performance Growth Modules
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Specialized modules that inject expert performance strategies directly into your infrastructure
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {performanceServices.map((service, index) => (
-              <Card 
-                key={index} 
-                className={`card-hover h-full bg-card border-l-4 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200 ${
-                  service.color === 'yellow' ? 'border-l-accent' :
-                  service.color === 'cyan' ? 'border-l-secondary' :
-                  service.color === 'red' ? 'border-l-red-500' :
-                  'border-l-green-500'
-                }`}
-              >
-                <CardHeader className="p-6">
-                  <div className="flex items-start space-x-4">
+                  <div className="flex items-start space-x-4 mb-4">
                     <div className={`flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center ${
-                      service.color === 'yellow' ? 'bg-accent/10' :
-                      service.color === 'cyan' ? 'bg-secondary/10' :
-                      service.color === 'red' ? 'bg-red-50' :
-                      'bg-green-50'
+                      service.category === 'Performance' ? 'bg-secondary/10' :
+                      service.category === 'Advanced' ? 'bg-accent/10' :
+                      'bg-primary/10'
                     }`}>
                       <div className={`[&>svg]:w-7 [&>svg]:h-7 ${
-                        service.color === 'yellow' ? 'text-accent' :
-                        service.color === 'cyan' ? 'text-secondary' :
-                        service.color === 'red' ? 'text-red-500' :
-                        'text-green-500'
+                        service.category === 'Performance' ? 'text-secondary' :
+                        service.category === 'Advanced' ? 'text-accent' :
+                        'text-primary'
                       }`}>
                         {service.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-xl font-semibold mb-2 text-foreground leading-tight">
-                        {service.title}
-                      </CardTitle>
-                      <div className={`text-sm font-bold mb-2 ${
-                        service.color === 'yellow' ? 'text-accent' :
-                        service.color === 'cyan' ? 'text-secondary' :
-                        service.color === 'red' ? 'text-red-500' :
-                        'text-green-500'
+                      <Badge className={`mb-2 text-xs ${
+                        service.category === 'Performance' ? 'bg-secondary/10 text-secondary' :
+                        service.category === 'Advanced' ? 'bg-accent/10 text-accent' :
+                        'bg-primary/10 text-primary'
                       }`}>
-                        {service.priceRange}
-                      </div>
-                      <CardDescription className="text-sm text-muted-foreground leading-relaxed">
-                        {service.description}
-                      </CardDescription>
+                        {service.category}
+                      </Badge>
                     </div>
                   </div>
+                  <CardTitle className="text-xl font-semibold mb-2 text-foreground leading-tight">
+                    {service.title}
+                  </CardTitle>
+                  <div className={`text-sm font-bold mb-3 ${
+                    service.category === 'Performance' ? 'text-secondary' :
+                    service.category === 'Advanced' ? 'text-accent' :
+                    'text-primary'
+                  }`}>
+                    {service.priceRange}
+                  </div>
+                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="p-6 pt-0">
                   <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-3">
+                    {service.features.map((feature, fIndex) => (
+                      <li key={fIndex} className="flex items-center space-x-2">
                         <CheckCircle className={`h-4 w-4 flex-shrink-0 ${
-                          service.color === 'yellow' ? 'text-accent' :
-                          service.color === 'cyan' ? 'text-secondary' :
-                          service.color === 'red' ? 'text-red-500' :
-                          'text-green-500'
+                          service.category === 'Performance' ? 'text-secondary' :
+                          service.category === 'Advanced' ? 'text-accent' :
+                          'text-primary'
                         }`} />
                         <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button 
-                    variant="outline" 
-                    className={`w-full h-11 text-sm font-semibold rounded-lg group border-2 ${
-                      service.color === 'yellow' ? 'border-accent text-accent hover:bg-accent hover:text-primary' :
-                      service.color === 'cyan' ? 'border-secondary text-secondary hover:bg-secondary hover:text-white' :
-                      service.color === 'red' ? 'border-red-500 text-red-500 hover:bg-red-500 hover:text-white' :
-                      'border-green-500 text-green-500 hover:bg-green-500 hover:text-white'
+                    className={`w-full font-semibold rounded-lg ${
+                      service.category === 'Performance' ? 'bg-secondary hover:bg-secondary/90 text-white' :
+                      service.category === 'Advanced' ? 'bg-accent hover:bg-accent/90 text-primary' :
+                      'bg-primary hover:bg-primary/90 text-white'
                     }`}
+                    asChild
                   >
-                    Learn More 
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <Link to={service.link}>
+                      Learn More 
+                      <ArrowRight className="h-4 w-4 ml-2" />
+                    </Link>
                   </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Additional Services */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
-              Additional Services & Support
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Complementary services to enhance your digital ecosystem
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {additionalServices.map((service, index) => (
-              <Card key={index} className="card-hover h-full bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-                <CardHeader className="p-6">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                    <div className="text-primary [&>svg]:w-6 [&>svg]:h-6">
-                      {service.icon}
-                    </div>
-                  </div>
-                  <CardTitle className="text-lg font-semibold mb-2 text-foreground leading-tight">
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="p-6 pt-0">
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center space-x-2">
-                        <CheckCircle className="h-3 w-3 text-primary flex-shrink-0" />
-                        <span className="text-xs text-muted-foreground leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </CardContent>
               </Card>
             ))}
@@ -429,29 +243,27 @@ const ServicesPage = () => {
 
       {/* JXING Tech Advantage */}
       <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
-              The JXING Tech Advantage
+              Why Choose JXING Tech
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Why businesses choose our modular, integrated approach
+              More than just services—a complete digital partnership
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((advantage, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
+              <div key={index} className="flex items-start space-x-3 p-6 bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
                 <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
                   <div className="text-primary [&>svg]:w-6 [&>svg]:h-6">
                     {advantage.icon}
                   </div>
                 </div>
-                <div className="flex-1">
-                  <p className="text-base text-foreground font-medium leading-relaxed">
-                    {advantage.title}
-                  </p>
-                </div>
+                <p className="text-sm text-foreground font-medium leading-relaxed pt-2">
+                  {advantage.title}
+                </p>
               </div>
             ))}
           </div>
@@ -463,17 +275,17 @@ const ServicesPage = () => {
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] opacity-30"></div>
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Build Your Digital Foundation?
+            Ready to Transform Your Digital Presence?
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Choose the services that match your growth stage. Mix and match our modular offerings to create your perfect digital ecosystem.
+            Choose the services that match your growth stage and budget
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8" asChild>
-              <Link to="/pricing">View Pricing & Plans</Link>
+              <Link to="/pricing">View Pricing</Link>
             </Button>
             <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8" asChild>
-              <Link to="/contact">Schedule a Discovery Call</Link>
+              <Link to="/contact">Schedule a Call</Link>
             </Button>
           </div>
         </div>

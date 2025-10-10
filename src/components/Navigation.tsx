@@ -8,43 +8,25 @@ const Navigation = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
   const servicesCategories = [{
-    category: "Design & Marketing",
+    category: "Core Services",
     services: [{
-      name: "Growth-Driven Website Design & Development",
+      name: "Website Design & Development",
       path: "/services/website-design"
     }, {
-      name: "Growth-Driven Content-Led SEO & Brand Storytelling",
+      name: "SEO & Content Strategy",
       path: "/services/content-seo"
     }, {
-      name: "Omni-Channel Social Media Management",
+      name: "Social Media Management",
       path: "/services/social-media"
     }, {
-      name: "Performance Marketing: Paid Ads Management",
+      name: "Paid Ads Management",
       path: "/services/paid-ads"
-    }]
-  }, {
-    category: "Automation & AI",
-    services: [{
-      name: "CRM & Automation Integration",
+    }, {
+      name: "CRM & Automation",
       path: "/services/crm-automation"
     }, {
-      name: "Behavioral Marketing Automation & Customer Journey Mapping",
-      path: "/services/behavioral-automation"
-    }, {
-      name: "AI Integration, Automation & Agent Development",
+      name: "AI Integration & Smart Agents",
       path: "/services/ai-integration"
-    }]
-  }, {
-    category: "Content Systems",
-    services: [{
-      name: "Content Repurposing Engine",
-      path: "/services/repurposing"
-    }, {
-      name: "Journey-Driven Content Distribution",
-      path: "/services/content-distribution"
-    }, {
-      name: "Website Care & Optimization Plan",
-      path: "/services/website-care"
     }]
   }];
   const resourcesLinks = [{

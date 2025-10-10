@@ -47,63 +47,39 @@ export default function HomePage() {
   const services = [
     {
       icon: Globe,
-      title: "Growth-Driven Web Design",
-      benefit: "Websites that convert visitors into customers",
+      title: "Website Design & Development",
+      benefit: "Professional websites that drive conversions and growth",
       link: "/services/website-design",
     },
     {
       icon: Search,
-      title: "Content-Led SEO",
-      benefit: "Rank higher and attract qualified traffic",
+      title: "SEO & Content Strategy",
+      benefit: "Rank higher and attract qualified organic traffic",
       link: "/services/content-seo",
     },
     {
       icon: Share2,
       title: "Social Media Management",
-      benefit: "Build brand presence across all channels",
+      benefit: "Build consistent brand presence across platforms",
       link: "/services/social-media",
     },
     {
       icon: Target,
       title: "Paid Ads Management",
-      benefit: "Maximize ROI from every ad dollar",
+      benefit: "Maximize ROI from targeted ad campaigns",
       link: "/services/paid-ads",
     },
     {
       icon: Settings,
       title: "CRM & Automation",
-      benefit: "Streamline operations and save time",
+      benefit: "Streamline operations and nurture leads effectively",
       link: "/services/crm-automation",
     },
     {
-      icon: Zap,
-      title: "Behavioral Automation",
-      benefit: "Personalized customer journeys at scale",
-      link: "/services/behavior-automation",
-    },
-    {
       icon: Bot,
-      title: "AI Integration",
-      benefit: "Leverage AI for competitive advantage",
+      title: "AI Integration & Smart Agents",
+      benefit: "Leverage AI for competitive advantage and efficiency",
       link: "/services/ai-integration",
-    },
-    {
-      icon: FileText,
-      title: "Content Repurposing",
-      benefit: "Maximize value from every piece of content",
-      link: "/services/repurposing",
-    },
-    {
-      icon: MessageSquare,
-      title: "Content Distribution",
-      benefit: "Reach your audience where they are",
-      link: "/services/content-distribution",
-    },
-    {
-      icon: RefreshCw,
-      title: "Website Care & Optimization",
-      benefit: "Keep your site fast, secure, and current",
-      link: "/services/website-care",
     },
   ];
 
