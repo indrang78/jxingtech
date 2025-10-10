@@ -57,24 +57,23 @@ const Navigation = () => {
     name: "Help / FAQ",
     path: "/help"
   }];
-  return <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex justify-between items-center h-[72px]">
+  return <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png" alt="JXING Tech Group - Growth-driven digital solutions for SMEs" className="h-10 w-auto object-contain" />
-            <span className="font-bold text-lg sm:text-xl text-primary hidden sm:block">Tech Group</span>
+          <Link to="/" className="flex items-center space-x-2">
+            <span className="font-bold text-2xl text-foreground tracking-tight">JXING</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+          <div className="hidden lg:flex items-center space-x-8">
+            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-primary" : "text-foreground hover:text-primary"}`}>
               About Us
             </Link>
 
             {/* Services Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-foreground hover:text-primary transition-smooth outline-none">
                 <span>Services</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
@@ -93,17 +92,17 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-primary" : "text-foreground hover:text-primary"}`}>
               Pricing
             </Link>
 
-            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-primary" : "text-foreground hover:text-primary"}`}>
               Case Studies
             </Link>
 
             {/* Resources Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-foreground hover:text-primary transition-smooth outline-none">
                 <span>Resources</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
@@ -116,26 +115,24 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-primary" : "text-foreground hover:text-primary"}`}>
               Contact Us
             </Link>
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3">
             <Button 
-              variant="xanthous" 
-              size="sm" 
+              className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 rounded-full shadow-sm"
               data-cal-link="jxingtech/book-a-free-consult" 
               data-cal-config='{"layout":"month_view"}'
             >
-              <Calendar className="h-4 w-4 mr-2" />
-              Book Consultation
+              Contact Us
             </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -143,7 +140,7 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && <div className="md:hidden border-t border-border bg-background">
+        {isOpen && <div className="lg:hidden border-t border-border bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link to="/about" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/about") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
                 About Us
@@ -175,9 +172,8 @@ const Navigation = () => {
               
               {/* Mobile CTA Buttons */}
               <div className="px-3 py-4 border-t border-muted/20 mt-4">
-                <Button variant="xanthous" size="sm" className="w-full" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Book Consultation
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold rounded-full" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
+                  Contact Us
                 </Button>
               </div>
             </div>
