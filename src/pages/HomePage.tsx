@@ -53,6 +53,18 @@ export default function HomePage() {
       link: "/services/website-design",
     },
     {
+      icon: Settings,
+      title: "CRM & Automation",
+      benefit: "Streamline operations and nurture leads effectively",
+      link: "/services/crm-automation",
+    },
+    {
+      icon: Bot,
+      title: "AI Integration & Smart Agents",
+      benefit: "Leverage AI for competitive advantage and efficiency",
+      link: "/services/ai-integration",
+    },
+    {
       icon: Search,
       title: "SEO & Content Strategy",
       benefit: "Rank higher and attract qualified organic traffic",
@@ -69,18 +81,6 @@ export default function HomePage() {
       title: "Paid Ads Management",
       benefit: "Maximize ROI from targeted ad campaigns",
       link: "/services/paid-ads",
-    },
-    {
-      icon: Settings,
-      title: "CRM & Automation",
-      benefit: "Streamline operations and nurture leads effectively",
-      link: "/services/crm-automation",
-    },
-    {
-      icon: Bot,
-      title: "AI Integration & Smart Agents",
-      benefit: "Leverage AI for competitive advantage and efficiency",
-      link: "/services/ai-integration",
     },
   ];
 
@@ -252,7 +252,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="p-6 hover:shadow-lg transition-shadow rounded-md">
                 <service.icon className="w-10 h-10 text-secondary mb-4" />
