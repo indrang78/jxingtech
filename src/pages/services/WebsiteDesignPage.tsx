@@ -1,466 +1,394 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { 
-  Globe, 
+  CheckCircle2, 
   Zap, 
-  Search, 
+  TrendingUp, 
   Smartphone, 
-  Shield, 
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Clock,
-  Users,
-  Star,
-  Quote
+  Target, 
+  RefreshCw,
+  BarChart3,
+  Layers,
+  Layout,
+  FileCode,
+  PenTool,
+  Settings,
+  Calendar,
+  ChevronRight
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const WebsiteDesignPage = () => {
+  const challenges = [
+    "Website becomes outdated fast",
+    "Poor conversion design",
+    "Hard to scale or update without dev help",
+    "Slow loading times affecting SEO",
+    "Not mobile-responsive",
+    "Disconnected from marketing tools"
+  ];
+
+  const solutions = [
+    {
+      icon: Smartphone,
+      title: "Responsive, Mobile-First Layout",
+      description: "Optimized for all devices with flawless mobile experience that converts visitors into customers."
+    },
+    {
+      icon: Target,
+      title: "Conversion Optimization Built In",
+      description: "Strategic CTAs, user journey mapping, and psychology-driven design to maximize conversions."
+    },
+    {
+      icon: Layers,
+      title: "Modular Architecture for Updates",
+      description: "Easy to update and scale without breaking existing features or requiring full rebuilds."
+    },
+    {
+      icon: BarChart3,
+      title: "A/B Testing & Iteration",
+      description: "Continuous testing and refinement based on real user data and behavior analytics."
+    },
+    {
+      icon: Zap,
+      title: "Performance Optimized",
+      description: "Lightning-fast load times with optimized code, images, and hosting infrastructure."
+    },
+    {
+      icon: RefreshCw,
+      title: "SEO & Technical Foundation",
+      description: "Built-in SEO best practices, structured data, and clean code for search visibility."
+    }
+  ];
+
   const deliverables = [
+    { icon: Layout, item: "Complete site structure & sitemap planning" },
+    { icon: PenTool, item: "Custom design mockups & brand alignment" },
+    { icon: FileCode, item: "Full development with clean, scalable code" },
+    { icon: Settings, item: "CMS integration for easy content updates" },
+    { icon: BarChart3, item: "Analytics & tracking setup (GA4, Search Console)" },
+    { icon: Calendar, item: "Post-launch optimization & monthly update cycles" },
+    { icon: RefreshCw, item: "Ongoing A/B testing & conversion improvements" },
+    { icon: CheckCircle2, item: "Unlimited revision cycles during development" }
+  ];
+
+  const caseStudies = [
     {
-      icon: <Globe className="h-6 w-6" />,
-      title: "Custom Website Design",
-      description: "Fully responsive, mobile-first design tailored to your brand and business goals"
+      client: "Local Retailer",
+      result: "Increased online conversions by 285% within 3 months through redesign and optimization."
     },
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Lightning-Fast Performance",
-      description: "Optimized for speed with page load times under 3 seconds for better user experience"
-    },
-    {
-      icon: <Search className="h-6 w-6" />,
-      title: "SEO Foundation",
-      description: "Built-in SEO optimization with proper structure, meta tags, and schema markup"
-    },
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "Mobile Optimization",
-      description: "Perfect display and functionality across all devices and screen sizes"
-    },
-    {
-      icon: <Shield className="h-6 w-6" />,
-      title: "Security & Reliability",
-      description: "SSL certificates, regular backups, and security monitoring included"
-    },
-    {
-      icon: <TrendingUp className="h-6 w-6" />,
-      title: "Conversion-Focused",
-      description: "Strategic placement of CTAs and forms to maximize lead generation and sales"
+      client: "Professional Services Firm",
+      result: "Reduced bounce rate by 52% and doubled contact form submissions with mobile-first redesign."
     }
   ];
 
-  const processSteps = [
+  const pricingTiers = [
     {
-      step: "01",
-      title: "Discovery & Strategy",
-      description: "We analyze your business goals, target audience, and competition to create a strategic foundation"
+      name: "Starter",
+      price: "2,500",
+      period: "MYR / month",
+      features: [
+        "Up to 5 pages",
+        "Mobile responsive",
+        "Basic SEO setup",
+        "Contact form",
+        "Monthly updates (2 hrs)"
+      ]
     },
     {
-      step: "02",
-      title: "Design & Development",
-      description: "Our team creates custom designs and develops your website using the latest technologies"
+      name: "Growth",
+      price: "4,500",
+      period: "MYR / month",
+      features: [
+        "Up to 15 pages",
+        "Advanced SEO",
+        "CMS integration",
+        "Analytics dashboard",
+        "Monthly updates (5 hrs)",
+        "A/B testing setup"
+      ],
+      popular: true
     },
     {
-      step: "03",
-      title: "Testing & Optimization",
-      description: "Comprehensive testing across devices and browsers to ensure perfect functionality"
-    },
-    {
-      step: "04",
-      title: "Launch & Support",
-      description: "We handle the launch process and provide ongoing support and maintenance"
-    }
-  ];
-
-  const targetClients = [
-    "Small to medium-sized enterprises (SMEs) looking to establish or improve their online presence",
-    "Startups needing a professional website to build credibility and attract customers",
-    "E-commerce businesses requiring conversion-optimized online stores",
-    "Service-based businesses wanting to showcase their expertise and generate leads",
-    "Growing companies needing to scale their digital infrastructure"
-  ];
-
-  const faqs = [
-    {
-      question: "What are the key considerations for website development?",
-      answer: "Key considerations include mobile responsiveness, page loading speed, SEO optimization, user experience design, security measures, scalability, and conversion optimization. We ensure all these elements are properly addressed in every project."
-    },
-    {
-      question: "How long does it take to build a website?",
-      answer: "Typically, a custom website takes 4-8 weeks from start to launch, depending on complexity and features required. We provide detailed timelines during the discovery phase and keep you updated throughout the process."
-    },
-    {
-      question: "Do you provide ongoing website maintenance?",
-      answer: "Yes, we offer comprehensive website care and optimization plans that include security updates, performance monitoring, content updates, backups, and technical support to keep your site running smoothly."
-    },
-    {
-      question: "Will my website be mobile-friendly?",
-      answer: "Absolutely. All our websites are built with a mobile-first approach, ensuring they look and function perfectly on smartphones, tablets, and desktop computers. Mobile optimization is essential for both user experience and SEO."
-    },
-    {
-      question: "Can you help with e-commerce functionality?",
-      answer: "Yes, we specialize in building conversion-optimized e-commerce websites with features like product catalogs, shopping carts, payment integration, inventory management, and customer account systems."
+      name: "Enterprise",
+      price: "Custom",
+      period: "Pricing",
+      features: [
+        "Unlimited pages",
+        "Custom integrations",
+        "Advanced automation",
+        "Dedicated support",
+        "Priority updates",
+        "White-glove service"
+      ]
     }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="hero-gradient py-20">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                Website Design & Development
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Growth-Driven Website Design & Development: Your Foundation for Digital Success
-              </h1>
-              <p className="text-xl text-white/90 mb-8 leading-relaxed">
-                Launch fast, responsive, and SEO-friendly websites that look good and perform even better for your business.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-                  Start Your Project
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </Button>
-                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
-                  View Portfolio
-                </Button>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
-                <Globe className="h-24 w-24 text-white/60" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Problem We Solve */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-                The Problem We Solve
-              </h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-oxford-blue mb-2">Slow, Outdated Websites</h3>
-                    <p className="text-muted-foreground">Many businesses struggle with websites that load slowly, look unprofessional, and don't convert visitors into customers.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Smartphone className="h-6 w-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-oxford-blue mb-2">Poor Mobile Experience</h3>
-                    <p className="text-muted-foreground">With over 60% of web traffic coming from mobile devices, non-responsive websites lose potential customers daily.</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Search className="h-6 w-6 text-red-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-oxford-blue mb-2">Low Search Visibility</h3>
-                    <p className="text-muted-foreground">Websites built without SEO considerations fail to rank in search engines, missing out on organic traffic and growth opportunities.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-muted/30 rounded-xl p-8">
-              <Quote className="h-8 w-8 text-marian-blue mb-4" />
-              <blockquote className="text-lg text-oxford-blue font-medium mb-4 leading-relaxed">
-                "Our old website was costing us customers. It was slow, looked outdated, and didn't work properly on phones. We knew we needed help but didn't know where to start."
-              </blockquote>
-              <cite className="text-muted-foreground">— Common feedback from our clients</cite>
+      <section className="relative bg-gradient-to-br from-primary via-primary to-secondary text-white py-24 lg:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="container-standard container-padding relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="mb-6 bg-accent text-accent-foreground border-0">
+              Web Design & Development
+            </Badge>
+            <h1 className="heading-responsive font-bold mb-6">
+              Growth-Driven Web Design & Development
+            </h1>
+            <p className="subheading-responsive text-white/90 mb-8 max-w-2xl mx-auto">
+              Websites that adapt, convert, and evolve as your business grows.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8"
+                asChild
+              >
+                <Link to="/contact">Get Web Design Quote</Link>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-8"
+                asChild
+              >
+                <Link to="/pricing">View Pricing</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Solution */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Our Growth-Driven Solution
+      {/* Challenges Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-standard container-padding">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-4 text-foreground">
+              The Challenges You Face
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              We create websites that not only look amazing but are strategically designed to grow your business, attract customers, and generate results from day one.
+            <p className="text-lg text-muted-foreground text-center mb-12">
+              Common website problems that hold SMEs back from growth
+            </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {challenges.map((challenge, index) => (
+                <Card key={index} className="p-6 border-l-4 border-l-destructive bg-white">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-destructive mt-2 flex-shrink-0"></div>
+                    <p className="text-foreground font-medium">{challenge}</p>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              What We Do / Our Solution
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Modern, conversion-focused websites built for growth and continuous improvement
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-ghost-white rounded-xl flex items-center justify-center mb-4">
-                  <TrendingUp className="h-6 w-6 text-marian-blue" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {solutions.map((solution, index) => (
+              <Card key={index} className="p-8 card-hover border-2 hover:border-primary/20">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                  <solution.icon className="w-7 h-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-oxford-blue mb-3">
-                  Growth-Focused Design
-                </CardTitle>
-                <p className="text-muted-foreground leading-relaxed">
-                  Every element is strategically placed to guide visitors toward taking action, whether that's making a purchase, booking a consultation, or contacting your team.
-                </p>
-              </CardHeader>
-            </Card>
-
-            <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-ghost-white rounded-xl flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-marian-blue" />
-                </div>
-                <CardTitle className="text-xl font-semibold text-oxford-blue mb-3">
-                  Performance Optimized
-                </CardTitle>
-                <p className="text-muted-foreground leading-relaxed">
-                  Built for speed and reliability with optimized code, compressed images, and efficient hosting to ensure your site loads in under 3 seconds.
-                </p>
-              </CardHeader>
-            </Card>
-
-            <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-              <CardHeader className="p-6">
-                <div className="w-12 h-12 bg-ghost-white rounded-xl flex items-center justify-center mb-4">
-                  <Shield className="h-6 w-6 text-marian-blue" />
-                </div>
-                <CardTitle className="text-xl font-semibold text-oxford-blue mb-3">
-                  Future-Proof Technology
-                </CardTitle>
-                <p className="text-muted-foreground leading-relaxed">
-                  Using modern frameworks and best practices to ensure your website remains secure, scalable, and easy to maintain as your business grows.
-                </p>
-              </CardHeader>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Key Deliverables & Features */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              What You Get: Key Deliverables & Features
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              A comprehensive website solution designed to attract, engage, and convert your ideal customers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {deliverables.map((item, index) => (
-              <div key={index} className="flex items-start space-x-4 p-6 bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
-                <div className="w-12 h-12 bg-ghost-white rounded-xl flex items-center justify-center flex-shrink-0">
-                  <div className="text-marian-blue [&>svg]:w-6 [&>svg]:h-6">
-                    {item.icon}
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-oxford-blue mb-2 leading-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Who Is This For */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-                Who Is This For?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Our website design and development service is perfect for businesses that want to establish a strong online presence and drive real results.
-              </p>
-              <ul className="space-y-4">
-                {targetClients.map((client, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <CheckCircle className="h-5 w-5 text-azure flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground leading-relaxed">{client}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-card rounded-xl p-8 shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-12 h-12 bg-ghost-white rounded-full flex items-center justify-center">
-                  <Users className="h-6 w-6 text-marian-blue" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-oxford-blue">Perfect For</h3>
-                  <p className="text-muted-foreground">Growing businesses</p>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center justify-between p-3 bg-ghost-white rounded-lg">
-                  <span className="text-oxford-blue font-medium">Annual Revenue</span>
-                  <span className="text-muted-foreground">$100K - $10M+</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-ghost-white rounded-lg">
-                  <span className="text-oxford-blue font-medium">Team Size</span>
-                  <span className="text-muted-foreground">5 - 100+ employees</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-ghost-white rounded-lg">
-                  <span className="text-oxford-blue font-medium">Industry</span>
-                  <span className="text-muted-foreground">All sectors welcome</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Our Proven Process
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              From initial consultation to successful launch, we follow a strategic process that ensures your website delivers results.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-marian-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-6">
-                  {step.step}
-                </div>
-                <h3 className="text-xl font-semibold text-oxford-blue mb-4 leading-tight">
-                  {step.title}
+                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                  {solution.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {step.description}
+                  {solution.description}
                 </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              What You'll Get
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Complete deliverables from strategy to ongoing optimization
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6">
+            {deliverables.map((deliverable, index) => (
+              <div key={index} className="flex items-start gap-4 bg-white p-6 rounded-xl border border-border">
+                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
+                  <deliverable.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <p className="text-foreground font-medium pt-2">{deliverable.item}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Success Snapshot */}
-      <section className="py-20 bg-muted/30">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Success Snapshot
+      {/* Why Different Section */}
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-foreground">
+              Why We Do It Differently
             </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="p-8 text-center border-2 border-primary/20 bg-primary/5">
+                <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                  Subscription Model
+                </h3>
+                <p className="text-muted-foreground">
+                  No huge upfront costs. Pay monthly and scale as you grow.
+                </p>
+              </Card>
+              <Card className="p-8 text-center border-2 border-secondary/20 bg-secondary/5">
+                <RefreshCw className="w-12 h-12 text-secondary mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                  Ongoing Optimization
+                </h3>
+                <p className="text-muted-foreground">
+                  Continuous A/B testing and improvements based on real data.
+                </p>
+              </Card>
+              <Card className="p-8 text-center border-2 border-accent/20 bg-accent/5">
+                <Layers className="w-12 h-12 text-accent-foreground mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                  Integrated Systems
+                </h3>
+                <p className="text-muted-foreground">
+                  Connected to your CRM, tracking, and marketing tools.
+                </p>
+              </Card>
+            </div>
           </div>
-
-          <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] max-w-4xl mx-auto">
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <Quote className="h-8 w-8 text-marian-blue mb-4" />
-                  <blockquote className="text-xl text-oxford-blue font-medium mb-6 leading-relaxed">
-                    "JXING Tech transformed our online presence completely. Our new website not only looks amazing but has increased our lead generation by 300% in just 6 months. The mobile experience is fantastic, and our customers love how easy it is to navigate."
-                  </blockquote>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-ghost-white rounded-full flex items-center justify-center">
-                      <span className="text-marian-blue font-semibold">SB</span>
-                    </div>
-                    <div>
-                      <cite className="text-oxford-blue font-semibold not-italic">Sarah Chen</cite>
-                      <p className="text-muted-foreground">CEO, TechStart Solutions</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4 bg-ghost-white rounded-xl">
-                    <div className="text-3xl font-bold text-marian-blue mb-2">300%</div>
-                    <div className="text-sm text-muted-foreground">Lead Increase</div>
-                  </div>
-                  <div className="text-center p-4 bg-ghost-white rounded-xl">
-                    <div className="text-3xl font-bold text-marian-blue mb-2">2.8s</div>
-                    <div className="text-sm text-muted-foreground">Page Load Time</div>
-                  </div>
-                  <div className="text-center p-4 bg-ghost-white rounded-xl">
-                    <div className="text-3xl font-bold text-marian-blue mb-2">98%</div>
-                    <div className="text-sm text-muted-foreground">Mobile Score</div>
-                  </div>
-                  <div className="text-center p-4 bg-ghost-white rounded-xl">
-                    <div className="text-3xl font-bold text-marian-blue mb-2">45%</div>
-                    <div className="text-sm text-muted-foreground">Bounce Rate Drop</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-20 bg-background">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Frequently Asked Questions
+      {/* Case Studies Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Example Results
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Get answers to common questions about our website design and development process.
+            <p className="text-lg text-muted-foreground">
+              Real outcomes for businesses like yours
             </p>
           </div>
-
-          <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-xl px-6 border-0 shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
-                  <AccordionTrigger className="text-left text-oxford-blue font-semibold hover:no-underline py-6">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+            {caseStudies.map((study, index) => (
+              <Card key={index} className="p-8 border-l-4 border-l-primary bg-white">
+                <h3 className="text-xl font-semibold mb-3 text-foreground">
+                  {study.client}
+                </h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
+                  {study.result}
+                </p>
+                <Button variant="link" className="text-primary p-0 h-auto" asChild>
+                  <Link to="/case-studies">
+                    View Full Case Study <ChevronRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 hero-gradient">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Launch Your Growth-Driven Website?
+      {/* Pricing Teaser Section */}
+      <section className="py-20 bg-white">
+        <div className="container-standard container-padding">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+              Transparent Pricing
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Choose a plan that fits your business stage
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingTiers.map((tier, index) => (
+              <Card 
+                key={index} 
+                className={`p-8 relative ${
+                  tier.popular 
+                    ? 'border-2 border-primary shadow-xl scale-105' 
+                    : 'border border-border'
+                }`}
+              >
+                {tier.popular && (
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground border-0">
+                    Most Popular
+                  </Badge>
+                )}
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">{tier.name}</h3>
+                  <div className="text-4xl font-bold text-primary mb-1">{tier.price}</div>
+                  <p className="text-sm text-muted-foreground">{tier.period}</p>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {tier.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  className={`w-full rounded-full ${
+                    tier.popular 
+                      ? 'bg-primary hover:bg-primary/90' 
+                      : 'bg-secondary hover:bg-secondary/90'
+                  }`}
+                  asChild
+                >
+                  <Link to="/pricing">View Full Details</Link>
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <div className="container-standard container-padding text-center">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-6">
+            Ready to Transform Your Website?
           </h2>
-          <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Let's create a website that not only looks amazing but drives real business results. Schedule your free consultation today.
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Let's build a website that grows with your business and drives real results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-              Start Your Project
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-8"
+              asChild
+            >
+              <Link to="/contact">Request a Quote</Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
-              Schedule Discovery Call
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 rounded-full px-8"
+            >
+              Book a Free Call
             </Button>
           </div>
         </div>
