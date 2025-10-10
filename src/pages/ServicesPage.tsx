@@ -29,7 +29,6 @@ const ServicesPage = () => {
       icon: <Globe className="h-7 w-7" />,
       title: "Website Design & Development",
       description: "Professional, scalable websites that convert visitors into customers. From corporate sites to full e-commerce platforms.",
-      priceRange: "Starting MYR 788",
       features: [
         "Mobile-responsive design",
         "SEO optimization built-in",
@@ -44,7 +43,6 @@ const ServicesPage = () => {
       icon: <Search className="h-7 w-7" />,
       title: "SEO & Content Strategy",
       description: "Comprehensive SEO package for dominant search presence and sustainable organic traffic growth.",
-      priceRange: "MYR 1,188/month",
       features: [
         "20-30 keywords research",
         "5 blog articles per month",
@@ -59,7 +57,6 @@ const ServicesPage = () => {
       icon: <Share2 className="h-7 w-7" />,
       title: "Social Media Management",
       description: "Build consistent brand presence and organic reach across multiple social platforms.",
-      priceRange: "MYR 1,188/month",
       features: [
         "3 platform management",
         "20 content posts per month",
@@ -74,7 +71,6 @@ const ServicesPage = () => {
       icon: <TrendingUp className="h-7 w-7" />,
       title: "Paid Ads Management",
       description: "ROI-focused paid digital advertising campaigns for immediate market impact and lead generation.",
-      priceRange: "MYR 588/month",
       features: [
         "Multi-platform campaigns",
         "Ad creative & copywriting",
@@ -89,7 +85,6 @@ const ServicesPage = () => {
       icon: <Users className="h-7 w-7" />,
       title: "CRM & Automation",
       description: "Streamline customer engagement with powerful CRM systems and marketing automation workflows.",
-      priceRange: "MYR 1,888/month",
       features: [
         "CRM implementation",
         "Email marketing automation",
@@ -104,7 +99,6 @@ const ServicesPage = () => {
       icon: <Bot className="h-7 w-7" />,
       title: "AI Integration & Smart Agents",
       description: "Custom AI solutions and intelligent automation for modern, efficient business operations.",
-      priceRange: "Custom pricing",
       features: [
         "AI chatbot development",
         "Process automation",
@@ -208,23 +202,9 @@ const ServicesPage = () => {
                   </div>
                   
                   {/* Title */}
-                  <CardTitle className="text-xl font-bold mb-3 text-foreground leading-tight group-hover:text-primary transition-colors">
+                  <CardTitle className="text-xl font-bold mb-4 text-foreground leading-tight group-hover:text-primary transition-colors">
                     {service.title}
                   </CardTitle>
-                  
-                  {/* Price */}
-                  <div className="flex items-baseline gap-2 mb-4">
-                    <span className={`text-2xl font-bold ${
-                      service.category === 'Performance' ? 'text-secondary' :
-                      service.category === 'Advanced' ? 'text-accent' :
-                      'text-primary'
-                    }`}>
-                      {service.priceRange}
-                    </span>
-                    {service.priceRange !== "Custom pricing" && (
-                      <span className="text-sm text-muted-foreground">/month</span>
-                    )}
-                  </div>
                   
                   {/* Description */}
                   <CardDescription className="text-sm text-muted-foreground leading-relaxed">

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, ArrowRight, Search, PenTool, TrendingUp, Heart, Users, ShoppingCart, Briefcase, BarChart3, Clock, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContentSEOPage = () => {
   const deliverables = [
@@ -288,12 +289,14 @@ const ContentSEOPage = () => {
             Stop competing on price alone. Build trust, authority, and sustainable organic growth with content that tells your story and drives results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-lg px-8">
-              Start Growing Organically
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" className="text-lg px-8" asChild>
+              <Link to="/pricing">
+                View Pricing & Packages
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8">
-              Schedule Content Strategy Call
+            <Button variant="outline" size="lg" className="text-lg px-8" asChild>
+              <Link to="/contact">Schedule Content Strategy Call</Link>
             </Button>
           </div>
         </div>

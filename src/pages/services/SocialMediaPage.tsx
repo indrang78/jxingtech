@@ -23,6 +23,7 @@ import {
   Quote,
   Zap
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SocialMediaPage = () => {
   const deliverables = [
@@ -488,12 +489,14 @@ const SocialMediaPage = () => {
             Let's create a social media presence that truly connects with your audience and drives business growth. Start your transformation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-              Start Growing Today
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
+              <Link to="/pricing">
+                View Pricing & Packages
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
-              Get Strategy Consultation
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg" asChild>
+              <Link to="/contact">Get Strategy Consultation</Link>
             </Button>
           </div>
         </div>

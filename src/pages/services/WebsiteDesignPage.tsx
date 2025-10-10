@@ -84,47 +84,6 @@ const WebsiteDesignPage = () => {
     }
   ];
 
-  const pricingTiers = [
-    {
-      name: "Starter",
-      price: "2,500",
-      period: "MYR / month",
-      features: [
-        "Up to 5 pages",
-        "Mobile responsive",
-        "Basic SEO setup",
-        "Contact form",
-        "Monthly updates (2 hrs)"
-      ]
-    },
-    {
-      name: "Growth",
-      price: "4,500",
-      period: "MYR / month",
-      features: [
-        "Up to 15 pages",
-        "Advanced SEO",
-        "CMS integration",
-        "Analytics dashboard",
-        "Monthly updates (5 hrs)",
-        "A/B testing setup"
-      ],
-      popular: true
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: "Pricing",
-      features: [
-        "Unlimited pages",
-        "Custom integrations",
-        "Advanced automation",
-        "Dedicated support",
-        "Priority updates",
-        "White-glove service"
-      ]
-    }
-  ];
 
   return (
     <div className="min-h-screen">
@@ -304,61 +263,6 @@ const WebsiteDesignPage = () => {
                   <Link to="/case-studies">
                     View Full Case Study <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
-                </Button>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Teaser Section */}
-      <section className="py-20 bg-white">
-        <div className="container-standard container-padding">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
-              Transparent Pricing
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Choose a plan that fits your business stage
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {pricingTiers.map((tier, index) => (
-              <Card 
-                key={index} 
-                className={`p-8 relative ${
-                  tier.popular 
-                    ? 'border-2 border-primary shadow-xl scale-105' 
-                    : 'border border-border'
-                }`}
-              >
-                {tier.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground border-0">
-                    Most Popular
-                  </Badge>
-                )}
-                <div className="text-center mb-6">
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{tier.name}</h3>
-                  <div className="text-4xl font-bold text-primary mb-1">{tier.price}</div>
-                  <p className="text-sm text-muted-foreground">{tier.period}</p>
-                </div>
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  className={`w-full rounded-full ${
-                    tier.popular 
-                      ? 'bg-primary hover:bg-primary/90' 
-                      : 'bg-secondary hover:bg-secondary/90'
-                  }`}
-                  asChild
-                >
-                  <Link to="/pricing">View Full Details</Link>
                 </Button>
               </Card>
             ))}

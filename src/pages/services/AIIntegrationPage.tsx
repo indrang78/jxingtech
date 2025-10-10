@@ -28,6 +28,7 @@ import {
   Shield,
   Target
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AIIntegrationPage = () => {
   const deliverables = [
@@ -512,12 +513,14 @@ const AIIntegrationPage = () => {
             Stop letting manual processes hold you back. Let's implement AI solutions that automate tasks, improve efficiency, and give you a competitive edge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
-              Start AI Transformation
-              <ArrowRight className="h-5 w-5 ml-2" />
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
+              <Link to="/pricing">
+                View Pricing & Packages
+                <ArrowRight className="h-5 w-5 ml-2" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
-              Get AI Consultation
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg" asChild>
+              <Link to="/contact">Get AI Consultation</Link>
             </Button>
           </div>
         </div>
