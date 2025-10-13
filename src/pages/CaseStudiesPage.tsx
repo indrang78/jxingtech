@@ -213,9 +213,9 @@ const CaseStudiesPage = () => {
               <Link 
                 key={study.id} 
                 to={`/case-studies/${study.id}`}
-                className="block"
+                className="block h-full"
               >
-                <Card className="card-hover overflow-hidden h-full">
+                <Card className="card-hover overflow-hidden h-full flex flex-col">
                   <div className="aspect-video bg-gray-200 overflow-hidden relative">
                     <img 
                       src={study.image} 
@@ -245,7 +245,7 @@ const CaseStudiesPage = () => {
                     </div>
                   </CardHeader>
 
-                  <CardContent className="p-6 pt-0">
+                  <CardContent className="p-6 pt-0 flex flex-col flex-grow">
                     <div className="mb-4">
                       <h4 className="text-sm font-semibold text-foreground mb-2 uppercase tracking-wide">
                         Challenge
@@ -279,7 +279,7 @@ const CaseStudiesPage = () => {
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-center text-primary font-semibold">
+                    <div className="flex items-center justify-center text-primary font-semibold mt-auto">
                       View Case Study <ChevronRight className="w-4 h-4 ml-1" />
                     </div>
                   </CardContent>
