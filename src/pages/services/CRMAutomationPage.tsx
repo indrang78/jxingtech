@@ -160,11 +160,11 @@ const CRMAutomationPage = () => {
                 Turn leads into customers with personalized follow-ups and workflows, optimizing your sales process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
                   Automate Your Sales
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 rounded-lg">
+                <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all">
                   Get CRM Consultation
                 </Button>
               </div>
@@ -513,13 +513,13 @@ const CRMAutomationPage = () => {
             Stop losing leads and start scaling your sales with intelligent CRM automation. Let's build a system that works as hard as you do.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
+            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all" asChild>
               <Link to="/pricing">
                 View Pricing & Packages
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20 font-semibold px-8 py-4 rounded-lg" asChild>
+            <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all" asChild>
               <Link to="/contact">Get CRM Consultation</Link>
             </Button>
           </div>
