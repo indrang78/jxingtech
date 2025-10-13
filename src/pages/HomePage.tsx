@@ -229,6 +229,41 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Trusted Clients Section */}
+      <section className="py-16 bg-background">
+        <div className="container max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              Trusted by Forward-Thinking Businesses
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Join these successful companies who chose JXING Tech as their digital growth partner
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            {[
+              { name: "Back2Basics", logo: "🏢" },
+              { name: "Beoka", logo: "🎯" },
+              { name: "Borneo Marathon", logo: "🏃" },
+              { name: "Golden Empower", logo: "⚡" },
+              { name: "Perkasa Guardforce", logo: "🛡️" },
+              { name: "Peter Dental", logo: "🦷" },
+            ].map((client, index) => (
+              <Card
+                key={index}
+                className="flex flex-col items-center justify-center p-6 hover:shadow-lg transition-shadow bg-white rounded-xl border-muted/20"
+              >
+                <div className="text-4xl mb-3">{client.logo}</div>
+                <p className="text-sm font-medium text-muted-foreground text-center">
+                  {client.name}
+                </p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Pain Points Section */}
       <section className="py-16 bg-muted">
         <div className="container max-w-7xl mx-auto px-6">
