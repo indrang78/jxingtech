@@ -31,12 +31,22 @@ import heroImage from "@/assets/hero-jxing-modern.jpg";
 import caseStudyEcommerce from "@/assets/case-study-ecommerce.jpg";
 import caseStudySaas from "@/assets/case-study-saas.jpg";
 import caseStudyTechStartup from "@/assets/case-study-tech-startup.jpg";
-import clientBack2Basics from "@/assets/client-back2basics.png";
-import clientBeoka from "@/assets/client-beoka.png";
-import clientBorneoMarathon from "@/assets/client-borneo-marathon.png";
-import clientGoldenEmpower from "@/assets/client-golden-empower.png";
-import clientPerkasaGuardforce from "@/assets/client-perkasa-guardforce.png";
-import clientPeterDental from "@/assets/client-peter-dental.png";
+import clientAISEC from "@/assets/client-aisec.png";
+import clientAmbaniGroup from "@/assets/client-ambani-group.png";
+import clientArahLapan from "@/assets/client-arah-lapan.png";
+import clientBack2Basics from "@/assets/client-back2basics-original.png";
+import clientBeoka from "@/assets/client-beoka-original.png";
+import clientBorneoMarathon from "@/assets/client-borneo-marathon-original.png";
+import clientGoldenEmpower from "@/assets/client-golden-empower-original.png";
+import clientPerkasa from "@/assets/client-perkasa-original.png";
+import clientPeterDental from "@/assets/client-peter-dental-original.png";
+import clientRentalMates from "@/assets/client-rentalmates.png";
+import clientRentSmart from "@/assets/client-rentsmart.png";
+import clientSecuright from "@/assets/client-securight.png";
+import clientShanSohal from "@/assets/client-shansohal.png";
+import clientTGM from "@/assets/client-tgm.jpg";
+import clientThuraiDental from "@/assets/client-thurai-dental.png";
+import clientViebje from "@/assets/client-viebje.png";
 
 export default function HomePage() {
   useEffect(() => {
@@ -247,29 +257,41 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { name: "Back2Basics", logo: clientBack2Basics },
-              { name: "Beoka", logo: clientBeoka },
-              { name: "Borneo Marathon", logo: clientBorneoMarathon },
-              { name: "Golden Empower", logo: clientGoldenEmpower },
-              { name: "Perkasa Guardforce", logo: clientPerkasaGuardforce },
-              { name: "Peter Dental", logo: clientPeterDental },
-            ].map((client, index) => (
-              <Card
-                key={index}
-                className="flex flex-col items-center justify-center p-6 hover:shadow-lg transition-shadow bg-white rounded-xl border-muted/20"
-              >
-                <img 
-                  src={client.logo} 
-                  alt={`${client.name} logo`}
-                  className="h-16 w-auto object-contain mb-3"
-                />
-                <p className="text-sm font-medium text-muted-foreground text-center">
-                  {client.name}
-                </p>
-              </Card>
-            ))}
+          <div className="overflow-hidden">
+            <div className="flex gap-6 animate-scroll">
+              {[
+                { name: "AISEC", logo: clientAISEC },
+                { name: "Ambani Group", logo: clientAmbaniGroup },
+                { name: "Arah Lapan Security", logo: clientArahLapan },
+                { name: "Back2Basics", logo: clientBack2Basics },
+                { name: "Beoka", logo: clientBeoka },
+                { name: "Borneo Marathon", logo: clientBorneoMarathon },
+                { name: "Golden Empower", logo: clientGoldenEmpower },
+                { name: "Perkasa Guardforce", logo: clientPerkasa },
+                { name: "Peter Dental", logo: clientPeterDental },
+                { name: "RentalMates", logo: clientRentalMates },
+                { name: "RentSmart", logo: clientRentSmart },
+                { name: "Securight", logo: clientSecuright },
+                { name: "ShanSohal", logo: clientShanSohal },
+                { name: "TGM", logo: clientTGM },
+                { name: "Thurai Dental", logo: clientThuraiDental },
+                { name: "Viebje", logo: clientViebje },
+              ].map((client, index) => (
+                <div key={index} className="flex-shrink-0 text-center">
+                  <div className="w-24 h-16 mx-auto flex items-center justify-center bg-card rounded-lg border border-border/50 hover:border-secondary/30 transition-colors duration-200 p-3 mb-2">
+                    <img 
+                      src={client.logo} 
+                      alt={`${client.name} - JXING Tech client success story`}
+                      className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-all duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="text-xs text-muted-foreground capitalize">
+                    {client.name}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
