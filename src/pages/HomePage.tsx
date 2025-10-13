@@ -31,6 +31,12 @@ import heroImage from "@/assets/hero-jxing-modern.jpg";
 import caseStudyEcommerce from "@/assets/case-study-ecommerce.jpg";
 import caseStudySaas from "@/assets/case-study-saas.jpg";
 import caseStudyTechStartup from "@/assets/case-study-tech-startup.jpg";
+import clientBack2Basics from "@/assets/client-back2basics.png";
+import clientBeoka from "@/assets/client-beoka.png";
+import clientBorneoMarathon from "@/assets/client-borneo-marathon.png";
+import clientGoldenEmpower from "@/assets/client-golden-empower.png";
+import clientPerkasaGuardforce from "@/assets/client-perkasa-guardforce.png";
+import clientPeterDental from "@/assets/client-peter-dental.png";
 
 export default function HomePage() {
   useEffect(() => {
@@ -243,18 +249,22 @@ export default function HomePage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {[
-              { name: "Back2Basics", logo: "🏢" },
-              { name: "Beoka", logo: "🎯" },
-              { name: "Borneo Marathon", logo: "🏃" },
-              { name: "Golden Empower", logo: "⚡" },
-              { name: "Perkasa Guardforce", logo: "🛡️" },
-              { name: "Peter Dental", logo: "🦷" },
+              { name: "Back2Basics", logo: clientBack2Basics },
+              { name: "Beoka", logo: clientBeoka },
+              { name: "Borneo Marathon", logo: clientBorneoMarathon },
+              { name: "Golden Empower", logo: clientGoldenEmpower },
+              { name: "Perkasa Guardforce", logo: clientPerkasaGuardforce },
+              { name: "Peter Dental", logo: clientPeterDental },
             ].map((client, index) => (
               <Card
                 key={index}
                 className="flex flex-col items-center justify-center p-6 hover:shadow-lg transition-shadow bg-white rounded-xl border-muted/20"
               >
-                <div className="text-4xl mb-3">{client.logo}</div>
+                <img 
+                  src={client.logo} 
+                  alt={`${client.name} logo`}
+                  className="h-16 w-auto object-contain mb-3"
+                />
                 <p className="text-sm font-medium text-muted-foreground text-center">
                   {client.name}
                 </p>
