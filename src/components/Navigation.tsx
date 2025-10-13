@@ -48,7 +48,7 @@ const Navigation = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-8 ml-auto">
             <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-primary" : "text-foreground hover:text-primary"}`}>
               About Us
             </Link>
