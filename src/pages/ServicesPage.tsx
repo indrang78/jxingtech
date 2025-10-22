@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Link } from "react-router-dom";
 import { 
   Globe, 
   Search, 
@@ -23,230 +22,200 @@ import {
 } from "lucide-react";
 
 const ServicesPage = () => {
-  // 6 Core Services
-  const coreServices = [
+  const services = [
     {
       icon: <Globe className="h-7 w-7" />,
       title: "Website Design & Development",
-      description: "Professional, scalable websites that convert visitors into customers. From corporate sites to full e-commerce platforms.",
+      description: "Launch fast, responsive, and SEO-friendly websites that look good and perform even better for your business.",
       features: [
         "Mobile-responsive design",
         "SEO optimization built-in",
-        "E-commerce capabilities",
-        "Content management system",
-        "Ongoing care & maintenance"
+        "Fast loading speeds"
       ],
-      link: "/services/website-design",
-      category: "Platform"
+      link: "/services/website-design"
     },
     {
       icon: <Search className="h-7 w-7" />,
-      title: "SEO & Content Strategy",
-      description: "Comprehensive SEO package for dominant search presence and sustainable organic traffic growth.",
+      title: "Content Strategy & SEO",
+      description: "Drive organic growth with high-quality content that ranks well and resonates for local search.",
       features: [
-        "20-30 keywords research",
-        "5 blog articles per month",
-        "Advanced technical SEO",
-        "Monthly competitor analysis",
-        "Performance tracking"
+        "Keyword research & strategy",
+        "High-quality content creation",
+        "Local SEO optimization"
       ],
-      link: "/services/content-seo",
-      category: "Performance"
+      link: "/services/content-seo"
     },
     {
       icon: <Share2 className="h-7 w-7" />,
-      title: "Social Media Management",
-      description: "Build consistent brand presence and organic reach across multiple social platforms.",
+      title: "Omni-Channel Social Media Management",
+      description: "Stay visible and relevant across all major platforms, consistently, for your audience.",
       features: [
-        "3 platform management",
-        "20 content posts per month",
-        "Content planning & strategy",
-        "Community engagement",
-        "Monthly analytics reporting"
+        "Multi-platform posting",
+        "Content calendar planning",
+        "Audience engagement"
       ],
-      link: "/services/social-media",
-      category: "Performance"
+      link: "/services/social-media"
     },
     {
       icon: <TrendingUp className="h-7 w-7" />,
       title: "Paid Ads Management",
-      description: "ROI-focused paid digital advertising campaigns for immediate market impact and lead generation.",
+      description: "Reach the right people, at the right time, with the right message for targeted ad campaigns.",
       features: [
-        "Multi-platform campaigns",
-        "Ad creative & copywriting",
-        "A/B testing & optimization",
-        "Conversion tracking",
-        "Monthly performance reports"
+        "Targeted campaign setup",
+        "Ad creative optimization",
+        "Performance monitoring"
       ],
-      link: "/services/paid-ads",
-      category: "Performance"
+      link: "/services/paid-ads"
     },
     {
       icon: <Users className="h-7 w-7" />,
-      title: "Custom Web Solution",
-      description: "Streamline customer engagement with powerful CRM systems and marketing automation workflows.",
+      title: "CRM & Automation Integration",
+      description: "Turn leads into customers with personalized follow-ups and workflows, optimizing your sales process.",
       features: [
-        "CRM implementation",
-        "Email marketing automation",
-        "Lead nurturing workflows",
-        "Customer segmentation",
-        "Integration with existing tools"
+        "Lead tracking & nurturing",
+        "Automated email sequences",
+        "Sales pipeline optimization"
       ],
-      link: "/services/crm-automation",
-      category: "Platform"
+      link: "/services/crm-automation"
+    },
+    {
+      icon: <Workflow className="h-7 w-7" />,
+      title: "Behavioral Marketing Automation",
+      description: "Map journeys that speak to every customer's unique path, enhancing customer engagement.",
+      features: [
+        "Customer journey mapping",
+        "Behavioral triggers",
+        "Personalized experiences"
+      ],
+      link: "/services/behavior-automation"
+    },
+    {
+      icon: <Shield className="h-7 w-7" />,
+      title: "Website Care & Optimization Plan",
+      description: "Keep your website running fast, safe, and error-free, ensuring optimal performance for users.",
+      features: [
+        "Regular security updates",
+        "Performance monitoring",
+        "Backup & maintenance"
+      ],
+      link: "/services/website-care"
+    },
+    {
+      icon: <Repeat className="h-7 w-7" />,
+      title: "Content Repurposing Engine",
+      description: "Get more out of every blog or newsletter, maximizing your digital content ROI.",
+      features: [
+        "Multi-format content creation",
+        "Cross-platform optimization",
+        "Content lifecycle management"
+      ],
+      link: "/services/repurposing"
+    },
+    {
+      icon: <Target className="h-7 w-7" />,
+      title: "Journey-Driven Content Distribution",
+      description: "Make every piece of content part of your conversion funnel, driving smarter marketing for your business.",
+      features: [
+        "Strategic content placement",
+        "Conversion funnel optimization",
+        "Performance tracking"
+      ],
+      link: "/services/content-distribution"
     },
     {
       icon: <Bot className="h-7 w-7" />,
       title: "AI Integration & Smart Agents",
-      description: "Custom AI solutions and intelligent automation for modern, efficient business operations.",
+      description: "Bring AI into your business where it matters most, driving innovation for SMEs.",
       features: [
-        "AI chatbot development",
-        "Process automation",
-        "Custom AI integrations",
-        "Smart workflow optimization",
-        "Ongoing AI training & refinement"
+        "Custom AI implementation",
+        "Smart chatbots & agents",
+        "Process automation"
       ],
-      link: "/services/ai-integration",
-      category: "Advanced"
+      link: "/services/ai-integration"
     }
   ];
 
   const advantages = [
     {
       icon: <Settings className="h-6 w-6" />,
-      title: "Complete digital ecosystem in one place"
+      title: "No more fragmented vendors or DIY struggles for SMEs"
     },
     {
       icon: <DollarSign className="h-6 w-6" />,
-      title: "Transparent, predictable monthly investment"
+      title: "Predictable monthly investment with clear outcomes for your digital marketing budget"
     },
     {
       icon: <BarChart3 className="h-6 w-6" />,
-      title: "Proven results across multiple industries"
+      title: "All-in-one dashboard to track your growth and digital performance"
     },
     {
       icon: <Headphones className="h-6 w-6" />,
-      title: "AI + human expertise working for you"
+      title: "AI + human-powered team working with you, not just for you"
+    },
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Services built around your stage, not someone else's template"
     }
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-secondary to-primary text-white py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] opacity-30"></div>
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white">
-            Your Complete Digital Growth Ecosystem
+      <section className="hero-gradient py-20">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight max-w-[600px] mx-auto">
+            Your Complete Digital Growth Ecosystem for Businesses
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-8">
-            6 core services to power your business transformation. From websites to AI, we've got you covered.
+          <p className="text-xl text-white/90 mb-8 max-w-[600px] mx-auto leading-relaxed font-medium">
+            Integrated Digital Solutions. Scalable Outcomes. One Expert Team.
           </p>
-          <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8" asChild>
-            <Link to="/pricing">View Our Packages</Link>
-          </Button>
+          <p className="text-base text-white/80 mb-8 max-w-[700px] mx-auto leading-relaxed">
+            At JXING Tech, we believe growth shouldn't come from random guesswork or juggling multiple vendors. That's why we offer integrated, subscription-based digital solutions for SMEs that bring your website, content, automation, social media, and ads together in one place. Whether you're just starting out or scaling fast, our services are built to grow with you—powered by strategy, supported by AI, and delivered by a team that's just as invested in your success as you are.
+          </p>
         </div>
       </section>
 
-      {/* Core Services */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* Core Services Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 leading-tight">
-              Our 6 Core Services
+            <h2 className="text-4xl font-bold text-oxford-blue mb-4 leading-tight">
+              Explore Our Core Digital Services for SMEs
             </h2>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Everything you need to build, grow, and scale your digital presence
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coreServices.map((service, index) => (
-              <Card 
-                key={index} 
-                className="group relative h-full bg-card border border-border hover:border-primary/30 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden"
-              >
-                {/* Decorative gradient overlay */}
-                <div className={`absolute top-0 left-0 right-0 h-1 ${
-                  service.category === 'Performance' ? 'bg-gradient-to-r from-secondary/50 to-secondary' :
-                  service.category === 'Advanced' ? 'bg-gradient-to-r from-accent/50 to-accent' :
-                  'bg-gradient-to-r from-primary/50 to-primary'
-                }`} />
-                
-                <CardHeader className="p-8 pb-4">
-                  {/* Icon and Badge */}
-                  <div className="flex items-start justify-between mb-6">
-                    <div className={`flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110 ${
-                      service.category === 'Performance' ? 'bg-gradient-to-br from-secondary/10 to-secondary/5' :
-                      service.category === 'Advanced' ? 'bg-gradient-to-br from-accent/10 to-accent/5' :
-                      'bg-gradient-to-br from-primary/10 to-primary/5'
-                    }`}>
-                      <div className={`[&>svg]:w-8 [&>svg]:h-8 ${
-                        service.category === 'Performance' ? 'text-secondary' :
-                        service.category === 'Advanced' ? 'text-accent' :
-                        'text-primary'
-                      }`}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="card-hover h-full bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
+                <CardHeader className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-14 h-14 bg-ghost-white rounded-xl flex items-center justify-center">
+                      <div className="text-marian-blue [&>svg]:w-7 [&>svg]:h-7">
                         {service.icon}
                       </div>
                     </div>
-                    <Badge 
-                      variant="outline"
-                      className={`text-xs font-medium border-0 ${
-                        service.category === 'Performance' ? 'bg-secondary/10 text-secondary' :
-                        service.category === 'Advanced' ? 'bg-accent/10 text-accent' :
-                        'bg-primary/10 text-primary'
-                      }`}
-                    >
-                      {service.category}
-                    </Badge>
+                    <div className="flex-1">
+                      <CardTitle className="text-xl font-semibold mb-3 text-oxford-blue leading-tight">
+                        {service.title}
+                      </CardTitle>
+                      <CardDescription className="text-sm text-muted-foreground leading-relaxed mb-4">
+                        {service.description}
+                      </CardDescription>
+                    </div>
                   </div>
-                  
-                  {/* Title */}
-                  <CardTitle className="text-xl font-bold mb-4 text-foreground leading-tight group-hover:text-primary transition-colors">
-                    {service.title}
-                  </CardTitle>
-                  
-                  {/* Description */}
-                  <CardDescription className="text-sm text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
                 </CardHeader>
-                
-                <CardContent className="p-8 pt-4">
-                  {/* Features List */}
-                  <div className="mb-6">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                      What's Included
-                    </p>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, fIndex) => (
-                        <li key={fIndex} className="flex items-start gap-3">
-                          <CheckCircle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${
-                            service.category === 'Performance' ? 'text-secondary' :
-                            service.category === 'Advanced' ? 'text-accent' :
-                            'text-primary'
-                          }`} />
-                          <span className="text-sm text-foreground leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  {/* CTA Button */}
-                  <Button 
-                    className={`w-full font-semibold rounded-xl h-12 transition-all duration-300 ${
-                      service.category === 'Performance' 
-                        ? 'bg-secondary hover:bg-secondary/90 text-white shadow-lg shadow-secondary/20 hover:shadow-xl hover:shadow-secondary/30' :
-                      service.category === 'Advanced' 
-                        ? 'bg-accent hover:bg-accent/90 text-primary shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30' :
-                        'bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30'
-                    }`}
-                    asChild
-                  >
-                    <Link to={service.link} className="inline-flex items-center justify-center gap-2">
-                      Learn More 
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
+                <CardContent className="p-6 pt-0">
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center space-x-3">
+                        <CheckCircle className="h-4 w-4 text-azure flex-shrink-0" />
+                        <span className="text-sm text-muted-foreground leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button variant="secondary" className="w-full h-11 text-sm font-semibold rounded-lg group">
+                    Learn More 
+                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
               </Card>
@@ -257,27 +226,26 @@ const ServicesPage = () => {
 
       {/* JXING Tech Advantage */}
       <section className="py-20 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4 leading-tight">
-              Why Choose JXING Tech
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-oxford-blue mb-4 leading-tight">
+              The JXING Tech Advantage: Your Trusted Digital Partner
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              More than just services—a complete digital partnership
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {advantages.map((advantage, index) => (
-              <div key={index} className="flex items-start space-x-3 p-6 bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <div className="text-primary [&>svg]:w-6 [&>svg]:h-6">
+              <div key={index} className="flex items-start space-x-4 p-6 bg-card rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_16px_rgba(0,0,0,0.08)] transition-all duration-200">
+                <div className="flex-shrink-0 w-12 h-12 bg-ghost-white rounded-xl flex items-center justify-center">
+                  <div className="text-marian-blue [&>svg]:w-6 [&>svg]:h-6">
                     {advantage.icon}
                   </div>
                 </div>
-                <p className="text-sm text-foreground font-medium leading-relaxed pt-2">
-                  {advantage.title}
-                </p>
+                <div className="flex-1">
+                  <p className="text-base text-oxford-blue font-medium leading-relaxed">
+                    {advantage.title}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -285,21 +253,21 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-gradient-to-br from-primary via-secondary to-primary overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,.05)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px] opacity-30"></div>
-        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <section className="py-20 hero-gradient">
+        <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-            Ready to Transform Your Digital Presence?
+            Let's Grow Your Business
           </h2>
           <p className="text-xl text-white/90 mb-8 leading-relaxed">
-            Choose the services that match your growth stage and budget
+            Ready to choose a plan that matches your stage of business? Explore our digital agency services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8" asChild>
-              <Link to="/pricing">View Pricing</Link>
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg transition-all duration-200">
+              Choose Your Plan
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8" asChild>
-              <Link to="/contact">Schedule a Call</Link>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg transition-all duration-200">
+              Schedule a Discovery Call
             </Button>
           </div>
         </div>

@@ -25,8 +25,6 @@ import {
   Settings,
   Smartphone
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import crmImage from "@/assets/service-crm-automation.jpg";
 
 const CRMAutomationPage = () => {
   const deliverables = [
@@ -151,30 +149,28 @@ const CRMAutomationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                Custom Web Solution
+                CRM & Automation Integration
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Custom Web Solution
+                CRM & Automation Integration: Streamline Sales, Nurture Leads, Close More Deals
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Turn leads into customers with personalized follow-ups and workflows, optimizing your sales process.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
                   Automate Your Sales
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
                   Get CRM Consultation
                 </Button>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={crmImage} 
-                alt="Professional working with CRM and automation software" 
-                className="w-full h-auto object-cover"
-              />
+            <div className="relative">
+              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                <Workflow className="h-24 w-24 text-white/60" />
+              </div>
             </div>
           </div>
         </div>
@@ -234,7 +230,7 @@ const CRMAutomationPage = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              Our Integrated Custom Web Solution
+              Our Integrated CRM & Automation Solution
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               We create a unified system that automates your sales process, nurtures leads intelligently, and gives you complete visibility into your customer relationships.
@@ -315,7 +311,7 @@ const CRMAutomationPage = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
-              What You Get: Complete Custom Web Solution
+              What You Get: Complete CRM & Automation System
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Everything you need to automate your sales process, nurture leads effectively, and scale your customer relationships.
@@ -513,14 +509,12 @@ const CRMAutomationPage = () => {
             Stop losing leads and start scaling your sales with intelligent CRM automation. Let's build a system that works as hard as you do.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all" asChild>
-              <Link to="/pricing">
-                View Pricing & Packages
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+              Automate Your Sales
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all" asChild>
-              <Link to="/contact">Get CRM Consultation</Link>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+              Get CRM Consultation
             </Button>
           </div>
         </div>

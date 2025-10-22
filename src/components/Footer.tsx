@@ -82,7 +82,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/services/crm-automation" className="text-gray-300 hover:text-azure transition-smooth">
-                  Custom Web Solution
+                  CRM & Automation
                 </Link>
               </li>
               <li>

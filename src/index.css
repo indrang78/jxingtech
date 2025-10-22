@@ -10,22 +10,22 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors - JXING Tech New Design */
-    --oxford-blue: 220 66% 18%;        /* #0A1F4D - Deep Blue */
-    --marian-blue: 205 86% 39%;        /* #0E76BC - Lighter Blue */
-    --azure: 205 86% 39%;              /* #0E76BC - Lighter Blue */
-    --xanthous: 45 100% 51%;           /* #FFC107 - Yellow CTA */
+    /* Brand Colors - JXING Tech Exact Values */
+    --oxford-blue: 215 100% 15%;       /* #0A1640 */
+    --marian-blue: 215 100% 27%;       /* #003F88 */
+    --azure: 211 100% 46%;             /* #007DEB */
+    --xanthous: 45 100% 68%;           /* #FFC759 */
     --robin-egg-blue: 180 100% 56%;    /* #59C3C3 */
     
-    /* Neutral palette */
-    --ghost-white: 0 0% 96%;           /* #F5F5F5 - Light Grey */
-    --timberwolf: 0 0% 20%;            /* #333333 - Dark Grey */
+    /* Background with subtle blue tinge */
+    --ghost-white: 220 33% 97%;        /* #F0F3F9 */
+    --timberwolf: 0 0% 83%;            /* #D3D3D3 */
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--oxford-blue)), hsl(var(--marian-blue)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--marian-blue)), hsl(var(--robin-egg-blue)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--oxford-blue)) 0%, hsl(var(--marian-blue)) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(var(--xanthous)) 0%, hsl(45 100% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--azure)), hsl(var(--robin-egg-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--oxford-blue)) 0%, hsl(var(--azure)) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(var(--xanthous)) 0%, hsl(45 100% 60%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(var(--ghost-white)) 0%, hsl(0 0% 100%) 100%);
     
     /* Shadows */
@@ -38,35 +38,35 @@ All colors MUST be HSL.
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     /* Core Theme Variables */
-    --background: 0 0% 100%;             /* #FFFFFF - White */
-    --foreground: var(--timberwolf);     /* #333333 - Dark Grey */
+    --background: var(--ghost-white);
+    --foreground: var(--oxford-blue);
 
-    --card: 0 0% 100%;                   /* #FFFFFF - White */
-    --card-foreground: var(--timberwolf);
+    --card: 0 0% 100%;
+    --card-foreground: var(--oxford-blue);
 
     --popover: 0 0% 100%;
-    --popover-foreground: var(--timberwolf);
+    --popover-foreground: var(--oxford-blue);
 
-    --primary: var(--oxford-blue);       /* #0A1F4D - Deep Blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: var(--oxford-blue);
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: var(--marian-blue);     /* #0E76BC - Lighter Blue */
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: var(--oxford-blue);
 
-    --muted: var(--ghost-white);         /* #F5F5F5 - Light Grey */
-    --muted-foreground: 0 0% 40%;
+    --muted: 210 30% 94%;
+    --muted-foreground: 210 15% 45%;
 
-    --accent: var(--xanthous);           /* #FFC107 - Yellow */
-    --accent-foreground: var(--oxford-blue);
+    --accent: var(--azure);
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: var(--oxford-blue);
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: var(--azure);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -274,21 +274,4 @@ All colors MUST be HSL.
     opacity: 1;
     transform: scale(1);
   }
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-100% - 1.5rem));
-  }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
 }

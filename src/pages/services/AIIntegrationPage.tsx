@@ -28,8 +28,6 @@ import {
   Shield,
   Target
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import aiImage from "@/assets/service-ai-integration.jpg";
 
 const AIIntegrationPage = () => {
   const deliverables = [
@@ -154,30 +152,28 @@ const AIIntegrationPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <Badge className="bg-white/20 text-white border-white/30 mb-6">
-                AI Integration & Smart Agents
+                AI Integration & Agent Development
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                AI Integration & Smart Agents
+                AI Integration, Automation & Agent Development: Future-Proof Your Business with Smart Tech
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Bring AI into your business where it matters most, driving innovation for SMEs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
                   Start AI Transformation
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
                   Get AI Consultation
                 </Button>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={aiImage} 
-                alt="Professional interacting with AI technology interface" 
-                className="w-full h-auto object-cover"
-              />
+            <div className="relative">
+              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                <Brain className="h-24 w-24 text-white/60" />
+              </div>
             </div>
           </div>
         </div>
@@ -516,14 +512,12 @@ const AIIntegrationPage = () => {
             Stop letting manual processes hold you back. Let's implement AI solutions that automate tasks, improve efficiency, and give you a competitive edge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all" asChild>
-              <Link to="/pricing">
-                View Pricing & Packages
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+              Start AI Transformation
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all" asChild>
-              <Link to="/contact">Get AI Consultation</Link>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+              Get AI Consultation
             </Button>
           </div>
         </div>

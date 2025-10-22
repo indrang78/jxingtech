@@ -24,8 +24,6 @@ import {
   MousePointer,
   Smartphone
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import paidAdsImage from "@/assets/service-paid-ads.jpg";
 
 const PaidAdsPage = () => {
   const deliverables = [
@@ -96,37 +94,41 @@ const PaidAdsPage = () => {
     { 
       name: "Google Ads", 
       description: "Search, Display, Shopping & YouTube", 
-      icon: <Search className="h-5 w-5" />
+      icon: <Search className="h-5 w-5" />,
+      budget: "MYR 3,000 - 15,000/month"
     },
     { 
       name: "Facebook & Instagram", 
       description: "Social media advertising & retargeting", 
-      icon: <Users className="h-5 w-5" />
+      icon: <Users className="h-5 w-5" />,
+      budget: "MYR 2,000 - 10,000/month"
     },
     { 
       name: "LinkedIn Ads", 
       description: "B2B targeting & lead generation", 
-      icon: <Target className="h-5 w-5" />
+      icon: <Target className="h-5 w-5" />,
+      budget: "MYR 2,500 - 8,000/month"
     },
     { 
       name: "TikTok Ads", 
       description: "Video advertising for younger demographics", 
-      icon: <Smartphone className="h-5 w-5" />
+      icon: <Smartphone className="h-5 w-5" />,
+      budget: "MYR 1,500 - 6,000/month"
     }
   ];
 
   const faqs = [
     {
       question: "What is the typical Google Ads budget for SMEs?",
-      answer: "The optimal ad budget varies based on your industry, competition, and growth goals. We work with businesses at different investment levels to achieve their marketing objectives. Visit our Pricing page for detailed package information and investment ranges tailored to your business stage."
+      answer: "For SMEs, we typically recommend starting with MYR 3,000-5,000 per month for Google Ads, plus our management fee. This allows for sufficient data collection and optimization. Established businesses often invest MYR 8,000-15,000+ monthly. The exact budget depends on your industry, competition, and growth goals."
     },
     {
       question: "How quickly can I see results from paid advertising?",
       answer: "You can start seeing initial traffic and leads within 24-48 hours of launching campaigns. However, meaningful optimization and improved performance typically occur after 2-4 weeks as we gather data and refine targeting. Full campaign maturity and optimal ROI usually develop over 2-3 months."
     },
     {
-      question: "What's included in your management service?",
-      answer: "We manage and optimize your ad campaigns on your behalf. You maintain full control and transparency through shared access to all advertising accounts. Our service includes strategy development, campaign setup, daily monitoring, weekly optimizations, A/B testing, and detailed monthly reporting. Visit our Pricing page for complete package details."
+      question: "Do you manage the ad spend budget or do we?",
+      answer: "We manage and optimize your ad spend budget on your behalf. You maintain full control and transparency through shared access to all advertising accounts. We provide detailed monthly reports showing exactly how your budget was allocated and the results achieved."
     },
     {
       question: "What's included in your paid ads management fee?",
@@ -149,27 +151,25 @@ const PaidAdsPage = () => {
                 Paid Ads Management
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Paid Ads Management
+                Performance Marketing: Paid Ads Management - Accelerate Your Growth with Targeted Campaigns
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Reach the right people, at the right time, with the right message for targeted ad campaigns.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
                   Start Advertising Now
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
                   Get Ad Account Audit
                 </Button>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={paidAdsImage} 
-                alt="Professional analyzing paid advertising metrics and performance" 
-                className="w-full h-auto object-cover"
-              />
+            <div className="relative">
+              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                <TrendingUp className="h-24 w-24 text-white/60" />
+              </div>
             </div>
           </div>
         </div>
@@ -295,7 +295,8 @@ const PaidAdsPage = () => {
                   </div>
                   <div className="flex-1">
                     <h4 className="font-semibold text-oxford-blue">{platform.name}</h4>
-                    <p className="text-sm text-muted-foreground">{platform.description}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{platform.description}</p>
+                    <div className="text-xs text-azure font-medium">{platform.budget}</div>
                   </div>
                 </div>
               ))}
@@ -507,14 +508,12 @@ const PaidAdsPage = () => {
             Stop wasting money on ads that don't convert. Let's create campaigns that drive real business growth and measurable ROI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
-              <Link to="/pricing">
-                View Pricing & Packages
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+              Start Advertising Now
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg" asChild>
-              <Link to="/contact">Get Free Ad Account Audit</Link>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+              Get Free Ad Account Audit
             </Button>
           </div>
         </div>

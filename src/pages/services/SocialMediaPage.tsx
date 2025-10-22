@@ -23,8 +23,6 @@ import {
   Quote,
   Zap
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import socialMediaImage from "@/assets/service-social-media.jpg";
 
 const SocialMediaPage = () => {
   const deliverables = [
@@ -134,27 +132,25 @@ const SocialMediaPage = () => {
                 Social Media Management
               </Badge>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-                Social Media Management
+                Omni-Channel Social Media Management: Engage Your Audience, Everywhere
               </h1>
               <p className="text-xl text-white/90 mb-8 leading-relaxed">
                 Stay visible and relevant across all major platforms, consistently, for your audience.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all">
+                <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
                   Start Growing Today
                   <ArrowRight className="h-5 w-5 ml-2" />
                 </Button>
-                <Button variant="outline" size="lg" className="bg-white/10 border-2 border-white/30 text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
                   View Social Strategy
                 </Button>
               </div>
             </div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={socialMediaImage} 
-                alt="Social media content creation team at work" 
-                className="w-full h-auto object-cover"
-              />
+            <div className="relative">
+              <div className="aspect-video bg-white/10 rounded-xl backdrop-blur-sm flex items-center justify-center">
+                <Share2 className="h-24 w-24 text-white/60" />
+              </div>
             </div>
           </div>
         </div>
@@ -492,14 +488,12 @@ const SocialMediaPage = () => {
             Let's create a social media presence that truly connects with your audience and drives business growth. Start your transformation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg" asChild>
-              <Link to="/pricing">
-                View Pricing & Packages
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
+            <Button size="lg" className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg">
+              Start Growing Today
+              <ArrowRight className="h-5 w-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg" asChild>
-              <Link to="/contact">Get Strategy Consultation</Link>
+            <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-lg">
+              Get Strategy Consultation
             </Button>
           </div>
         </div>

@@ -8,25 +8,43 @@ const Navigation = () => {
   const location = useLocation();
   const isActive = (path: string) => location.pathname === path;
   const servicesCategories = [{
-    category: "Core Services",
+    category: "Design & Marketing",
     services: [{
-      name: "Website Design & Development",
+      name: "Growth-Driven Website Design & Development",
       path: "/services/website-design"
     }, {
-      name: "SEO & Content Strategy",
+      name: "Growth-Driven Content-Led SEO & Brand Storytelling",
       path: "/services/content-seo"
     }, {
-      name: "Social Media Management",
+      name: "Omni-Channel Social Media Management",
       path: "/services/social-media"
     }, {
-      name: "Paid Ads Management",
+      name: "Performance Marketing: Paid Ads Management",
       path: "/services/paid-ads"
-    }, {
-      name: "Custom Web Solution",
+    }]
+  }, {
+    category: "Automation & AI",
+    services: [{
+      name: "CRM & Automation Integration",
       path: "/services/crm-automation"
     }, {
-      name: "AI Integration & Smart Agents",
+      name: "Behavioral Marketing Automation & Customer Journey Mapping",
+      path: "/services/behavioral-automation"
+    }, {
+      name: "AI Integration, Automation & Agent Development",
       path: "/services/ai-integration"
+    }]
+  }, {
+    category: "Content Systems",
+    services: [{
+      name: "Content Repurposing Engine",
+      path: "/services/repurposing"
+    }, {
+      name: "Journey-Driven Content Distribution",
+      path: "/services/content-distribution"
+    }, {
+      name: "Website Care & Optimization Plan",
+      path: "/services/website-care"
     }]
   }];
   const resourcesLinks = [{
@@ -39,23 +57,24 @@ const Navigation = () => {
     name: "Help / FAQ",
     path: "/help"
   }];
-  return <nav className="bg-white border-b border-border sticky top-0 z-50 shadow-sm">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center h-20">
+  return <nav className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <span className="font-bold text-2xl text-foreground tracking-tight">JXING</span>
+          <Link to="/" className="flex items-center space-x-3">
+            <img src="https://wtuwfzzgsueahgmjfvur.supabase.co/storage/v1/object/public/images/logo/JXING%20BLUE.png" alt="JXING Tech Group - Growth-driven digital solutions for SMEs" className="h-10 w-auto object-contain" />
+            <span className="font-bold text-lg sm:text-xl text-primary hidden sm:block">Tech Group</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8 ml-auto">
-            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-primary" : "text-foreground hover:text-primary"}`}>
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
               About Us
             </Link>
 
             {/* Services Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-foreground hover:text-primary transition-smooth outline-none">
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
                 <span>Services</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
@@ -74,17 +93,17 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-primary" : "text-foreground hover:text-primary"}`}>
+            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
               Pricing
             </Link>
 
-            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-primary" : "text-foreground hover:text-primary"}`}>
+            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
               Case Studies
             </Link>
 
             {/* Resources Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-foreground hover:text-primary transition-smooth outline-none">
+              <DropdownMenuTrigger className="flex items-center space-x-1 text-base font-medium text-marian-blue hover:text-azure transition-smooth outline-none">
                 <span>Resources</span>
                 <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
@@ -97,17 +116,32 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-primary" : "text-foreground hover:text-primary"}`}>
+            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
               Contact Us
             </Link>
           </div>
 
-          {/* CTA Buttons - Removed */}
-          <div className="hidden lg:flex items-center space-x-3">
+          {/* CTA Buttons - Hidden per user request but kept in memory
+          <div className="hidden md:flex items-center space-x-3">
+            <Button 
+              variant="xanthous" 
+              size="sm" 
+              data-cal-link="jxingtech/book-a-free-consult" 
+              data-cal-config='{"layout":"month_view"}'
+            >
+              <Calendar className="h-4 w-4 mr-2" />
+              Book Consultation
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+                Client Login
+              </a>
+            </Button>
           </div>
+          */}
 
           {/* Mobile menu button */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <Button variant="ghost" size="sm" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -115,7 +149,7 @@ const Navigation = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isOpen && <div className="lg:hidden border-t border-border bg-white">
+        {isOpen && <div className="md:hidden border-t border-border bg-background">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <Link to="/about" className={`block px-3 py-2 text-base font-medium transition-smooth ${isActive("/about") ? "text-azure bg-azure/10" : "text-muted-foreground hover:text-primary hover:bg-muted"}`} onClick={() => setIsOpen(false)}>
                 About Us
@@ -145,7 +179,19 @@ const Navigation = () => {
                 Contact Us
               </Link>
               
-              {/* Mobile CTA Buttons - Removed */}
+              {/* Mobile CTA Buttons - Hidden per user request but kept in memory
+              <div className="px-3 py-4 border-t border-muted/20 mt-4">
+                <Button variant="xanthous" size="sm" className="w-full mb-3" data-cal-link="jxingtech/book-a-free-consult" data-cal-config='{"layout":"month_view"}'>
+                  <Calendar className="h-4 w-4 mr-2" />
+                  Book Consultation
+                </Button>
+                <Button variant="outline" size="sm" className="w-full" asChild>
+                  <a href="https://clients.jxingtech.com/" target="_blank" rel="noopener noreferrer">
+                    Client Login
+                  </a>
+                </Button>
+              </div>
+              */}
             </div>
           </div>}
       </div>

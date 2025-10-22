@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import ReCAPTCHA from 'react-google-recaptcha';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -24,6 +25,8 @@ import { supabase } from "@/integrations/supabase/client";
 const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', content: '' });
+  const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -91,6 +94,16 @@ const ContactPage = () => {
       return;
     }
 
+    // Validate CAPTCHA
+    if (!captchaValue) {
+      setMessage({ 
+        type: 'error', 
+        content: 'Please complete the CAPTCHA verification.' 
+      });
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: {
@@ -99,7 +112,8 @@ const ContactPage = () => {
           phone: formData.phone,
           company: formData.company,
           inquiryType: formData.inquiryType,
-          message: formData.message
+          message: formData.message,
+          recaptchaToken: captchaValue
         }
       });
 
@@ -119,6 +133,12 @@ const ContactPage = () => {
         inquiryType: "",
         message: ""
       });
+      
+      // Reset CAPTCHA
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset();
+      }
+      setCaptchaValue(null);
     } catch (error) {
       console.error('Error sending message:', error);
       setMessage({ 
@@ -133,308 +153,315 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary to-secondary text-white py-20 lg:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container-standard container-padding relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+      <section className="hero-gradient py-20">
+        <div className="max-w-[1200px] mx-auto px-6 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Let's Connect and Grow Your Business
           </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Whether you have a question about digital marketing, need a custom quote, or are ready to start your digital transformation journey, we're here to help.
+          <p className="text-xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
+            Whether you have a question about digital marketing, need a custom quote for AI integration, or are ready to start your digital transformation journey, we're here to help.
           </p>
         </div>
       </section>
 
-      <div className="container-standard container-padding py-20">
+      <div className="max-w-[1400px] mx-auto px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <Card className="p-8 border-2 border-border">
-              <div className="mb-8">
-                <h2 className="text-3xl font-bold text-foreground mb-2">
+            <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+              <CardHeader className="p-8 border-b border-muted/20">
+                <CardTitle className="text-2xl font-bold text-oxford-blue">
                   Send Us a Message
-                </h2>
-                <p className="text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24 hours.
-                </p>
-              </div>
+                </CardTitle>
+                <CardDescription className="text-muted-foreground">
+                  Fill out the form below and we'll get back to you as soon as possible.
+                </CardDescription>
+              </CardHeader>
 
-              {message.content && (
-                <Alert className={`mb-6 ${message.type === 'error' ? 'border-red-200 bg-red-50' : 'border-green-200 bg-green-50'}`}>
-                  {message.type === 'error' ? (
-                    <AlertCircle className="h-4 w-4 text-red-600" />
-                  ) : (
-                    <CheckCircle className="h-4 w-4 text-green-600" />
-                  )}
-                  <AlertDescription className={message.type === 'error' ? 'text-red-700' : 'text-green-700'}>
-                    {message.content}
-                  </AlertDescription>
-                </Alert>
-              )}
+              <CardContent className="p-8">
+                {message.content && (
+                  <Alert className={`mb-6 ${message.type === 'error' ? 'border-red-200 bg-red-50' : 'border-green-200 bg-green-50'}`}>
+                    {message.type === 'error' ? (
+                      <AlertCircle className="h-4 w-4 text-red-600" />
+                    ) : (
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    )}
+                    <AlertDescription className={message.type === 'error' ? 'text-red-700' : 'text-green-700'}>
+                      {message.content}
+                    </AlertDescription>
+                  </Alert>
+                )}
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="name" className="text-sm font-semibold text-oxford-blue">
+                        Full Name *
+                      </Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        placeholder="Enter your full name"
+                        required
+                        className="mt-2 h-12"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="email" className="text-sm font-semibold text-oxford-blue">
+                        Email Address *
+                      </Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        placeholder="Enter your email address"
+                        required
+                        className="mt-2 h-12"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="phone" className="text-sm font-semibold text-oxford-blue">
+                        Phone Number
+                      </Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        placeholder="Enter your phone number"
+                        className="mt-2 h-12"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="company" className="text-sm font-semibold text-oxford-blue">
+                        Company Name
+                      </Label>
+                      <Input
+                        id="company"
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange("company", e.target.value)}
+                        placeholder="Enter your company name"
+                        className="mt-2 h-12"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <Label htmlFor="name" className="text-sm font-semibold text-foreground mb-2 block">
-                      Full Name *
+                    <Label htmlFor="inquiryType" className="text-sm font-semibold text-oxford-blue">
+                      Inquiry Type *
                     </Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange("name", e.target.value)}
-                      placeholder="John Doe"
+                    <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange("inquiryType", value)}>
+                      <SelectTrigger className="mt-2 h-12">
+                        <SelectValue placeholder="Select inquiry type" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {inquiryTypes.map((type) => (
+                          <SelectItem key={type} value={type}>
+                            {type}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message" className="text-sm font-semibold text-oxford-blue">
+                      Message *
+                    </Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange("message", e.target.value)}
+                      placeholder="Tell us about your project, questions, or how we can help..."
                       required
-                      className="h-12"
+                      rows={6}
+                      className="mt-2 resize-none"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-sm font-semibold text-foreground mb-2 block">
-                      Email Address *
+                    <Label className="text-sm font-semibold text-oxford-blue mb-2 block">
+                      Security Verification *
                     </Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      placeholder="john@company.com"
-                      required
-                      className="h-12"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <Label htmlFor="phone" className="text-sm font-semibold text-foreground mb-2 block">
-                      Phone Number
-                    </Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="+60 12 345 6789"
-                      className="h-12"
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey="6LeExLkqAAAAAJ9xiK6EQcfzqzjUwZ9xVCXG1bJZ"
+                      onChange={(value) => setCaptchaValue(value)}
+                      onExpired={() => setCaptchaValue(null)}
                     />
                   </div>
 
-                  <div>
-                    <Label htmlFor="company" className="text-sm font-semibold text-foreground mb-2 block">
-                      Company Name
-                    </Label>
-                    <Input
-                      id="company"
-                      type="text"
-                      value={formData.company}
-                      onChange={(e) => handleInputChange("company", e.target.value)}
-                      placeholder="Your Company Ltd."
-                      className="h-12"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="inquiryType" className="text-sm font-semibold text-foreground mb-2 block">
-                    Inquiry Type *
-                  </Label>
-                  <Select value={formData.inquiryType} onValueChange={(value) => handleInputChange("inquiryType", value)}>
-                    <SelectTrigger className="h-12">
-                      <SelectValue placeholder="Select what you need help with" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {inquiryTypes.map((type) => (
-                        <SelectItem key={type} value={type}>
-                          {type}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-sm font-semibold text-foreground mb-2 block">
-                    Message *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    placeholder="Tell us about your project, questions, or how we can help..."
-                    required
-                    rows={6}
-                    className="resize-none"
-                  />
-                </div>
-
-                <Button
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-full"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    'Sending...'
-                  ) : (
-                    <>
-                      <Send className="h-5 w-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-              </form>
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-azure hover:bg-azure/90 text-white font-semibold py-4 text-lg rounded-lg"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      'Sending...'
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
             </Card>
           </div>
 
           {/* Contact Information Sidebar */}
           <div className="lg:col-span-1">
-            <div className="space-y-6 sticky top-8">
+            <div className="space-y-8 sticky top-8">
               {/* Contact Methods */}
-              <Card className="p-6 border-2 border-border">
-                <h3 className="text-xl font-bold text-foreground mb-6">
-                  Get in Touch
-                </h3>
-                <div className="space-y-4">
-                  {contactMethods.map((method, index) => (
-                    <a
-                      key={index}
-                      href={method.link}
-                      target={method.link.startsWith('http') ? '_blank' : undefined}
-                      rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group border border-border hover:border-primary/30"
-                    >
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
-                        <method.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="font-semibold text-foreground text-sm mb-1">
-                          {method.title}
+              <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+                <CardHeader className="p-6 border-b border-muted/20">
+                  <CardTitle className="text-lg font-bold text-oxford-blue">
+                    Get in Touch
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="space-y-4">
+                    {contactMethods.map((method, index) => (
+                      <a
+                        key={index}
+                        href={method.link}
+                        target={method.link.startsWith('http') ? '_blank' : undefined}
+                        rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/30 transition-colors group"
+                      >
+                        <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center group-hover:bg-azure/20 transition-colors">
+                          <method.icon className="h-5 w-5 text-azure" />
                         </div>
-                        <div className="text-sm text-primary font-medium mb-1 break-all">
-                          {method.value}
+                        <div>
+                          <div className="font-semibold text-oxford-blue text-sm">
+                            {method.title}
+                          </div>
+                          <div className="text-sm text-muted-foreground">
+                            {method.value}
+                          </div>
+                          <div className="text-xs text-muted-foreground">
+                            {method.description}
+                          </div>
                         </div>
-                        <div className="text-xs text-muted-foreground">
-                          {method.description}
-                        </div>
-                      </div>
-                      {method.link.startsWith('http') && (
-                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                      )}
-                    </a>
-                  ))}
-                </div>
+                        {method.link.startsWith('http') && (
+                          <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-azure transition-colors" />
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                </CardContent>
               </Card>
 
               {/* Business Hours */}
-              <Card className="p-6 border-2 border-border">
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
-                  <Clock className="h-5 w-5 mr-2 text-primary" />
-                  Business Hours
-                </h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Monday - Friday</span>
-                    <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
+              <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+                <CardHeader className="p-6 border-b border-muted/20">
+                  <CardTitle className="text-lg font-bold text-oxford-blue flex items-center">
+                    <Clock className="h-5 w-5 mr-2 text-azure" />
+                    Business Hours
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Monday - Friday</span>
+                      <span className="font-medium">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Saturday</span>
+                      <span className="font-medium">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Sunday</span>
+                      <span className="font-medium">Closed</span>
+                    </div>
+                    <div className="pt-2 border-t border-muted/20">
+                      <p className="text-xs text-muted-foreground">
+                        Malaysia Time (GMT+8)
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Saturday</span>
-                    <span className="font-medium text-foreground">10:00 AM - 4:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Sunday</span>
-                    <span className="font-medium text-foreground">Closed</span>
-                  </div>
-                  <div className="pt-3 border-t border-border">
-                    <p className="text-xs text-muted-foreground">
-                      Malaysia Time (GMT+8)
-                    </p>
-                  </div>
-                </div>
+                </CardContent>
               </Card>
 
-              {/* Office Location with Map */}
-              <Card className="p-6 border-2 border-border">
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
-                  <MapPin className="h-5 w-5 mr-2 text-primary" />
-                  Office Location
-                </h3>
-                <div className="text-sm mb-4">
-                  <p className="font-semibold text-foreground mb-3">
-                    JXING Tech Group
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    Unit 37-2, Level 37<br />
-                    Q Sentral<br />
-                    No. 2A, Jalan Stesen Sentral 2<br />
-                    Kuala Lumpur Sentral<br />
-                    50470 Kuala Lumpur, Malaysia
-                  </p>
-                  
-                  {/* Embedded Map */}
-                  <div className="aspect-video rounded-lg overflow-hidden mb-4 border border-border">
-                    <iframe 
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.9073682896877!2d101.68463031475715!3d3.1336229977181944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49c5bf96420d%3A0x822f1e88c89f5c8e!2sQ%20Sentral!5e0!3m2!1sen!2smy!4v1234567890123!5m2!1sen!2smy"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="JXING Tech Group Office Location"
-                    />
-                  </div>
-
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
-                    asChild
-                    className="w-full"
-                  >
-                    <a 
-                      href="https://maps.google.com/?q=Q+Sentral+Kuala+Lumpur+Sentral" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+              {/* Office Location */}
+              <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)]">
+                <CardHeader className="p-6 border-b border-muted/20">
+                  <CardTitle className="text-lg font-bold text-oxford-blue flex items-center">
+                    <MapPin className="h-5 w-5 mr-2 text-azure" />
+                    Office Location
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6">
+                  <div className="text-sm">
+                    <p className="font-medium text-oxford-blue mb-2">
+                      JXING Tech Group
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      Unit 37-2, Level 37<br />
+                      Q Sentral<br />
+                      No. 2A, Jalan Stesen Sentral 2<br />
+                      Kuala Lumpur Sentral<br />
+                      50470 Kuala Lumpur, Malaysia
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      asChild
+                      className="w-full"
                     >
-                      <MapPin className="h-4 w-4 mr-2" />
-                      Open in Google Maps
-                      <ExternalLink className="h-4 w-4 ml-2" />
-                    </a>
-                  </Button>
-                </div>
+                      <a 
+                        href="https://maps.google.com/?q=Q+Sentral+Kuala+Lumpur+Sentral" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <MapPin className="h-4 w-4 mr-2" />
+                        View on Google Maps
+                        <ExternalLink className="h-4 w-4 ml-2" />
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
               </Card>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Schedule Consultation CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
-        <div className="container-standard container-padding text-center">
-          <div className="mb-12">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-6 leading-tight">
-              Schedule Your Free Consultation
+      {/* Cal.com Inline Booking */}
+      <section className="py-20 bg-background">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-oxford-blue mb-6 leading-tight">
+              Schedule Your Consultation
             </h2>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
-              Book a 30-minute strategy call to discuss your digital growth goals and discover how we can help.
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Book a time that works for you directly in our calendar below. We'll discuss your digital transformation needs and how we can help grow your business.
             </p>
           </div>
-
-          <div className="max-w-4xl mx-auto bg-white rounded-xl overflow-hidden shadow-2xl">
-            <div style={{ height: '630px' }}>
-              <iframe
-                src="https://cal.com/jxingtech/book-a-free-consult"
-                width="100%"
-                height="100%"
-                style={{ border: 'none' }}
-                title="Schedule a consultation with JXING Tech"
-              />
-            </div>
-          </div>
-
-          <p className="mt-8 text-white/80">
-            Or call us directly at <a href="tel:+60102882827" className="font-semibold underline hover:text-white">+60 10-288 2827</a>
-          </p>
+          <Card className="bg-card border-0 rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.05)] overflow-hidden">
+            <CardContent className="p-0">
+              <div className="relative" style={{ height: '630px' }}>
+                <iframe
+                  src="https://cal.com/jxingtech"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 'none', borderRadius: '12px' }}
+                  title="Schedule a consultation"
+                ></iframe>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
