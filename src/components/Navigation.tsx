@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, X, ChevronDown, Calendar } from "lucide-react";
+import { trackNavigation } from "@/lib/analytics";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -68,7 +69,11 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link 
+              to="/about" 
+              className={`text-base font-medium transition-smooth ${isActive("/about") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}
+              onClick={() => trackNavigation('About Us', 'internal')}
+            >
               About Us
             </Link>
 
@@ -84,7 +89,11 @@ const Navigation = () => {
                       {category.category}
                     </DropdownMenuLabel>
                     {category.services.map(service => <DropdownMenuItem key={service.path} asChild>
-                        <Link to={service.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
+                        <Link 
+                          to={service.path} 
+                          className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer"
+                          onClick={() => trackNavigation(service.name, 'internal')}
+                        >
                           {service.name}
                         </Link>
                       </DropdownMenuItem>)}
@@ -93,11 +102,19 @@ const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/pricing" className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link 
+              to="/pricing" 
+              className={`text-base font-medium transition-smooth ${isActive("/pricing") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}
+              onClick={() => trackNavigation('Pricing', 'internal')}
+            >
               Pricing
             </Link>
 
-            <Link to="/case-studies" className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link 
+              to="/case-studies" 
+              className={`text-base font-medium transition-smooth ${isActive("/case-studies") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}
+              onClick={() => trackNavigation('Case Studies', 'internal')}
+            >
               Case Studies
             </Link>
 
@@ -109,14 +126,22 @@ const Navigation = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-48 sm:w-56 bg-card border border-border shadow-lg z-50">
                 {resourcesLinks.map(resource => <DropdownMenuItem key={resource.path} asChild>
-                    <Link to={resource.path} className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer">
+                    <Link 
+                      to={resource.path} 
+                      className="block px-2 py-1 text-sm text-muted-foreground hover:text-azure hover:bg-muted cursor-pointer"
+                      onClick={() => trackNavigation(resource.name, 'internal')}
+                    >
                       {resource.name}
                     </Link>
                   </DropdownMenuItem>)}
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/contact" className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}>
+            <Link 
+              to="/contact" 
+              className={`text-base font-medium transition-smooth ${isActive("/contact") ? "text-azure border-b-2 border-azure pb-1" : "text-marian-blue hover:text-azure"}`}
+              onClick={() => trackNavigation('Contact Us', 'internal')}
+            >
               Contact Us
             </Link>
           </div>

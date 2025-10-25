@@ -32,6 +32,7 @@ import {
 import { Link } from "react-router-dom";
 import heroBackground from "@/assets/hero-bg-modern.jpg";
 import { useState, useEffect } from "react";
+import { trackCTA, trackDownload, trackBooking } from "@/lib/analytics";
 
 const HomePage = () => {
   const [email, setEmail] = useState("");
@@ -238,7 +239,15 @@ const HomePage = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <Dialog>
                 <DialogTrigger asChild>
-                  <Button variant="hero" size="xl" className="animate-scale-in text-sm sm:text-base">
+                  <Button 
+                    variant="hero" 
+                    size="xl" 
+                    className="animate-scale-in text-sm sm:text-base"
+                    onClick={() => {
+                      trackCTA('Book Free Strategy Session', 'Hero Section');
+                      trackBooking('Free Strategy Session');
+                    }}
+                  >
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                     <span className="hidden sm:inline">Book Your Free Growth Strategy Session</span>
                     <span className="sm:hidden">Free Strategy Session</span>
@@ -258,7 +267,15 @@ const HomePage = () => {
                 </DialogContent>
               </Dialog>
               <Link to="/resources/website-growth-playbook">
-                <Button variant="outline-white" size="xl" className="animate-scale-in text-sm sm:text-base">
+                <Button 
+                  variant="outline-white" 
+                  size="xl" 
+                  className="animate-scale-in text-sm sm:text-base"
+                  onClick={() => {
+                    trackDownload('Website Growth Playbook', 'Hero Section');
+                    trackCTA('Download Playbook', 'Hero Section');
+                  }}
+                >
                   <Download className="h-4 w-4 sm:h-5 sm:w-5" />
                   <span className="hidden sm:inline">Download Our Free Website Growth Playbook for SMEs</span>
                   <span className="sm:hidden">Free Growth Playbook</span>
@@ -376,7 +393,12 @@ const HomePage = () => {
                   </CardDescription>
                   <div className="mt-auto">
                     <Link to={solution.link}>
-                      <Button variant="outline" size="sm" className="w-full">
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="w-full"
+                        onClick={() => trackCTA(`Learn More - ${solution.title}`, 'Solutions Section')}
+                      >
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </Button>

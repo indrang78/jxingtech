@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Facebook, Instagram, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { trackOutboundLink, trackNavigation } from "@/lib/analytics";
 const Footer = () => {
   return <footer className="bg-oxford-blue text-white">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
@@ -14,16 +15,40 @@ const Footer = () => {
             </div>
             
             <div className="flex space-x-4">
-              <a href="https://www.linkedin.com/company/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a 
+                href="https://www.linkedin.com/company/jxingtech" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-azure transition-smooth"
+                onClick={() => trackOutboundLink('https://www.linkedin.com/company/jxingtech', 'LinkedIn')}
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com/jxingtech" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a 
+                href="https://twitter.com/jxingtech" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-azure transition-smooth"
+                onClick={() => trackOutboundLink('https://twitter.com/jxingtech', 'Twitter')}
+              >
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="https://www.facebook.com/people/JXING-TECH/61578691138030/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a 
+                href="https://www.facebook.com/people/JXING-TECH/61578691138030/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-azure transition-smooth"
+                onClick={() => trackOutboundLink('https://www.facebook.com/people/JXING-TECH/61578691138030/', 'Facebook')}
+              >
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://www.instagram.com/jxingtech/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-azure transition-smooth">
+              <a 
+                href="https://www.instagram.com/jxingtech/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-azure transition-smooth"
+                onClick={() => trackOutboundLink('https://www.instagram.com/jxingtech/', 'Instagram')}
+              >
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
@@ -34,22 +59,22 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="text-gray-300 hover:text-azure transition-smooth">
+                <Link to="/about" className="text-gray-300 hover:text-azure transition-smooth" onClick={() => trackNavigation('About Us - Footer', 'internal')}>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-gray-300 hover:text-azure transition-smooth">
+                <Link to="/services" className="text-gray-300 hover:text-azure transition-smooth" onClick={() => trackNavigation('Services Overview - Footer', 'internal')}>
                   Services Overview
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="text-gray-300 hover:text-azure transition-smooth">
+                <Link to="/case-studies" className="text-gray-300 hover:text-azure transition-smooth" onClick={() => trackNavigation('Case Studies - Footer', 'internal')}>
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-300 hover:text-azure transition-smooth">
+                <Link to="/contact" className="text-gray-300 hover:text-azure transition-smooth" onClick={() => trackNavigation('Contact Us - Footer', 'internal')}>
                   Contact Us
                 </Link>
               </li>
@@ -136,7 +161,7 @@ const Footer = () => {
             
             <h4 className="font-semibold text-base mb-3">Clients</h4>
             <Button variant="xanthous" size="sm" asChild>
-              <Link to="/client-login">
+              <Link to="/client-login" onClick={() => trackNavigation('Client Dashboard - Footer', 'internal')}>
                 Client Dashboard Access
               </Link>
             </Button>

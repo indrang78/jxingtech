@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { useScrollTracking } from "@/hooks/useScrollTracking";
 import { initGA, trackPageView } from "@/lib/analytics";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -39,6 +40,7 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   const location = useLocation();
   useScrollToTop();
+  useScrollTracking();
   
   useEffect(() => {
     trackPageView(location.pathname + location.search);

@@ -21,6 +21,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { trackFormSubmission, trackCTA, trackBooking } from "@/lib/analytics";
 
 const ContactPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -119,6 +120,8 @@ const ContactPage = () => {
 
       if (error) throw error;
 
+      trackFormSubmission('Contact Form', 'success');
+
       setMessage({ 
         type: 'success', 
         content: 'Thank you for your message! We\'ll get back to you within 24 hours.' 
@@ -141,6 +144,7 @@ const ContactPage = () => {
       setCaptchaValue(null);
     } catch (error) {
       console.error('Error sending message:', error);
+      trackFormSubmission('Contact Form', 'error');
       setMessage({ 
         type: 'error', 
         content: 'Failed to send message. Please try again or contact us directly.' 
@@ -339,6 +343,13 @@ const ContactPage = () => {
                         target={method.link.startsWith('http') ? '_blank' : undefined}
                         rel={method.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="flex items-center space-x-4 p-3 rounded-lg hover:bg-muted/30 transition-colors group"
+                        onClick={() => {
+                          if (method.link.startsWith('http')) {
+                            trackCTA(`Contact via ${method.title}`, 'Contact Page Sidebar');
+                          } else {
+                            trackCTA(`Contact via ${method.title}`, 'Contact Page Sidebar');
+                          }
+                        }}
                       >
                         <div className="w-10 h-10 bg-azure/10 rounded-lg flex items-center justify-center group-hover:bg-azure/20 transition-colors">
                           <method.icon className="h-5 w-5 text-azure" />
@@ -458,6 +469,7 @@ const ContactPage = () => {
                   height="100%"
                   style={{ border: 'none', borderRadius: '12px' }}
                   title="Schedule a consultation"
+                  onLoad={() => trackBooking('Inline Calendar View')}
                 ></iframe>
               </div>
             </CardContent>
@@ -487,7 +499,15 @@ const ContactPage = () => {
                   className="bg-xanthous hover:bg-xanthous/90 text-oxford-blue font-semibold px-8 py-4 rounded-lg"
                   asChild
                 >
-                  <a href="https://cal.com/jxingtech" target="_blank" rel="noopener noreferrer">
+                  <a 
+                    href="https://cal.com/jxingtech" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      trackCTA('Book Free Consultation', 'Contact Page CTA');
+                      trackBooking('External Calendar Link');
+                    }}
+                  >
                     <Calendar className="h-5 w-5 mr-2" />
                     Book Free Consultation
                     <ArrowRight className="h-5 w-5 ml-2" />
@@ -499,7 +519,12 @@ const ContactPage = () => {
                     className="border-azure/20 text-azure hover:bg-azure/10 font-semibold px-8 py-4 rounded-lg"
                     asChild
                   >
-                    <a href="https://wa.me/60102882827" target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href="https://wa.me/60102882827" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={() => trackCTA('Start WhatsApp Chat', 'Contact Page CTA')}
+                    >
                       <MessageCircle className="h-5 w-5 mr-2" />
                       Start WhatsApp Chat
                     </a>
