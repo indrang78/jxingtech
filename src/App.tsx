@@ -2,8 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { initGA, trackPageView } from "@/lib/analytics";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -35,7 +37,12 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
+  const location = useLocation();
   useScrollToTop();
+  
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
   
   return (
     <div className="min-h-screen flex flex-col">
@@ -74,16 +81,22 @@ const AppContent = () => {
   );
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <BrowserRouter>
-        <AppContent />
-        <Toaster />
-        <Sonner />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  useEffect(() => {
+    initGA();
+  }, []);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <BrowserRouter>
+          <AppContent />
+          <Toaster />
+          <Sonner />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
